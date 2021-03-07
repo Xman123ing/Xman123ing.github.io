@@ -464,17 +464,107 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>[TOC]</p>
-<h1 id="排序算法"><a href="#排序算法" class="headerlink" title="*排序算法"></a>*排序算法</h1><h1 id="查找算法"><a href="#查找算法" class="headerlink" title="*查找算法"></a>*查找算法</h1><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p>二分查找仅适用于有序数组</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归实现</span></span><br><span class="line"><span class="keyword">int32_t</span> search_count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int32_t</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int32_t</span> *<span class="built_in">array</span>, <span class="keyword">int32_t</span> start_pos, <span class="keyword">int32_t</span> end_pos, <span class="keyword">int32_t</span> target)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ++search_count;</span><br><span class="line">    <span class="keyword">if</span> (start_pos &gt; end_pos) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int32_t</span> mid_pos = (start_pos + end_pos) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">array</span>[mid_pos] == target) &#123;</span><br><span class="line">        <span class="keyword">return</span> mid_pos;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">array</span>[mid_pos] &gt; target) &#123;</span><br><span class="line">        <span class="keyword">return</span> binarySearch(<span class="built_in">array</span>, start_pos, mid_pos - <span class="number">1</span>, target);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">array</span>[mid_pos] &lt; target) &#123;</span><br><span class="line">        <span class="keyword">return</span> binarySearch(<span class="built_in">array</span>, mid_pos + <span class="number">1</span>, end_pos, target);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int32_t</span> max_len = <span class="number">100</span>;</span><br><span class="line">    <span class="keyword">int32_t</span> target = <span class="number">88</span>;</span><br><span class="line">    <span class="keyword">int32_t</span> *<span class="built_in">array</span> = <span class="keyword">new</span> <span class="keyword">int32_t</span>[max_len];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int32_t</span> i = <span class="number">0</span>; i &lt; max_len; ++i) &#123;</span><br><span class="line">        <span class="built_in">array</span>[i] = i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int32_t</span> found_pos = binarySearch(<span class="built_in">array</span>, <span class="number">0</span>, max_len - <span class="number">1</span>, target);</span><br><span class="line">    <span class="keyword">if</span> (found_pos != <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;loop count: &quot;</span> &lt;&lt; search_count &lt;&lt; <span class="string">&quot;, Has been found at pos = &quot;</span> &lt;&lt; found_pos &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Not been found&quot;</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">delete</span>[] <span class="built_in">array</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                <h1 id="排序算法"><a href="#排序算法" class="headerlink" title="*排序算法"></a>*排序算法</h1><h1 id="查找算法"><a href="#查找算法" class="headerlink" title="*查找算法"></a>*查找算法</h1><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p>二分查找仅适用于有序数组</p>
+<pre class=" language-C"><code class="language-C">// 递归实现
+int32_t search_count = 0;
 
-<h1 id="其他算法"><a href="#其他算法" class="headerlink" title="*其他算法"></a>*其他算法</h1><h2 id="1、N-阶乘"><a href="#1、N-阶乘" class="headerlink" title="1、N!阶乘"></a>1、N!阶乘</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归实现</span></span><br><span class="line"><span class="function"><span class="keyword">size_t</span> <span class="title">factorial</span><span class="params">(<span class="keyword">size_t</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> factorial(n - <span class="number">1</span>) * n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">size_t</span> target = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">size_t</span> ads = factorial(target);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; target &lt;&lt; <span class="string">&quot; factorial is: &quot;</span> &lt;&lt; ads &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> factorial is: <span class="number">3628800</span></span><br></pre></td></tr></table></figure>
+int32_t binarySearch(const int32_t *array, int32_t start_pos, int32_t end_pos, int32_t target)
+&#123;
+    ++search_count;
+    if (start_pos > end_pos) &#123;
+        return -1;
+    &#125;
+    int32_t mid_pos = (start_pos + end_pos) / 2;
+    if (array[mid_pos] == target) &#123;
+        return mid_pos;
+    &#125; else if (array[mid_pos] > target) &#123;
+        return binarySearch(array, start_pos, mid_pos - 1, target);
+    &#125; else if (array[mid_pos] < target) &#123;
+        return binarySearch(array, mid_pos + 1, end_pos, target);
+    &#125;
+&#125;
 
-<h2 id="2、Fibonacci斐波那契数列"><a href="#2、Fibonacci斐波那契数列" class="headerlink" title="2、Fibonacci斐波那契数列"></a>2、Fibonacci斐波那契数列</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归实现</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取当前斐波那契数列数组</span></span><br><span class="line"><span class="function"><span class="keyword">int32_t</span> <span class="title">fibonacci</span><span class="params">(<span class="keyword">int32_t</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (num &lt;= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fibonacci(num - <span class="number">1</span>) + fibonacci(num - <span class="number">2</span>);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 完整输出斐波那契数列</span></span><br><span class="line"><span class="function"><span class="keyword">int32_t</span> <span class="title">printFibonacci</span><span class="params">(<span class="keyword">int32_t</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (m == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    printFibonacci(m - <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; fibonacci(m) &lt;&lt; <span class="string">&quot;, &quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> m;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int32_t</span> target = <span class="number">20</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;get current fibonacci value: &quot;</span> &lt;&lt; fibonacci(target) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;\nprint fibonacci list:&quot;</span>&lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    printFibonacci(target);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+int main()
+&#123;
+    int32_t max_len = 100;
+    int32_t target = 88;
+    int32_t *array = new int32_t[max_len];
+    for (int32_t i = 0; i < max_len; ++i) &#123;
+        array[i] = i;
+    &#125;
+
+    int32_t found_pos = binarySearch(array, 0, max_len - 1, target);
+    if (found_pos != -1) &#123;
+        std::cout << "loop count: " << search_count << ", Has been found at pos = " << found_pos << std::endl;
+    &#125; else &#123;
+        std::cout << "Not been found" << std::endl;
+    &#125;
+    
+    delete[] array;
+
+    return 0;
+&#125;
+</code></pre>
+<h1 id="其他算法"><a href="#其他算法" class="headerlink" title="*其他算法"></a>*其他算法</h1><h2 id="1、N-阶乘"><a href="#1、N-阶乘" class="headerlink" title="1、N!阶乘"></a>1、N!阶乘</h2><pre class=" language-C"><code class="language-C">// 递归实现
+size_t factorial(size_t n)
+&#123;
+    if (n == 1) &#123;
+        return 1;
+    &#125;
+    return factorial(n - 1) * n;
+&#125;
+
+int main()
+&#123;
+    size_t target = 10;
+    size_t ads = factorial(target);
+    std::cout << target << " factorial is: " << ads << std::endl;
+    return 0;
+&#125;
+</code></pre>
 <p>运行结果：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">get current fibonacci value: <span class="number">6765</span></span><br><span class="line"></span><br><span class="line">print fibonacci <span class="built_in">list</span>:</span><br><span class="line"><span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">13</span>, <span class="number">21</span>, <span class="number">34</span>, <span class="number">55</span>, <span class="number">89</span>, <span class="number">144</span>, <span class="number">233</span>, <span class="number">377</span>, <span class="number">610</span>, <span class="number">987</span>, <span class="number">1597</span>, <span class="number">2584</span>, <span class="number">4181</span>, <span class="number">6765</span>,</span><br></pre></td></tr></table></figure>
+<pre class=" language-C"><code class="language-C">10 factorial is: 3628800
+</code></pre>
+<h2 id="2、Fibonacci斐波那契数列"><a href="#2、Fibonacci斐波那契数列" class="headerlink" title="2、Fibonacci斐波那契数列"></a>2、Fibonacci斐波那契数列</h2><pre class=" language-C"><code class="language-C">// 递归实现
+
+// 获取当前斐波那契数列数组
+int32_t fibonacci(int32_t num)
+&#123;
+    if (num <= 2) &#123;
+        return 1;
+    &#125;
+    return fibonacci(num - 1) + fibonacci(num - 2);
+    
+&#125;
+
+// 完整输出斐波那契数列
+int32_t printFibonacci(int32_t m)
+&#123;
+    if (m == 0) &#123;
+        return 0;
+    &#125;
+    printFibonacci(m - 1);
+    std::cout << fibonacci(m) << ", ";
+    return m;
+&#125;
+
+int main()
+&#123;
+    int32_t target = 20;
+    std::cout << "get current fibonacci value: " << fibonacci(target) << std::endl;
+    std::cout << "\nprint fibonacci list:"<< std::endl;
+    printFibonacci(target);
+    std::cout << std::endl;
+    return 0;
+&#125;
+</code></pre>
+<p>运行结果：</p>
+<pre class=" language-C"><code class="language-C">get current fibonacci value: 6765
+
+print fibonacci list:
+1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765,
+</code></pre>
+
                 
             </div>
             <hr/>
