@@ -3,8 +3,8 @@
 
 
 <head>
-    <meta charset="utf-8">
-    <meta name="keywords" content="算法, 中国地质大学(武汉)2008-2012 Asia亚信 IFly科大讯飞 OPPO">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="中国地质大学(武汉)2008-2012 Asia亚信 IFly科大讯飞 OPPO">
     <meta name="description" content="技术分享 | C/C++ | 服务器后端 | 计算机系统 | 嵌入式系统 | FreeRTOS | SensorHub">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>算法 | IPanda`s Blog</title>
+    <title>IPanda`s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -29,13 +29,14 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -310,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">算法</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -443,7 +444,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-06
+                    2021-03-08
                 </div>
                 
 
@@ -459,111 +460,15 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="排序算法"><a href="#排序算法" class="headerlink" title="*排序算法"></a>*排序算法</h1><h1 id="查找算法"><a href="#查找算法" class="headerlink" title="*查找算法"></a>*查找算法</h1><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p>二分查找仅适用于有序数组</p>
-<pre class=" language-C"><code class="language-C">// 递归实现
-int32_t search_count = 0;
-
-int32_t binarySearch(const int32_t *array, int32_t start_pos, int32_t end_pos, int32_t target)
-&#123;
-    ++search_count;
-    if (start_pos > end_pos) &#123;
-        return -1;
-    &#125;
-    int32_t mid_pos = (start_pos + end_pos) / 2;
-    if (array[mid_pos] == target) &#123;
-        return mid_pos;
-    &#125; else if (array[mid_pos] > target) &#123;
-        return binarySearch(array, start_pos, mid_pos - 1, target);
-    &#125; else if (array[mid_pos] < target) &#123;
-        return binarySearch(array, mid_pos + 1, end_pos, target);
-    &#125;
-&#125;
-
-int main()
-&#123;
-    int32_t max_len = 100;
-    int32_t target = 88;
-    int32_t *array = new int32_t[max_len];
-    for (int32_t i = 0; i < max_len; ++i) &#123;
-        array[i] = i;
-    &#125;
-
-    int32_t found_pos = binarySearch(array, 0, max_len - 1, target);
-    if (found_pos != -1) &#123;
-        std::cout << "loop count: " << search_count << ", Has been found at pos = " << found_pos << std::endl;
-    &#125; else &#123;
-        std::cout << "Not been found" << std::endl;
-    &#125;
-    
-    delete[] array;
-
-    return 0;
-&#125;
-</code></pre>
-<h1 id="其他算法"><a href="#其他算法" class="headerlink" title="*其他算法"></a>*其他算法</h1><h2 id="1、N-阶乘"><a href="#1、N-阶乘" class="headerlink" title="1、N!阶乘"></a>1、N!阶乘</h2><pre class=" language-C"><code class="language-C">// 递归实现
-size_t factorial(size_t n)
-&#123;
-    if (n == 1) &#123;
-        return 1;
-    &#125;
-    return factorial(n - 1) * n;
-&#125;
-
-int main()
-&#123;
-    size_t target = 10;
-    size_t ads = factorial(target);
-    std::cout << target << " factorial is: " << ads << std::endl;
-    return 0;
-&#125;
-</code></pre>
-<p>运行结果：</p>
-<pre class=" language-C"><code class="language-C">10 factorial is: 3628800
-</code></pre>
-<h2 id="2、Fibonacci斐波那契数列"><a href="#2、Fibonacci斐波那契数列" class="headerlink" title="2、Fibonacci斐波那契数列"></a>2、Fibonacci斐波那契数列</h2><pre class=" language-C"><code class="language-C">// 递归实现
-
-// 获取当前斐波那契数列数组
-int32_t fibonacci(int32_t num)
-&#123;
-    if (num <= 2) &#123;
-        return 1;
-    &#125;
-    return fibonacci(num - 1) + fibonacci(num - 2);
-    
-&#125;
-
-// 完整输出斐波那契数列
-int32_t printFibonacci(int32_t m)
-&#123;
-    if (m == 0) &#123;
-        return 0;
-    &#125;
-    printFibonacci(m - 1);
-    std::cout << fibonacci(m) << ", ";
-    return m;
-&#125;
-
-int main()
-&#123;
-    int32_t target = 20;
-    std::cout << "get current fibonacci value: " << fibonacci(target) << std::endl;
-    std::cout << "\nprint fibonacci list:"<< std::endl;
-    printFibonacci(target);
-    std::cout << std::endl;
-    return 0;
-&#125;
-</code></pre>
-<p>运行结果：</p>
-<pre class=" language-C"><code class="language-C">get current fibonacci value: 6765
-
-print fibonacci list:
-1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765,
-</code></pre>
+                <p>title: 404<br>date: 2021-03-08 22:31:31<br>author: IPanda<br>type: “404”<br>layout: “404”<br>description: “Oops～，我迷茫了……!!!!!! :(“</p>
 
                 
             </div>
@@ -590,7 +495,7 @@ print fibonacci list:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xman123ing.github.io/2021/03/06/%E7%AE%97%E6%B3%95/">https://xman123ing.github.io/2021/03/06/%E7%AE%97%E6%B3%95/</a>
+                    <a href="https://xman123ing.github.io/404.html">https://xman123ing.github.io/404.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -797,54 +702,18 @@ print fibonacci list:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
+                <a href="/404.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="计算机系统">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">计算机系统</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            IPanda
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/06/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -855,7 +724,7 @@ print fibonacci list:
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
                             </span>
                         <span class="publish-author">
                             
@@ -865,6 +734,45 @@ print fibonacci list:
                         </span>
                     </div>
                 </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/404.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            IPanda
+                            
+                        </span>
+                    </div>
+                </div>
+
                 
             </div>
         </div>
@@ -1120,6 +1028,7 @@ print fibonacci list:
 </footer>
 
 <div class="progress-bar"></div>
+<script src="/js/prism/prism.js" async></script>
 
 
     <!-- 搜索遮罩框 -->
@@ -1279,7 +1188,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>
