@@ -107,28 +107,6 @@
     
   </li>
   
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>友情链接</span>
-    </a>
-    
-  </li>
-  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -206,28 +184,6 @@
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			友情链接
 		</a>
           
         </li>
@@ -366,10 +322,37 @@
             <div class="tag-chips">
                 
                 
-                <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%86%85%E5%AD%98%E7%BB%84%E6%88%90/" title="程序内存组成: 1">
+                <a href="/tags/FreeRTOS/" title="FreeRTOS: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="程序内存组成" style="background-color: #F9EBEA;">程序内存组成
+                            data-tagname="FreeRTOS" style="background-color: #F9EBEA;">FreeRTOS
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/git/" title="git: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="git" style="background-color: #F5EEF8;">git
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/C-C/" title="C/C++: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="C/C++" style="background-color: #D5F5E3;">C/C++
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E7%BB%84%E6%88%90/" title="程序内存空间组成: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="程序内存空间组成" style="background-color: #E8F8F5;">程序内存空间组成
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -398,7 +381,7 @@
 <script type="text/javascript">
     
 
-    $('#tag-wordcloud').jQCloud([{"text":"程序内存组成","weight":1,"link":"/tags/程序内存组成/"}], {
+    $('#tag-wordcloud').jQCloud([{"text":"FreeRTOS","weight":1,"link":"/tags/FreeRTOS/"},{"text":"git","weight":1,"link":"/tags/git/"},{"text":"C/C++","weight":1,"link":"/tags/C-C/"},{"text":"程序内存空间组成","weight":1,"link":"/tags/程序内存空间组成/"}], {
         autoResize: true
     });
 </script>
@@ -461,7 +444,7 @@
                         diffMinutes * minutes) / seconds);
                     if (startYear == todayYear) {
                         document.getElementById("year").innerHTML = todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                        document.getElementById("sitetime").innerHTML = "本站已努力运行 " + diffDays + " 天 " + diffHours +
                             " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
                     } else {
                         document.getElementById("year").innerHTML = startYear + " - " + todayYear;

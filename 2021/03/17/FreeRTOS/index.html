@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="中国地质大学(武汉)2008-2012 Asia亚信 IFly科大讯飞 OPPO">
+    <meta name="keywords" content="FreeRTOS, 中国地质大学(武汉)2008-2012 Asia亚信 IFly科大讯飞 OPPO">
     <meta name="description" content="技术分享 | C/C++ | 服务器后端 | 计算机系统 | 嵌入式系统 | FreeRTOS | SensorHub">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>IPanda`s Blog</title>
+    <title>FreeRTOS | IPanda`s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -267,12 +267,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">FreeRTOS</h1>
                 </div>
             </div>
         </div>
@@ -386,12 +386,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/FreeRTOS/">
+                                <span class="chip bg-color">FreeRTOS</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                计算机系统
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -400,14 +413,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-08
+                    2021-03-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-08
+                    2021-03-18
                 </div>
                 
 
@@ -429,7 +442,58 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>title: 404<br>date: 2021-03-08 22:31:31<br>author: IPanda<br>type: “404”<br>layout: “404”<br>description: “Oops～，我迷茫了……!!!!!! :(“</p>
+                <h1 id="1、时钟"><a href="#1、时钟" class="headerlink" title="1、时钟"></a>1、时钟</h1><h2 id="1-1、CPU时钟"><a href="#1-1、CPU时钟" class="headerlink" title="1.1、CPU时钟"></a>1.1、CPU时钟</h2><p>CPU时钟通常采用晶体振荡器作为时钟源，以晶振频率来计数，故它并不是一个时间器，而是一个计数器，体现为CPU运行指令的频率，一个cpu周期称作一个cycle。 </p>
+<h2 id="1-2、SysTick"><a href="#1-2、SysTick" class="headerlink" title="1.2、SysTick"></a>1.2、SysTick</h2><p>SysTick：系统时钟节拍   </p>
+<p>FreeRTOS的系统时钟的时钟来源通常有两种选择：CPU主频、CPU主频的八分频，默认使用的是CPU主频   </p>
+<p>在任务上下文切换函数vTaskSwitchContext中，会判断每个任务的任务控制块里的延时成员xTicksToDelay的值是否为0，如果为0，表示延时时间到，将对应的任务变成就绪状态，如果不为0，就继续延时。<br>如果一个任务要延时，一开始xTicksToDelay肯定不为0，当xTicksToDelay变为0时，表示延时结束，那么xTicksToDelay是以什么周期在递减？在哪里递减？<br>在FreeRTOS中，这个周期是由SysTick中断提供，操作系统里面最小的时间单位就是SysTick的中断周期，我们称之为一个tick。</p>
+<p>SysTick是硬件定时，所以即使SysTick中中断服务的优先级很低，被其他中断打断也不会影响tickcout的计数操作。<br>【也就是说SysTick中断只有中断服务函数的响应与不响应，与tick的计数无关，它会一直在硬件层面计数】</p>
+<p>这里需要区分CPU频率，比如2.3GHz，指的是cpu运行指令的频率，与tick不同，通常一个tick要远大于cpu周期cycle，这样一个tick周期内才可以让cpu跑多个cycle，让cpu干更多的活。    </p>
+<p>FreeRTOS的tick由宏控制   </p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#define configTICK_RATE_HZ ( ( TickType_t ) 1000 )  &#x2F;&#x2F; 1ms<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>FreeRTOS与SysTick相关的时间函数有四个：</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">vTaskDelay ()
+vTaskDelayUntil ()
+xTaskGetTickCount()
+xTaskGetTickCountFromISR() <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="2、临阶段"><a href="#2、临阶段" class="headerlink" title="2、临阶段"></a>2、临阶段</h1><p>临阶段用一句话概括就是一段在执行的时候不能被中断代码段。<br>在FreeRTOS里面，临就段最长出现的就是对全局变量的操作，全局变量就好像是一个枪靶子，谁都可以对它开抢，但是我开抢的时候，你就不能开，否则就不知道是谁命中了靶子。</p>
+<h1 id="3、时间片"><a href="#3、时间片" class="headerlink" title="3、时间片"></a>3、时间片</h1><p>FreeRTOS与RT-Thread一样，都支持时间片功能。<br>所谓时间片就是同一优先级下可以有多个任务，每个任务轮流的享有相同的CPU时间，这个享有的CPU时间，我们称作时间片。<br>在RTOS中，最小的时间单位为一个tick，即SysTick的中断周期，RT-Thread可以指定时间片为多个tick，但是FreeRTOS不一样，时间片只能是一个tick。<br>与其说FreeRTOS支持时间片，倒不如说，它的时间片就是正常的任务调度。</p>
+<h1 id="4、task任务"><a href="#4、task任务" class="headerlink" title="4、task任务"></a>4、task任务</h1><h2 id="4-1、任务调度"><a href="#4-1、任务调度" class="headerlink" title="4.1、任务调度"></a>4.1、任务调度</h2><p>FreeRTOS中提供的任务调度器是基于优先级的全抢占式调度：在系统中除了中断处理函数、调度器上锁部分的代码和禁止中断的代码是不可抢占的之外，系统的其他部分都是可以抢占的。<br>系统理论上可以支持无数个优先级（0～N，优先级数值越小的任务优先级越低，0为最低优先级，分配给空闲任务使用，一般不建议用户来使用这个优先级），假如使能了configUSE_PORT_OPTIMISED_TASK_SELECTION这个宏，一般强制限定最大可用优先级数目为32个。</p>
+<p>FreeRTOS内核允许创建相同优先级的任务。相同优先级的任务采用时间片轮转的方式进行调度（也就是常说的分时调度），时间片轮转调度仅在当前系统中无更高优先级就绪任务存在的情况下才有效。为了保持系统的实时性，系统尽最大可能保证高优先级任务得以运行。任务调度的原则是一旦任务状态发生了改变，并且当前运行的任务优先级小于优先级队列组中任务最高优先级时，立即进行任务切换。</p>
+<h3 id="4-1-1、优先级翻转"><a href="#4-1-1、优先级翻转" class="headerlink" title="4.1.1、优先级翻转"></a>4.1.1、优先级翻转</h3><p>我们知道任务的优先级在创建的时候就已经时设置好的，高优先级可以打断低优先级的任务，抢占CPU的使用权。但是在很多场合中，某个资源只有一个，当低优先级的任务正在占用该资源的时候，即便高优先级的任务也只能乖乖的等待低优先级任务是用完该资源后释放资源。这里高优先级任务无法运行而低优先级任务可以运行的现象称作优先级翻转</p>
+<p>优先级翻转的危害很大，低优先级任务占用资源会导致高优先级任务阻塞时间过长，出现饿死问题。</p>
+<p>需要注意的是，这种场景下，并不是不允许调度高优先级，而是高优先级任务与低优先级任务都需要访问该资源，但同一时刻只能有一个任务能够访问，所以即使发生调度，高优先级任务也无法获得CPU使用权，直到低优先级任务主动释放资源。</p>
+<p>举个例子，现在有 3 个任务分别为 H 任务（High）、M 任务（Middle）、L 任务（Low），3 个任务的优先级顺序为 H 任务&gt;M任务&gt;L 任务。正常运行的时候 H 任务可以打断 M 任务与 L 任务，M 任务可以打断 L 任务，假设系统中有一个资源被保护了，此时该资源被 L 任务正在使用中，某一刻，H 任务需要使用该资源，但是L任务还没使用完，H任务则因为申请不到资源而进入阻塞态，L任务继续使用该资源，此时已经出现了”优先级翻转”现象，高优先级任务在等着低优先级的任务执行，如果在L任务执行的时候刚好M任务被唤醒了，由于 M 任务优先级比 L 任务优先级高，那么会打断 L 任务，抢占了CPU 的使用权，直到 M 任务执行完，再把 CUP 使用权归还给 L 任务，L 任务继续执行，等到执行完毕之后释放该资源，H 任务此时才从阻塞态解除，使用该资源。这个过程，本来是最高优先级的 H 任务，在等待了更低优先级的 L 任务与M任务，其阻塞的时间是M任务运行时间+L任务运行时间，这只是只有3个任务的系统，假如很多个这样子的任务打断最低优先级的任务，那这个系统最高优先级任务岂不是崩溃了，这个现象是绝对不允许出现的，高优先级的任务必须能及时响应。所以，没有优先级继承的情况下，使用资源保护，其危害极大</p>
+<h3 id="4-1-2、优先级继承"><a href="#4-1-2、优先级继承" class="headerlink" title="4.1.2、优先级继承"></a>4.1.2、优先级继承</h3><p>在FreeRTOS操作系统中为了降低优先级翻转问题利用了优先级继承机制，优先级继承算法是指，暂时提高某个占有某种资源的低优先级任务的优先级，使之与在所有等待该资源的任务中优先级最高的那个任务优先级相等，而当低优先级任务执行完毕释放该资源时，优先级重新回到初始设定值。因此，继承优先级的任务避免了系统资源被任何中间优先级的任务抢占。</p>
+<h2 id="4-2、任务状态"><a href="#4-2、任务状态" class="headerlink" title="4.2、任务状态"></a>4.2、任务状态</h2><p>创建任务-&gt;就绪态(Ready)：任务创建完成后进入就绪态，表明任务已准备就绪，随时可以运行，只等待调度器进行调度。</p>
+<p>就绪态-&gt;运行态（Running）：发生任务切换时，就绪列表中最高优先级的任务被执行，从而进入运行态。</p>
+<p>运行态-&gt;就绪态：有更高优先级的任务创建或恢复后，会发生任务调度，此时就绪列表中最高优先级的任务变为运行态，那么原来运行的任务由运行态变为就绪态，依然在就绪列表中，等待最高优先级的任务完毕继续运行原来的任务。</p>
+<p>运行态-&gt;阻塞态（Blocked）：正在运行的任务发生阻塞（挂起、延时、读取IO、读取信号量等）时，该任务会从就绪列表中删除，任务状态由运行态变为阻塞态，然后发生任务切换，运行就绪列表中当前最高优先级任务。</p>
+<p>阻塞态-&gt;就绪态：阻塞的任务被恢复后（任务恢复、延时时间超时、读取信号量超时或读取到了信号量等），此时被恢复的任务会被加入就绪列表，从而由阻塞态变为就绪态；如果此时被恢复任务的优先级高于当前正在执行任务的优先级，则会发生任务切换。</p>
+<p>就绪态、阻塞态、运行态-&gt;挂起态（Suspended）：任务可以通过调用vTaskSuspend()函数将处于任何状态的任务挂起，被挂起的任务得不到CPU使用权，也不会参与调度；</p>
+<p>挂起态-&gt;就绪态：把一个挂起态的任务恢复的唯一途径就是调用vTaskResume()函数，如果此时被恢复的任务优先级高于正在运行任务的优先级，则会发生任务切换；</p>
+<h3 id="4-2-1、理解阻塞态与挂起态"><a href="#4-2-1、理解阻塞态与挂起态" class="headerlink" title="4.2.1、理解阻塞态与挂起态"></a>4.2.1、理解阻塞态与挂起态</h3><p>当任务有较长时间不允许运行的时候，我们可以挂起任务，这样调度器就不会管这个任务的任何信息，直到我们调用恢复任务的A PI函数；而任务处于阻塞态的时候，系统还需要判断阻塞态的任务是否超时，是否可以接触阻塞</p>
+<h1 id="6、中断与异常"><a href="#6、中断与异常" class="headerlink" title="6、中断与异常"></a>6、中断与异常</h1><p>异常是导致处理器脱离正常运行转向执行特殊代码的任何事件，如果不及时处理，轻则系统出错，重则会导致系统毁灭性瘫痪。所以正确的处理异常，避免错误的发生是提高软件稳定性非常重要的一环，对于实时操作系统更是如此。</p>
+<p>异常是指任何打断处理器正常执行，并且迫使处理器进入一个由有特权的特殊指令执行的事件。异常通常可以分为两类：<br>同步异常：由内部事件（像处理器指令运行产生的事件），例如造成被零除的算术运算引发一个异常；<br>异步异常：由外部异常源产生的异常，是一个由外部硬件装置产生的事件引起的异步异常。</p>
+<p>同步异常不同于异步异常的的地方是事件的来源，同步异常事件是由于执行某些指令而从处理器内部产生的，而异步异常事件的来源是外部硬件装置，例如按下设备某个按钮产生的事件。同步异常与异步异常的区别还在于，同步异常出发后，系统必须立刻进行处理而不能依然执行原有的程序指令步骤，而异步异常则可以延缓处理甚至忽略，例如按键中断异常。虽然中断异常触发了，但是系统可以忽略它继续执行。</p>
+<h2 id="6-1、中断"><a href="#6-1、中断" class="headerlink" title="6.1、中断"></a>6.1、中断</h2><p>中断属于异步异常。</p>
+<p>所谓中断是指中央处理器 CPU正在处理某件事的时候，外部发生了某一事件，请求CPU迅速处理，CPU在暂时中断当前的工作，转入处理所发生的事件，处理完后，再回到被中断的地方，继续原来的工作，这个过程称作中断。<br>中断能打断任务的运行，无论该任务具有什么样的优先级，因此中断一般用于处理比较紧急的事件，而且只做简单的处理，例如标记事件。</p>
+<p>通过中断机制，在外设不需要CPU介入时，CPU可以执行其他任务，而当外设需要CPU时通过产生中断信号使 CPU立即停止当前任务转而来响应中断请求。这样可以使CPU避免把大量时间耗费在等待、查询外设状态的操作上，因此将大大提高系统实时性以及执行效率。</p>
+<h2 id="6-2、中断服务函数"><a href="#6-2、中断服务函数" class="headerlink" title="6.2、中断服务函数"></a>6.2、中断服务函数</h2><p>是一种需要特别注意的上下文环境，它运行在非任务的执行环境下（一般为芯片的一种特殊运行模式，也称作特权模式）</p>
+<h2 id="6-3、中断与临界段"><a href="#6-3、中断与临界段" class="headerlink" title="6.3、中断与临界段"></a>6.3、中断与临界段</h2><p>FreeRTOS源码中有许多临界段，临界段虽然保护来关键代码的执行不被打断，但也会影响系统的实时性。</p>
+<p>比如，某个时候有一个任务正在运行中，并且该任务部分程序将中断屏蔽掉，也就是进入临界段中，这个时候如果有一个紧急的中断被触发，这个中断就会被挂起，不能得到及时响应，必须等到中断开可以得到响应，如果屏蔽中断时间超过了紧急中断能够容忍的限度，危害是可想而知的。</p>
+<p>所以，操作系统的中断在某些时候会有适当的中断延时，因此调用中断屏蔽函数进入临界段的时候，需要快进快出。当然FreeRTOS也允许一些高优先级的中断不被屏蔽掉，能够及时做出响应。</p>
+<h2 id="6-4、中断控制器"><a href="#6-4、中断控制器" class="headerlink" title="6.4、中断控制器"></a>6.4、中断控制器</h2><p>与中断相关的硬件可划分为三类：外设、中断控制器、CPU</p>
+<p>外设：当外设需要请求CPU时，产生一个中断信号，该信号连接至中断控制器；</p>
+<p>中断控制器：中断控制器时CPU众多外设中的一个，它一方面接收其他外设中断信号的输入，另一方面，它会发送中断信号给CPU。可以通过对中断控制器编程实现对中断源的优先级、触发方式、打开和关闭源等设置操作。在Cortext-M系列控制器中常用的中断控制器时NVIC（内嵌式向量中断控制器Nested Vectored Interrupt Controller），NVIC最多支持240个中断，每个中断最多由256个优先级</p>
+<h1 id="7、内存相关"><a href="#7、内存相关" class="headerlink" title="7、内存相关"></a>7、内存相关</h1><h2 id="7-1、没有虚拟内存机制"><a href="#7-1、没有虚拟内存机制" class="headerlink" title="7.1、没有虚拟内存机制"></a>7.1、没有虚拟内存机制</h2><p>FreeRTOS没有虚拟内存机制<br>通常在RTOS中，由于实时性的要求，很少使用虚拟内存机制。所有的内存操作都需要用户自行管理，直接操作物理内存，故，所分配的内存不能超过物理内存地址空间。<br>同时，RTOS对内存的分配时间要求更为苛刻，分配内存的时间必须是确定的，必须要保证内存块的分配过程在可预测的时间内完成，否则系统对外部事件的响应将变得不确定，进而扰乱系统的实时性。</p>
+<h1 id="8、进程间通信IPC"><a href="#8、进程间通信IPC" class="headerlink" title="8、进程间通信IPC"></a>8、进程间通信IPC</h1><h2 id="8-1、信号量"><a href="#8-1、信号量" class="headerlink" title="8.1、信号量"></a>8.1、信号量</h2><h3 id="8-1-1、互斥量"><a href="#8-1-1、互斥量" class="headerlink" title="8.1.1、互斥量"></a>8.1.1、互斥量</h3><p>互斥量是信号量的一种，与二值信号量类似，两者最大的不同是：互斥量具有优先级继承机制，而信号量没有。也就是说，某个临界资源受到互斥量保护，如果这个资源正在被低优先级任务使用，那么此时的互斥量是闭锁状态，也代表了没有任何其他任务可以申请到这个互斥量，如果此时有个高优先级任务想要对这个资源进行访问，去申请这个互斥量，那么高优先级任务会因为申请不到互斥量而进入阻塞态，那么系统会将现在持有该互斥量的任务的优先级提升到与高优先级任务的优先级相同，这个优先级提升的过程称作优先级继承机制。这个优先级继承机制确保高优先级任务进入阻塞态的时间尽可能的短，以及将已经出现的优先级翻转危害降低到最小。</p>
+<h1 id="9、FreeRTOS的低功耗模式"><a href="#9、FreeRTOS的低功耗模式" class="headerlink" title="9、FreeRTOS的低功耗模式"></a>9、FreeRTOS的低功耗模式</h1><p>FreeRTOS 的低功耗模式又称作tickless模式。<br>仅从字母上看 tick 是滴答时钟的意思，less是tick的后缀，表示较少的，这里的含义可以表示为无滴答时钟。 整体看这个字母就是表示滴答时钟节拍停止运行的情况。反映在 FreeRTOS 上，tickless又是怎样一种情况呢？<br>我们都知道，当用户任务都被挂起或者阻塞时，最低优先级的空闲任务会得到执行。 那么 STM32 支持的睡眠模式，停机模式就可以放在空闲任务里面实现。为了实现低功耗最优设计，我们还不能直接把睡眠或者停机模式直接放在空闲任务里。进入空闲任务后，首先要计算可以执行低功耗的最大时间，也就是求出下一个要执行的高优先级任务还剩多少时<br>间。 然后就是把低功耗的唤醒时间设置为这个求出的时间，到时间后系统会从低功耗模式被唤醒，继续执行多任务。这个就是所谓的 tickless 模式。<br>从上面的讲解中可以看出，实现 tickless 模式最麻烦是低功耗可以执行的时间如何获取。 关于这个问题，FreeRTOS 已经为我们做好了。<br>系统进入低功耗模式的条件可以总结为以下两个：   </p>
+<ul>
+<li>当前空闲任务正在运行，所有其它的任务处在挂起状态或者阻塞状态；</li>
+<li>根据用户配置 configEXPECTED_IDLE_TIME_BEFORE_SLEEP的大小，只有当系统可运行于低功耗模式的时钟节拍数大于等于这个参数时，系统才可以进入到低功耗模式；</li>
+</ul>
+<h1 id="100、其他重要概念"><a href="#100、其他重要概念" class="headerlink" title="100、其他重要概念"></a>100、其他重要概念</h1><p>在系统上电的时候第一个执行的是启动文件里面由汇编编写的复位函数Reset_Handler，复位函数最后会调用C库函数__main，__main函数主要工作是初始化系统的堆和栈，最后调用C中的mian函数，从而去到C的世界。</p>
 
                 
             </div>
@@ -456,7 +520,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xman123ing.github.io/404.html">https://xman123ing.github.io/404.html</a>
+                    <a href="https://xman123ing.github.io/2021/03/17/FreeRTOS/">https://xman123ing.github.io/2021/03/17/FreeRTOS/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -493,7 +557,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/FreeRTOS/">
+                                    <span class="chip bg-color">FreeRTOS</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -663,18 +731,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/404.html">
+                <a href="/2021/03/17/Git%E4%B8%8EGithub/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Git与Github">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">Git与Github</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -684,18 +751,29 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            IPanda
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/git/">
+                        <span class="chip bg-color">git</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -703,16 +781,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/404.html">
+                <a href="/2021/03/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="计算机系统">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">计算机系统</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -723,17 +801,28 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            IPanda
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    计算机系统
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E7%BB%84%E6%88%90/">
+                        <span class="chip bg-color">程序内存空间组成</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

@@ -107,28 +107,6 @@
     
   </li>
   
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>友情链接</span>
-    </a>
-    
-  </li>
-  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -206,28 +184,6 @@
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			友情链接
 		</a>
           
         </li>
@@ -432,8 +388,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%86%85%E5%AD%98%E7%BB%84%E6%88%90/">
-                                <span class="chip bg-color">程序内存组成</span>
+                            <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E7%BB%84%E6%88%90/">
+                                <span class="chip bg-color">程序内存空间组成</span>
                             </a>
                         
                     </div>
@@ -444,8 +400,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-                                技术
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                计算机系统
                             </a>
                         
                     </div>
@@ -457,14 +413,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-08
+                    2021-03-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-14
+                    2021-03-18
                 </div>
                 
 
@@ -583,7 +539,7 @@ int main()
 <h2 id="1-5、heap堆"><a href="#1-5、heap堆" class="headerlink" title="1.5、heap堆"></a>1.5、heap堆</h2><p>程序运行期间动态申请的内存空间，由程序员管理其申请与释放周期，由低地址向高地址延伸</p>
 <h2 id="1-6、stack栈"><a href="#1-6、stack栈" class="headerlink" title="1.6、stack栈"></a>1.6、stack栈</h2><ul>
 <li>存放函数局部变量和函数参数；</li>
-<li>进行函数调用时，存储“过程活动记录”；</li>
+<li>进行函数调用时，存储”过程活动记录”；</li>
 <li>作为暂时存储区，比如计算表达式的临时结果；</li>
 <li>栈的释放顺序为先进后出FILO</li>
 <li>由高地址向低地址延伸，故存在栈溢出的可能；</li>
@@ -634,7 +590,12 @@ int array_3[10] &#x3D; &#123;0,1,2,3,4,5,6,7,8,9&#125;;
 </li>
 <li>如果N值较小，比如N=10<br>不管是否开启编译优化选项，全局变量都会被完全编译，这是因编译器的原地展开原则；</li>
 </ul>
-<h1 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h1><h2 id="image01"><a href="#image01" class="headerlink" title="image01"></a>image01</h2><h2 id="image02"><a href="#image02" class="headerlink" title="image02"></a>image02</h2><h2 id="image03"><a href="#image03" class="headerlink" title="image03"></a>image03</h2><h2 id="image04"><a href="#image04" class="headerlink" title="image04"></a>image04</h2><h2 id="image05"><a href="#image05" class="headerlink" title="image05"></a>image05</h2><h2 id="image06"><a href="#image06" class="headerlink" title="image06"></a>image06</h2><h2 id="image07"><a href="#image07" class="headerlink" title="image07"></a>image07</h2><h2 id="image08"><a href="#image08" class="headerlink" title="image08"></a>image08</h2><h2 id="image09"><a href="#image09" class="headerlink" title="image09"></a>image09</h2><h2 id="image10"><a href="#image10" class="headerlink" title="image10"></a>image10</h2><h2 id="image11"><a href="#image11" class="headerlink" title="image11"></a>image11</h2>
+<h1 id="20、其他"><a href="#20、其他" class="headerlink" title="20、其他"></a>20、其他</h1><h2 id="20-1、句柄"><a href="#20-1、句柄" class="headerlink" title="20.1、句柄"></a>20.1、句柄</h2><p>句柄是Windows编程中的一个重要概念，是32位无符号整型，表示一个对象的内存地址列表的索引，是分配给资源的唯一标志，这里的对象是指应用程序、窗口、位图等资源对象。     </p>
+<p>句柄并没有直接指向资源对象，而是保存着资源对象在资源注册列表中的索引，也就是说，句柄是间接指向资源对象。资源对象加载到内存时需要将首地址在资源列表中中进行注册，注册后无论资源对象的地址是否发生变化，其在资源列表中的注册位置始终不变。    </p>
+<p>这种设计的原因是资源对象加载到内存后，其地址可能会发生变化。如果资源对象在系统中一直处于空闲状态，操作系统的内存管理模块会将其内存回收，释放给其他资源使用。如果再次访问这个资源，系统会重新为其分配内存。    </p>
+<p>句柄解决了资源对象地址发生变化导致访问失败的问题，资源对象的物理地址是由资源注册列表负责维护，因此句柄只是间接访问资源对象，不需要关心资源对象的物理地址。    </p>
+<p>指针可以修改指向的值，但句柄只能访问资源对象，不能进行修改。</p>
+<h1 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h1>
                 
             </div>
             <hr/>
@@ -660,7 +621,7 @@ int array_3[10] &#x3D; &#123;0,1,2,3,4,5,6,7,8,9&#125;;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xman123ing.github.io/2021/03/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">https://xman123ing.github.io/2021/03/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/</a>
+                    <a href="https://xman123ing.github.io/2021/03/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">https://xman123ing.github.io/2021/03/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -698,8 +659,8 @@ int array_3[10] &#x3D; &#123;0,1,2,3,4,5,6,7,8,9&#125;;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%86%85%E5%AD%98%E7%BB%84%E6%88%90/">
-                                    <span class="chip bg-color">程序内存组成</span>
+                                <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E7%BB%84%E6%88%90/">
+                                    <span class="chip bg-color">程序内存空间组成</span>
                                 </a>
                             
                         </div>
@@ -851,34 +812,6 @@ int array_3[10] &#x3D; &#123;0,1,2,3,4,5,6,7,8,9&#125;;
     </div>
 
     
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '103f1f0e7acb50216c44',
-        clientSecret: 'da455f4790ed36d75aa8b73e7c4b308343dfad47',
-        repo: 'Xman123ing.github.io',
-        owner: 'Xman123ing',
-        admin: ["Xman123ing"],
-        id: '2021-03-08T23-31-26',
-        proxy: 'https://netnr-proxy.cloudno.de/https://github.com/login/oauth/access_token',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
-
-    
 
     
 
@@ -899,12 +832,60 @@ int array_3[10] &#x3D; &#123;0,1,2,3,4,5,6,7,8,9&#125;;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/03/17/FreeRTOS/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="FreeRTOS">
+                        
+                        <span class="card-title">FreeRTOS</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    计算机系统
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/FreeRTOS/">
+                        <span class="chip bg-color">FreeRTOS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
+                <a href="/2021/03/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
                     <div class="card-image">
                         
                         
@@ -921,14 +902,14 @@ int array_3[10] &#x3D; &#123;0,1,2,3,4,5,6,7,8,9&#125;;
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
-                                    技术
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    计算机系统
                                 </a>
                             
                             
@@ -939,47 +920,10 @@ int array_3[10] &#x3D; &#123;0,1,2,3,4,5,6,7,8,9&#125;;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%86%85%E5%AD%98%E7%BB%84%E6%88%90/">
-                        <span class="chip bg-color">程序内存组成</span>
+                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4%E7%BB%84%E6%88%90/">
+                        <span class="chip bg-color">程序内存空间组成</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/06/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            IPanda
-                            
-                        </span>
-                    </div>
                 </div>
                 
             </div>
@@ -1201,7 +1145,7 @@ int array_3[10] &#x3D; &#123;0,1,2,3,4,5,6,7,8,9&#125;;
                         diffMinutes * minutes) / seconds);
                     if (startYear == todayYear) {
                         document.getElementById("year").innerHTML = todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                        document.getElementById("sitetime").innerHTML = "本站已努力运行 " + diffDays + " 天 " + diffHours +
                             " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
                     } else {
                         document.getElementById("year").innerHTML = startYear + " - " + todayYear;
