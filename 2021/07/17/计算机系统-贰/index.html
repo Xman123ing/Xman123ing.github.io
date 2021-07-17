@@ -1,0 +1,1625 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="计算机系统_贰, 中国地质大学(武汉)2008-2012 Asia亚信 IFly科大讯飞 OPPO">
+    <meta name="description" content="技术分享 | C/C++ | 服务器后端 | 计算机系统 | 嵌入式系统 | FreeRTOS | SensorHub">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>计算机系统_贰 | IPanda`s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
+<link rel="stylesheet" href="/js/prism/prism.css">
+
+
+
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">IPanda`s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">IPanda`s Blog</div>
+        <div class="logo-desc">
+            
+            技术分享 | C/C++ | 服务器后端 | 计算机系统 | 嵌入式系统 | FreeRTOS | SensorHub
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Xman123ing/Xman123ing.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Xman123ing/Xman123ing.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">计算机系统_贰</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">计算机系统</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/summary-%E6%8A%80%E6%9C%AF/" class="post-category">
+                                summary && 技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-07-17
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-07-17
+                </div>
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="6、实时操作系统-FreeRTOS"><a href="#6、实时操作系统-FreeRTOS" class="headerlink" title="6、实时操作系统 FreeRTOS"></a>6、实时操作系统 FreeRTOS</h1><h2 id="6-0、RTOS与OS的区别"><a href="#6-0、RTOS与OS的区别" class="headerlink" title="6.0、RTOS与OS的区别"></a>6.0、RTOS与OS的区别</h2><p><strong>RTOS</strong>(Real Time Operator System)实时操作系统，实时指的是task任务在规定的时间内完成     </p>
+<p><strong>OS</strong>通用操作系统   </p>
+<ul>
+<li>通用操作系统专注于在最短时间内完成尽可能多的计算；</li>
+<li>RTOS强调的是在规定的时间内完成任务；</li>
+<li>通用操作系统通常使用时间共享架构，为每个任务分配一小段时间，多个任务在时间片上进行切换；</li>
+<li>RTOS有时间共享架构，也有事件驱动架构，事件驱动架构仅在发生事件或中断时才切换任务；</li>
+</ul>
+<h2 id="6-1、task"><a href="#6-1、task" class="headerlink" title="6.1、task"></a>6.1、task</h2><h3 id="6-1-1、task的概念"><a href="#6-1-1、task的概念" class="headerlink" title="6.1.1、task的概念"></a>6.1.1、task的概念</h3><p> 对于目前主流的RTOS，比如ucos，freeRTOS，RT-thread等等，都是属于并发的线程，其实从RT-thread名字上看，其表示的就是实时的线程。</p>
+<ul>
+<li><p>对于MCU上的资源所有任务都是共享的，类似单进程多线程模型；</p>
+</li>
+<li><p>MCU一般没有内存管理模块MMU、虚拟内存技术等，通常是直接访问物理内存，这样便无法很好的实现进程的安全隔离，如果用软件实现，开销太大，对于MCU而言没有必要，这也是为什么当某个任务崩溃时往往会导致整个系统故障的原因。</p>
+</li>
+</ul>
+<h3 id="6-1-2、TCB任务控制块"><a href="#6-1-2、TCB任务控制块" class="headerlink" title="6.1.2、TCB任务控制块"></a>6.1.2、TCB任务控制块</h3><p>全称为Task Control Block，也就是任务控制块，这个结构体包含了一个任务所有的信息，它的定义以及相关变量的解释如下</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">typedef struct tskTaskControlBlock             
+    &#123;
+        &#x2F;&#x2F; 这里栈顶指针必须位于TCB第一项是为了便于上下文切换操作，详见xPortPendSVHandler中任务切换的操作。
+        volatile StackType_t    *pxTopOfStack;    
+
+        &#x2F;&#x2F; MPU相关暂时不讨论
+        #if ( portUSING_MPU_WRAPPERS &#x3D;&#x3D; 1 )
+            xMPU_SETTINGS    xMPUSettings;        
+        #endif
+
+        &#x2F;&#x2F; 表示任务状态，不同的状态会挂接在不同的状态链表下
+        ListItem_t            xStateListItem;    
+        &#x2F;&#x2F; 事件链表项，会挂接到不同事件链表下
+        ListItem_t            xEventListItem;        
+        &#x2F;&#x2F; 任务优先级，数值越大优先级越高
+        UBaseType_t            uxPriority;            
+        &#x2F;&#x2F; 指向堆栈起始位置，这只是单纯的一个分配空间的地址，可以用来检测堆栈是否溢出
+        StackType_t            *pxStack;            
+        &#x2F;&#x2F; 任务名
+        char                pcTaskName[ configMAX_TASK_NAME_LEN ];
+
+        &#x2F;&#x2F; 指向栈尾，可以用来检测堆栈是否溢出
+        #if ( ( portSTACK_GROWTH &gt; 0 ) || ( configRECORD_STACK_HIGH_ADDRESS &#x3D;&#x3D; 1 ) )
+            StackType_t        *pxEndOfStack;        
+        #endif
+
+        &#x2F;&#x2F; 记录临界段的嵌套层数
+        #if ( portCRITICAL_NESTING_IN_TCB &#x3D;&#x3D; 1 )
+            UBaseType_t        uxCriticalNesting;    
+        #endif
+
+        &#x2F;&#x2F; 跟踪调试用的变量
+        #if ( configUSE_TRACE_FACILITY &#x3D;&#x3D; 1 )
+            UBaseType_t        uxTCBNumber;        
+            UBaseType_t        uxTaskNumber;        
+        #endif
+
+        &#x2F;&#x2F; 任务优先级被临时提高时，保存任务原本的优先级
+        #if ( configUSE_MUTEXES &#x3D;&#x3D; 1 )
+            UBaseType_t        uxBasePriority;        
+            UBaseType_t        uxMutexesHeld;
+        #endif
+
+        &#x2F;&#x2F; 任务的一个标签值，可以由用户自定义它的意义，例如可以传入一个函数指针可以用来做Hook    函数调用
+        #if ( configUSE_APPLICATION_TASK_TAG &#x3D;&#x3D; 1 )
+            TaskHookFunction_t pxTaskTag;
+        #endif
+
+        &#x2F;&#x2F; 任务的线程本地存储指针，可以理解为这个任务私有的存储空间
+        #if( configNUM_THREAD_LOCAL_STORAGE_POINTERS &gt; 0 )
+            void            *pvThreadLocalStoragePointers[     configNUM_THREAD_LOCAL_STORAGE_POINTERS ];
+        #endif
+
+        &#x2F;&#x2F; 运行时间变量
+        #if( configGENERATE_RUN_TIME_STATS &#x3D;&#x3D; 1 )
+            uint32_t        ulRunTimeCounter;    
+        #endif
+
+        &#x2F;&#x2F; 支持NEWLIB的一个变量
+        #if ( configUSE_NEWLIB_REENTRANT &#x3D;&#x3D; 1 )
+            struct    _reent xNewLib_reent;
+        #endif
+
+        &#x2F;&#x2F; 任务通知功能需要用到的变量
+        #if( configUSE_TASK_NOTIFICATIONS &#x3D;&#x3D; 1 )
+            &#x2F;&#x2F; 任务通知的值 
+            volatile uint32_t ulNotifiedValue;
+            &#x2F;&#x2F; 任务通知的状态
+            volatile uint8_t ucNotifyState;
+        #endif
+
+        &#x2F;&#x2F; 用来标记这个任务的栈是不是静态分配的
+        #if( tskSTATIC_AND_DYNAMIC_ALLOCATION_POSSIBLE !&#x3D; 0 ) 
+            uint8_t    ucStaticallyAllocated;         
+        #endif
+
+        &#x2F;&#x2F; 延时是否被打断
+        #if( INCLUDE_xTaskAbortDelay &#x3D;&#x3D; 1 )
+            uint8_t ucDelayAborted;
+        #endif
+
+        &#x2F;&#x2F; 错误标识
+        #if( configUSE_POSIX_ERRNO &#x3D;&#x3D; 1 )
+            int iTaskErrno;
+        #endif
+
+    &#125; tskTCB;
+    typedef tskTCB TCB_t;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="1、栈空间生长方向"><a href="#1、栈空间生长方向" class="headerlink" title="1、栈空间生长方向"></a>1、栈空间生长方向</h4><p>在TCB的定义中可以看到根据栈的生长方式的不同，其将具有不同的成员变量pxEndOfStack。</p>
+<p>栈的生长方式可以分为两种，「一种是向下生长，一种是向上生长」，FreeRTOS中用portSTACK_GROWTH来区分这两种生长方式，portSTACK_GROWTH大于0为向上生长，小于零为向下生长</p>
+<ul>
+<li><p>向上生长：入栈时栈顶指针增加，出栈时栈顶指针减小;</p>
+</li>
+<li><p>向下生长：入栈时栈顶指针减小，出栈时栈顶指针增加;</p>
+</li>
+</ul>
+<p>通常Windows与Linux的栈空间都是向下生长，那么为何有些嵌入式系统会存在向上增长呢？这一点主要与芯片涉及的实际需要相关</p>
+<h4 id="2、状态链表项xStateListItem"><a href="#2、状态链表项xStateListItem" class="headerlink" title="2、状态链表项xStateListItem"></a>2、状态链表项xStateListItem</h4><p>xStateListItem表示task的状态，不同的状态会挂载到不同的状态链表之中，根据<strong>6.1.3节task的状态流转</strong>，task的状态链表包括：</p>
+<ul>
+<li>pxCurrentTCB 运行态链表；</li>
+<li>pxReadyTasksLists 就绪态链表；</li>
+<li>pxDelayedTaskList 阻塞态链表；</li>
+<li>xSuspendedTaskList 挂起态链表；</li>
+</ul>
+<p>随着task的状态流转，task的xStateListItem会被挂载到不同的状态链表之上，以示task当前所处的状态。</p>
+<h4 id="3、删除链表-xTasksWaitingTermination"><a href="#3、删除链表-xTasksWaitingTermination" class="headerlink" title="3、删除链表 xTasksWaitingTermination"></a>3、删除链表 xTasksWaitingTermination</h4><p><code>PRIVILEGED_DATA static List_t xTasksWaitingTermination;</code><br>当任务自己删除自己时，其是不能立刻释放自己所占用的内存等资源的，需要将自己挂接到xTasksWaitingTermination这个链表下，然后让IdleTask来回收其所占用的资源。</p>
+<h3 id="6-1-3、task任务状态流转"><a href="#6-1-3、task任务状态流转" class="headerlink" title="6.1.3、task任务状态流转"></a>6.1.3、task任务状态流转</h3><p><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCE22ec6d1654c7c0dfcbe7cc4a70d264f2/40990" alt="image19"></p>
+<h4 id="1、就绪态-Ready"><a href="#1、就绪态-Ready" class="headerlink" title="1、就绪态(Ready)"></a>1、就绪态(Ready)</h4><p>创建任务-&gt;就绪态(Ready)：任务创建完成后进入就绪态，表明任务已准备就绪，随时可以运行，只等待调度器进行调度。</p>
+<h4 id="2、运行态（Running）"><a href="#2、运行态（Running）" class="headerlink" title="2、运行态（Running）"></a>2、运行态（Running）</h4><p>就绪态-&gt;运行态（Running）：发生任务切换时，就绪列表中最高优先级的任务被执行，从而进入运行态。</p>
+<h4 id="3、运行态-gt-就绪态"><a href="#3、运行态-gt-就绪态" class="headerlink" title="3、运行态-&gt;就绪态"></a>3、运行态-&gt;就绪态</h4><p>运行态-&gt;就绪态：有更高优先级的任务创建或恢复后，会发生任务调度，此时就绪列表中最高优先级的任务变为运行态，那么原来运行的任务由运行态变为就绪态，依然在就绪列表中，等待最高优先级的任务完毕继续运行原来的任务。</p>
+<h4 id="4、阻塞态（Blocked）"><a href="#4、阻塞态（Blocked）" class="headerlink" title="4、阻塞态（Blocked）"></a>4、阻塞态（Blocked）</h4><p>运行态-&gt;阻塞态（Blocked）：正在运行的任务发生阻塞（延时、读取IO、读取信号量、等待通知等）时，该任务会从就绪列表中删除，任务状态由运行态变为阻塞态，然后发生任务切换，运行就绪列表中当前最高优先级任务。</p>
+<h4 id="5、阻塞态-gt-就绪态"><a href="#5、阻塞态-gt-就绪态" class="headerlink" title="5、阻塞态-&gt;就绪态"></a>5、阻塞态-&gt;就绪态</h4><p>阻塞态-&gt;就绪态：阻塞的任务被恢复后（任务恢复、延时时间超时、读取信号量超时或读取到了信号量等），此时被恢复的任务会被加入就绪列表，从而由阻塞态变为就绪态；如果此时被恢复任务的优先级高于当前正在执行任务的优先级，则会发生任务切换。</p>
+<h4 id="6、挂起态（Suspended）"><a href="#6、挂起态（Suspended）" class="headerlink" title="6、挂起态（Suspended）"></a>6、挂起态（Suspended）</h4><p>就绪态、阻塞态、运行态-&gt;挂起态（Suspended）：任务可以通过调用vTaskSuspend()函数将处于任何状态的任务挂起，被挂起的任务得不到CPU使用权，也不会参与调度；</p>
+<h4 id="7、挂起态-gt-就绪态"><a href="#7、挂起态-gt-就绪态" class="headerlink" title="7、挂起态-&gt;就绪态"></a>7、挂起态-&gt;就绪态</h4><p>挂起态-&gt;就绪态：把一个挂起态的任务恢复的唯一途径就是调用vTaskResume()函数，如果此时被恢复的任务优先级高于正在运行任务的优先级，则会发生任务切换；</p>
+<h3 id="6-1-4、阻塞态与挂起态的理解"><a href="#6-1-4、阻塞态与挂起态的理解" class="headerlink" title="6.1.4、阻塞态与挂起态的理解"></a>6.1.4、阻塞态与挂起态的理解</h3><ul>
+<li>触发task任务进入阻塞态的因素可能是自身主动delay延时、读取IO、读取信号量、等待通知等，而唤起阻塞态的task通常也是上面几种状态的时间或事件的到来，比如delay时间到、IO请求结束、等待的信号量或通知事件到来；</li>
+<li>而task只能通过vTaskSuspend()进入挂起态，仅能通过vTaskResume()被重新唤起，通常在Windows、Linux中被挂起的task不参与系统调度，不占据CPU资源，甚至不占据内存空间，比如长时间不访问的网页，系统会将其从内存区局swap到外部磁盘，以释放系统资源，待task需要被唤醒时，才会重新加载进内存；</li>
+</ul>
+<h3 id="6-1-5、task任务调度"><a href="#6-1-5、task任务调度" class="headerlink" title="6.1.5、task任务调度"></a>6.1.5、task任务调度</h3><p>FreeRTOS中提供的任务调度器是基于优先级的全抢占式调度：在系统中除了中断处理函数、调度器上锁部分的代码和禁止中断的代码是不可抢占的之外，系统的其他部分都是可以抢占的。<br>系统理论上可以支持无数个优先级（0～N，优先级数值越小的任务优先级越低，0为最低优先级，分配给空闲任务使用，一般不建议用户来使用这个优先级），假如使能了configUSE_PORT_OPTIMISED_TASK_SELECTION这个宏，一般强制限定最大可用优先级数目为32个。</p>
+<p>FreeRTOS内核允许创建相同优先级的任务。相同优先级的任务采用时间片轮转的方式进行调度（也就是常说的分时调度），时间片轮转调度仅在当前系统中无更高优先级就绪任务存在的情况下才有效。为了保持系统的实时性，系统尽最大可能保证高优先级任务得以运行。任务调度的原则是一旦任务状态发生了改变，并且当前运行的任务优先级小于优先级队列组中任务最高优先级时，立即进行任务切换。</p>
+<h3 id="6-1-6、优先级翻转"><a href="#6-1-6、优先级翻转" class="headerlink" title="6.1.6、优先级翻转"></a>6.1.6、优先级翻转</h3><p>我们知道任务的优先级在创建的时候就已经时设置好的，高优先级可以打断低优先级的任务，抢占CPU的使用权。但是在很多场合中，某个资源只有一个，当低优先级的任务正在占用该资源的时候，即便高优先级的任务也只能乖乖的等待低优先级任务是用完该资源后释放资源。这里高优先级任务无法运行而低优先级任务可以运行的现象称作优先级翻转</p>
+<p>优先级翻转的危害很大，低优先级任务占用资源会导致高优先级任务阻塞时间过长，出现饿死问题。</p>
+<p>需要注意的是，这种场景下，并不是不允许调度高优先级，而是高优先级任务与低优先级任务都需要访问该资源，但同一时刻只能有一个任务能够访问，所以即使发生调度，高优先级任务也无法获得CPU使用权，直到低优先级任务主动释放资源。</p>
+<p>举个例子，现在有 3 个任务分别为 H 任务（High）、M 任务（Middle）、L 任务（Low），3 个任务的优先级顺序为 H 任务&gt;M任务&gt;L 任务。正常运行的时候 H 任务可以打断 M 任务与 L 任务，M 任务可以打断 L 任务，假设系统中有一个资源被保护了，此时该资源被 L 任务正在使用中，某一刻，H 任务需要使用该资源，但是L任务还没使用完，H任务则因为申请不到资源而进入阻塞态，L任务继续使用该资源，此时已经出现了”优先级翻转”现象，高优先级任务在等着低优先级的任务执行，如果在L任务执行的时候刚好M任务被唤醒了，由于 M 任务优先级比 L 任务优先级高，那么会打断 L 任务，抢占了CPU 的使用权，直到 M 任务执行完，再把 CUP 使用权归还给 L 任务，L 任务继续执行，等到执行完毕之后释放该资源，H 任务此时才从阻塞态解除，使用该资源。这个过程，本来是最高优先级的 H 任务，在等待了更低优先级的 L 任务与M任务，其阻塞的时间是M任务运行时间+L任务运行时间，这只是只有3个任务的系统，假如很多个这样子的任务打断最低优先级的任务，那这个系统最高优先级任务岂不是崩溃了，这个现象是绝对不允许出现的，高优先级的任务必须能及时响应。所以，没有优先级继承的情况下，使用资源保护，其危害极大</p>
+<h3 id="6-1-7、优先级继承"><a href="#6-1-7、优先级继承" class="headerlink" title="6.1.7、优先级继承"></a>6.1.7、优先级继承</h3><p>在FreeRTOS操作系统中为了降低优先级翻转问题利用了优先级继承机制，优先级继承算法是指，暂时提高某个占有某种资源的低优先级任务的优先级，使之与在所有等待该资源的任务中优先级最高的那个任务优先级相等，而当低优先级任务执行完毕释放该资源时，优先级重新回到初始设定值。因此，继承优先级的任务避免了系统资源被任何中间优先级的任务抢占。</p>
+<p>对应TCB结构体中的成员：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">&#x2F;&#x2F; 任务优先级被临时提高时，保存任务原本的优先级
+        #if ( configUSE_MUTEXES &#x3D;&#x3D; 1 )
+            UBaseType_t        uxBasePriority;        
+            UBaseType_t        uxMutexesHeld;
+        #endif<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><code>uxBasePriority</code>用于记录优先级翻转之前的task优先级；</li>
+<li><code>uxMutexesHeld</code> 记录当前task所持有的mutex，并以此查找其他持有mutex的task，匹配最高优先级；<h2 id="6-2、中断"><a href="#6-2、中断" class="headerlink" title="6.2、中断"></a>6.2、中断</h2><h3 id="6-2-1、中断控制器"><a href="#6-2-1、中断控制器" class="headerlink" title="6.2.1、中断控制器"></a>6.2.1、中断控制器</h3>FreeRTOS + Cortext-M系列中常用的中断控制器是NVIC，全称内嵌式向量中断控制器Nested Vectored Interrupt Controller，最多支持240个中断，中断最多可以有256个优先级<h3 id="6-2-2、中断与临界段"><a href="#6-2-2、中断与临界段" class="headerlink" title="6.2.2、中断与临界段"></a>6.2.2、中断与临界段</h3>FreeRTOS源码中有许多临界段，通常是采用关中断的港式实现，临界段虽然可以保护关键代码的执行不被打断，但也会影响系统的实时性。</li>
+</ul>
+<p>比如，某个时候有一个任务正在运行中，并且该任务的部分程序将中断屏蔽掉，也就是进入临界段中，这个时候如果有一个紧急的中断被触发，这个中断就会被挂起，不能得到及时响应，必须等到开中断后才可以重新得到响应，如果屏蔽中断时间超过了紧急中断能够容忍的限度，危害是可想而知的。</p>
+<p>因此RTOS中调用中断屏蔽函数进入临界段的时候，需要快进快出。当然FreeRTOS也允许一些高优先级的中断不被屏蔽掉，以便能够及时做出响应。</p>
+<h2 id="6-3、时钟"><a href="#6-3、时钟" class="headerlink" title="6.3、时钟"></a>6.3、时钟</h2><h3 id="6-3-1、CPU时钟"><a href="#6-3-1、CPU时钟" class="headerlink" title="6.3.1、CPU时钟"></a>6.3.1、CPU时钟</h3><p>CPU时钟通常采用晶体振荡器作为时钟源，以晶振频率来计数，故它并不是一个时间器，而是一个计数器，体现为CPU运行指令的频率，一个cpu周期称作一个cycle。 </p>
+<h3 id="6-3-2、SysTick-系统时钟节拍"><a href="#6-3-2、SysTick-系统时钟节拍" class="headerlink" title="6.3.2、SysTick 系统时钟节拍"></a>6.3.2、SysTick 系统时钟节拍</h3><p>FreeRTOS的系统时钟的时钟来源通常有两种选择：CPU主频、CPU主频的八分频，默认使用的是CPU主频   </p>
+<p>在任务上下文切换函数vTaskSwitchContext中，会判断每个任务的任务控制块里的延时成员xTicksToDelay的值是否为0，如果为0，表示延时时间到，将对应的任务变成就绪状态，如果不为0，就继续延时。<br>如果一个任务要延时，一开始xTicksToDelay肯定不为0，当xTicksToDelay变为0时，表示延时结束，那么xTicksToDelay是以什么周期在递减？在哪里递减？<br>在FreeRTOS中，这个周期是由SysTick中断提供，操作系统里面最小的时间单位就是SysTick的中断周期，我们称之为一个tick。</p>
+<p>SysTick是硬件定时，所以即使SysTick中中断服务的优先级很低，被其他中断打断也不会影响tickcout的计数操作。<br>【也就是说SysTick中断只有中断服务函数的响应与不响应，与tick的计数无关，它会一直在硬件层面计数】</p>
+<p>这里需要区分CPU频率，比如2.3GHz，指的是cpu运行指令的频率，与tick不同，通常一个tick要远大于cpu周期cycle，这样一个tick周期内才可以让cpu跑多个cycle，让cpu干更多的活。    </p>
+<p>FreeRTOS的tick由宏控制   </p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#define configTICK_RATE_HZ ( ( TickType_t ) 1000 )  &#x2F;&#x2F; 1ms<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>FreeRTOS与SysTick相关的时间函数有四个：</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">vTaskDelay ()
+vTaskDelayUntil ()
+xTaskGetTickCount()
+xTaskGetTickCountFromISR() <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="6-3-3、FreeRTOS时钟源"><a href="#6-3-3、FreeRTOS时钟源" class="headerlink" title="6.3.3、FreeRTOS时钟源"></a>6.3.3、FreeRTOS时钟源</h3><p>FreeRTOS 任务代码中常用的时钟源为RTC(Real-Time Clock)<code>uint64_t rtcGetTime(void)</code></p>
+<p>通过源码可以看到RTC的晶振频率为13MHz，大概为MTK mcu主频的1/8，可以精确奥ns</p>
+<h2 id="6-4、task通信方式"><a href="#6-4、task通信方式" class="headerlink" title="6.4、task通信方式"></a>6.4、task通信方式</h2><p>FreeRTOS 任务间通信有两种方法：</p>
+<ul>
+<li>直接发送给task自身的，比如通知(Notification)；</li>
+<li>是使用通信对象(Communication objects)； </li>
+</ul>
+<p>主要区别在于通知是发给一个指定的任务，直接改变该任务TCB的某些变量；通信对象是独立于任务的实体，有单独的存储空间，可以实现数据传递和较复杂的同步、互斥功能。</p>
+<h3 id="6-4-1、mutex锁"><a href="#6-4-1、mutex锁" class="headerlink" title="6.4.1、mutex锁"></a>6.4.1、mutex锁</h3><p>互斥量是信号量的一种，与二值信号量类似，两者最大的不同是：互斥量具有优先级继承机制，而信号量没有。也就是说，某个临界资源受到互斥量保护，如果这个资源正在被低优先级任务使用，那么此时的互斥量是闭锁状态，也代表了没有任何其他任务可以申请到这个互斥量，如果此时有个高优先级任务想要对这个资源进行访问，去申请这个互斥量，那么高优先级任务会因为申请不到互斥量而进入阻塞态，那么系统会将现在持有该互斥量的任务的优先级提升到与高优先级任务的优先级相同，这个优先级提升的过程称作优先级继承机制。这个优先级继承机制确保高优先级任务进入阻塞态的时间尽可能的短，以及将已经出现的优先级翻转危害降低到最小。</p>
+<h3 id="6-4-2、任务通知-Notification"><a href="#6-4-2、任务通知-Notification" class="headerlink" title="6.4.2、任务通知 Notification"></a>6.4.2、任务通知 Notification</h3><p>FreeRTOS中任务通知模式默认开启，开启后TCB结构体之中会多出两个成员：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#if( configUSE_TASK_NOTIFICATIONS &#x3D;&#x3D; 1 )
+        volatile uint32_t ulNotifiedValue;
+        volatile uint8_t ucNotifyState;
+#endif<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>ulNotifiedValue 接收方的通知值；</li>
+<li>ucNotifyState 接收方的通知状态</li>
+</ul>
+<h4 id="1、通知值ulNotifiedValue"><a href="#1、通知值ulNotifiedValue" class="headerlink" title="1、通知值ulNotifiedValue"></a>1、通知值ulNotifiedValue</h4><p>每个task任务都有一个32位的通知值，任务创建时，这个值被初始化为0。task任务通知相当于直接向任务发送一个事件，接收到通知的任务可以解除阻塞状态，前提是这个阻塞task是因等待通知而引起的。发送通知的同时，也可以可选的改变接收方的通知值。</p>
+<p>接收方更新通知：</p>
+<ul>
+<li>不覆盖接收方的通知值；</li>
+<li>覆盖接收方的通知值；</li>
+<li>设置接收方通知值的某些位；</li>
+<li>增加接收方的通知值（递增）；</li>
+</ul>
+<p>相较于队列、二进制信号量、计数信号量或事件组，使用任务通知更灵活，它无需在使用前单独创建类似前面的通信对象。而且相比于使用信号量解除任务阻塞，使用任务通知可以快45%、使用更少的RAM（使用GCC编译器，-o2优化级别）。</p>
+<h4 id="2、通知状态ucNotifyState"><a href="#2、通知状态ucNotifyState" class="headerlink" title="2、通知状态ucNotifyState"></a>2、通知状态ucNotifyState</h4><p>task的通知状态有三种：</p>
+<ul>
+<li>not waiting notification;</li>
+<li>wating notification;</li>
+<li>received notification;</li>
+</ul>
+<p><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCE6908ac65afa05a2ff716568ad4d9d1d4/41074" alt="imag320"></p>
+<h4 id="3、常见API函数"><a href="#3、常见API函数" class="headerlink" title="3、常见API函数"></a>3、常见API函数</h4><table>
+<thead>
+<tr>
+<th>发送方</th>
+<th>接收方</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>xTaskNotify()</td>
+<td>xTaskNotifyWait()</td>
+</tr>
+<tr>
+<td>xTaskNotifyGive()</td>
+<td>rulTaskNotifyTake()</td>
+</tr>
+</tbody></table>
+<p><font color=red><strong>任务通知函数对 01</strong></font><br>xTaskNotify与xTaskNotifyWait</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">BaseType_t xTaskNotify( TaskHandle_txTaskToNotify,
+                         uint32_t ulValue,
+                         eNotifyAction eAction);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>参数：</p>
+<ul>
+<li>xTaskToNotify：被通知的任务句柄；</li>
+<li>ulValue：通知更新值；</li>
+<li>eAction：枚举类型，指明更新通知值的方法；</li>
+</ul>
+<p>枚举变量成员以及作用如下表所示：<br><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCE05d506525ccf9516564465181476d00b/41086" alt="image21"></p>
+<p><strong>返回值</strong>：<br> 参数eAction若为eSetValueWithoutOverwrite时，如果接收方务还没取走上一个通知，又接收到了一个通知，则这次通知值未能更新并返回pdFALSE，否则返回pdPASS</p>
+<p><font color=red><strong>任务通知函数对 02</strong></font><br>xTaskNotifyGive与rulTaskNotifyTake</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">BaseType_t xTaskNotifyGive(TaskHandle_t xTaskToNotify );<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>其实这是一个宏，本质上相当于xTaskNotify( ( xTaskToNotify ), ( 0 ), eIncrement )。可以使用该API函数代替二进制或计数信号量，速度更快。   </p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">uint32_t ulTaskNotifyTake( BaseType_txClearCountOnExit,
+                            TickType_txTicksToWait );<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>参数：   </p>
+<ul>
+<li>xClearCountOnExit：如果该参数设置为pdFALSE，则API函数xTaskNotifyTake()退出前，将任务的通知值减1；如果该参数设置为pdTRUE，则API函数xTaskNotifyTake()退出前，将任务通知值清零；</li>
+<li>xTicksToWait：因等待通知而进入阻塞状态的最大时间。时间单位为系统节拍tick。宏pdMS_TO_TICKS用于将指定的毫秒时间转化为相应的系统节拍数;</li>
+</ul>
+<p>API函数xTaskNotifyTake()有两种方法处理任务的通知值，一种方法是在函数退出时将通知值清零，这种方法适用于实现二进制信号量；另外一种方法是在函数退出时将通知值减1，这种方法适用于实现计数信号量。</p>
+<h3 id="6-4-3、信号量"><a href="#6-4-3、信号量" class="headerlink" title="6.4.3、信号量"></a>6.4.3、信号量</h3><p>信号量是操作系统中的概念，在实现任务、进程、线程同步过程中扮演重要的角色，它一种通信对象，需要创建后才可以使用，若不再需要可以调用 vSemaphoreDelete()  进行删除，释放占用的内存。  </p>
+<p>FreeRTOS 提供以下四种类型信号量：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>创建方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>普通类/二进制信号量</td>
+<td>xSemaphoreCreateBinary</td>
+</tr>
+<tr>
+<td>计数信号量</td>
+<td>xSemaphoreCreateCounting</td>
+</tr>
+<tr>
+<td>互斥锁</td>
+<td>xSemaphoreCreateMutex</td>
+</tr>
+<tr>
+<td>嵌套互斥锁</td>
+<td>xSemaphoreCreateRecursiveMutex</td>
+</tr>
+</tbody></table>
+<p>前三类信号量都是用 xSemaphoreTake() 和 xSemaphoneGive() 两个 API 分别进行”获取”和”给予”操作。</p>
+<ul>
+<li>普通\二进制的信号量只有两个状态（有/无）；</li>
+<li>计数型的可以是0到某个数之间的整数，代表资源的余量。它们看起来和任务通知的用法很像，也的确经常可以用任务通知替代；</li>
+<li>互斥锁(mutex, 这个词是 mutual exclusion 缩写而来)也只有两个状态，但用法不同。互斥锁用来避免多个任务争用同一资源时的竞态问题，当任务获取它以后别的任务都不能再获取而只能阻塞，直到取得它的任务将其交还出来；</li>
+<li>嵌套互斥锁(recursive mutex)是让同一个任务可以重复申请已取得的互斥锁，避免自己造成死锁这种不合逻辑的现象。对应的操作函数是 xSemaphoreTakeRecursive() 和 xSemaphoreGiveRecursive(). 例如，某任务先获得这个锁，然后调用一个子程序，子程序中又再次申请获得这个锁，那么既然资源是自己独占的，这个申请立即成功。子程序进行一些操作后释放该锁，但更早的申请还有效，资源仍然属于这个任务独占。<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="1、FreeRTOS的低功耗模式"><a href="#1、FreeRTOS的低功耗模式" class="headerlink" title="1、FreeRTOS的低功耗模式"></a>1、FreeRTOS的低功耗模式</h3>FreeRTOS 的低功耗模式又称作tickless模式。<br>仅从字母上看 tick 是滴答时钟的意思，less是tick的后缀，表示较少的，这里的含义可以表示为无滴答时钟。 整体看这个字母就是表示滴答时钟节拍停止运行的情况。反映在 FreeRTOS 上，tickless又是怎样一种情况呢？<br>我们都知道，当用户任务都被挂起或者阻塞时，最低优先级的空闲任务会得到执行。 那么 STM32 支持的睡眠模式，停机模式就可以放在空闲任务里面实现。为了实现低功耗最优设计，我们还不能直接把睡眠或者停机模式直接放在空闲任务里。进入空闲任务后，首先要计算可以执行低功耗的最大时间，也就是求出下一个要执行的高优先级任务还剩多少时<br>间。 然后就是把低功耗的唤醒时间设置为这个求出的时间，到时间后系统会从低功耗模式被唤醒，继续执行多任务。这个就是所谓的 tickless 模式。<br>从上面的讲解中可以看出，实现 tickless 模式最麻烦是低功耗可以执行的时间如何获取。 关于这个问题，FreeRTOS 已经为我们做好了。<br>系统进入低功耗模式的条件可以总结为以下两个：   </li>
+</ul>
+<ul>
+<li>当前空闲任务正在运行，所有其它的任务处在挂起状态或者阻塞状态；</li>
+<li>根据用户配置 configEXPECTED_IDLE_TIME_BEFORE_SLEEP的大小，只有当系统可运行于低功耗模式的时钟节拍数大于等于这个参数时，系统才可以进入到低功耗模式；</li>
+</ul>
+<h3 id="2、内存的实时性"><a href="#2、内存的实时性" class="headerlink" title="2、内存的实时性"></a>2、内存的实时性</h3><p>FreeRTOS没有虚拟内存机制<br>通常在RTOS中，由于实时性的要求，很少使用虚拟内存机制。所有的内存操作都需要用户自行管理，直接操作物理内存，故，所分配的内存不能超过物理内存地址空间。 同时，RTOS对内存的分配时间要求更为苛刻，分配内存的时间必须是确定的，必须要保证内存块的分配过程在可预测的时间内完成，否则系统对外部事件的响应将变得不确定，进而扰乱系统的实时性。</p>
+<h1 id="7、中断"><a href="#7、中断" class="headerlink" title="7、中断"></a>7、中断</h1><p>在阐述中断概念之前需要解释一下中断与异常的关系，其实异常的称呼来自于Intel的微处理器架构，将同步中断称之为异常，后文以中断为总称，异常特指同步中断。   </p>
+<p>从本质上来讲，中断是一种电信号，当设备有某种事件发生时，它就会产生电信号，通过总线把电信号发送给中断控制器（如 NVIC、APIC），再由中断控制器生成中断请求发送给CPU。</p>
+<p>如果中断的线是激活的，中断控制器就把中断请求发送给处理器的某个特定引脚，处理器于是立即停止自己正在做的事，跳转到中断处理程序的入口点，进行中断处理，处理完后，再回到被中断的地方，继续原来的工作。    </p>
+<p>从广义上来讲，中断不仅仅是外部设备发出的电信号，也可能来自于CPU内部的指令， 比如软中断、异常等。   </p>
+<p>中断是导致处理器脱离正常运行转向执行特殊代码的任何事件，如果不及时处理，轻则系统出错，重则会导致系统毁灭性瘫痪。所以正确的处理中断，避免错误的发生是提高软件稳定性非常重要的一环，对于实时操作系统更是如此。</p>
+<h2 id="7-1、中断的分类"><a href="#7-1、中断的分类" class="headerlink" title="7.1、中断的分类"></a>7.1、中断的分类</h2><p>根据中断源产生的条件，中断通常可以分为两类：</p>
+<ul>
+<li>同步中断：也称作异常，由CPU内部事件产生<br>包括程序运算引起的各种错误，如地址非法、校验错、页面失效、存取访问控制错、算术操作溢出、数据格式非法、除数为零、非法指令、用户程序执行特权指令、分时系统中的时间片中断以及从用户态到核心态的切换等。</li>
+<li>异步中断：由外部设备源产生的中断<br>包括外部IO设备，例如鼠标、键盘、引起时钟中断的定时器晶振设备等</li>
+</ul>
+<p>同步中断与异步中断的区别还在于：同步中断发生时，系统必须立刻进行处理而不能继续执行原有的指令步骤，而异步中断则可以延缓处理甚至忽略，例如按键中断，系统可以忽略键盘发出的Ctrl + C中断。   </p>
+<p>硬中断与软中断详见：<strong>7.5节</strong></p>
+<h2 id="7-2、中断控制器"><a href="#7-2、中断控制器" class="headerlink" title="7.2、中断控制器"></a>7.2、中断控制器</h2><p>与中断相关的硬件可划分为三类：外设、中断控制器、CPU</p>
+<ul>
+<li><p>外设：当外设需要请求CPU时会产生一个电信号，该信号连接至中断控制器；</p>
+</li>
+<li><p>中断控制器：中断控制器也是CPU众多外设中的一个，它一方面接收其他外设发出的中断信息，另一方面也会向CPU发出中断请求。可以通过对中断控制器编程以实现对中断的优先级设置、触发方式的选择、打开和关闭等操作；</p>
+</li>
+<li><p>CPU：对中断进行响应，同时也可以在指令层面产生异常、软中断；</p>
+</li>
+</ul>
+<p>常见的中断控制器有NVIC、APIC：</p>
+<ul>
+<li>NVIC：详见：<strong>第6节中断控制器</strong>；</li>
+<li>APIC：高级可编程中断控制器Advanced Programmable Interrupt Controller，是linux系统主流的中断控制器；</li>
+</ul>
+<h2 id="7-3、IRQ"><a href="#7-3、IRQ" class="headerlink" title="7.3、IRQ"></a>7.3、IRQ</h2><p>对于外部设备源，它发出的只是特殊的电信号，需要借由中断控制器的标准组件转换成可以被CPU所能识别的中断请求，这种请求称作IRQ，全称Interrupt Request。<br>中断控制器的标准组件所做的工作包括查询中断向量表、查找中断服务函数等。、</p>
+<h2 id="7-4、中断处理程序"><a href="#7-4、中断处理程序" class="headerlink" title="7.4、中断处理程序"></a>7.4、中断处理程序</h2><p>可以理解成一种很”轻”的task，它的上下文很少，建立或终止中断处理需要的时间也很，少它运行在非任务的执行环境下，一般为芯片的一种特殊运行模式，也称作特权模式。   </p>
+<p>中断处理程序是内核运行的最敏感程序之一，因此它必须满足一下约束：</p>
+<ul>
+<li>当内核正打算去完成一些别的事情时，中断随时会到来。因此，内核的目标就是让中断尽可能快地处理完，尽其所能把更多的处理向后推迟。因此，内核响应中断后需要进行的操作分为两部分：关键而紧急的部分，内核立即执行；其余推迟的部分，内核随后执行;</li>
+<li>因为中断随时会到来，所以内核可能正在处理其中的一个中断时，另一个不同类型的中断又发生了。内核应该尽可能地允许这种情况发生，因为这能维持更多的I/O设备得到处理的机会。因此，中断处理程序必须编写成使相应的内核控制路径能以嵌套的方式执行。当最后一个内核控制路径终止时，内核必须能恢复被中断进程的执行，或者，如果中断信号已导致了重新调度，内核也应能切换到另外的进程;</li>
+<li>尽管内核在处理前一个中断时可以接受一个新的中断，但在内核代码中还是存在一些临界区，在临界区中，中断必须被禁止。必须尽可能地限制这样的临界区，因为根据以前的要求，内核，尤其是中断处理程序，应该在大部分时间内以开中断的方式运行;</li>
+</ul>
+<h3 id="7-4-1、异常处理步骤"><a href="#7-4-1、异常处理步骤" class="headerlink" title="7.4.1、异常处理步骤"></a>7.4.1、异常处理步骤</h3><ul>
+<li>当发生异常时，CPU控制单元产生一个中断出错码；</li>
+<li>CPU根据该中断码在中断向量表内的查找对应向量，根据该向量转到中断处理程序；</li>
+<li>中断处理程序处理完之后向当前进程发送一个SIG***信号；</li>
+<li>若进程定义了相应的信号处理程序则转移到相应的程序执行，若没有，则执行内核定义的操作；</li>
+</ul>
+<h3 id="7-4-2、中断处理步骤"><a href="#7-4-2、中断处理步骤" class="headerlink" title="7.4.2、中断处理步骤"></a>7.4.2、中断处理步骤</h3><ul>
+<li>设备产生中断；</li>
+<li>中断控制器产生一个对应的中断向量；</li>
+<li>与中断向量表中的每一个中断向量进行比较，转到对应的中断处理程序；</li>
+<li>中断处理程序保存当前运行进程的现场等相关工作；</li>
+<li>中断处理结束，内核调度，重新返回被中断之前的进程；</li>
+</ul>
+<h2 id="7-5、硬中断与软中断"><a href="#7-5、硬中断与软中断" class="headerlink" title="7.5、硬中断与软中断"></a>7.5、硬中断与软中断</h2><ul>
+<li>硬中断：通常就是指由外部设备产生的异步中断；</li>
+<li>软中断：为了满足实时系统的要求，中断处理应该是越快越好。操作系统为了实现这个特点，当中断发生的时候，通常硬中断处理那些短时间就可以完成的工作，而将那些需要时间比较长的工作，放到中断之后来完成，也就是软中断(softirq)来完成，即bottom-half。</li>
+</ul>
+<h3 id="7-5-1、硬件中断的上半部和下半部"><a href="#7-5-1、硬件中断的上半部和下半部" class="headerlink" title="7.5.1、硬件中断的上半部和下半部"></a>7.5.1、硬件中断的上半部和下半部</h3><p>硬件中断的分类：</p>
+<ul>
+<li>紧急的：这类中断必须立即执行；</li>
+<li>非紧急的：也必须立即执行；</li>
+<li>非紧急可延迟的：半部立即执行，下半部延迟执行</li>
+</ul>
+<p>硬件中断处理程序是一个快速、异步、简单地对硬件做出迅速响应并在最短时间内完成必要操作的中断处理程序。硬中断处理程序可以抢占内核任务并且执 行时还会屏蔽同级中断或其它中断，因此中断处理必须要快、不能阻塞。这样一来对于一些要求处理过程比较复杂的任务就不合适在中断任务中一次处理。比如，网卡接收数据的过程中,首先网卡发送中断信号告诉CPU来取数据，然后系统从网卡中读取数据存入系统缓冲区中，再下来解析数据然后送入应用层。这些如果都让中断处理程序来处理显然过程太长，造成新来的中断丢失。因此Linux开发人员将这种任务分割为两个部分，一个叫上半部分，即中断处理程序，短平快地处理与硬 件相关的操作（如从网卡读数据到系统缓存）；而把对时间要求相对宽松的任务（如解析数据的工作）放在另一个部分执行，这个部分就是我们这里要讲的下半部分。</p>
+<p> 下半部分是一种推后执行任务，它将某些不那么紧迫的任务推迟到系统更方便的时刻运行。因为并不是非常紧急，通常还是比较耗时的，因此由系统自行安排运行时机，不在中断服务上下文中执行。内核中实现 下半底的手段经过不断演化，目前已经从最原始的BH(bottom half)演生出BH、任务队列（Task queues）、软中断（Softirq）、Tasklet、工作队列（Work queues）（2.6内核中新出现的）。</p>
+<h3 id="7-5-1、软中断指令"><a href="#7-5-1、软中断指令" class="headerlink" title="7.5.1、软中断指令"></a>7.5.1、软中断指令</h3><p>软中断是由指令产生的：</p>
+<ul>
+<li>int就是软中断指令</li>
+<li>中断向量表是中断号和中断处理函数地址的对应表；</li>
+<li>int n - 触发软中断n。相应的中断处理函数的地址为：中断向量表地址 + 4 * n；</li>
+</ul>
+<p>比如int 80就是系统调用中断指令，当用户态需要调用内核态时发生</p>
+<h3 id="7-5-2、硬中断和软中断的区别"><a href="#7-5-2、硬中断和软中断的区别" class="headerlink" title="7.5.2、硬中断和软中断的区别"></a>7.5.2、硬中断和软中断的区别</h3><ul>
+<li>软中断是执行中断指令产生的，而硬中断是由外设引发的；</li>
+<li>硬中断的中断号是由中断控制器提供的，软中断的中断号由指令直接指出，无需使用中断控制器；</li>
+<li>硬中断是可屏蔽的，软中断不可屏蔽；</li>
+<li>硬中断处理程序要确保它能快速地完成任务，这样程序执行时才不会等待较长时间，称为上半部；</li>
+<li>软中断处理硬中断未完成的工作，是一种推后执行的机制，属于下半部；</li>
+</ul>
+<h3 id="7-5-3、信号与软中断"><a href="#7-5-3、信号与软中断" class="headerlink" title="7.5.3、信号与软中断"></a>7.5.3、信号与软中断</h3><ul>
+<li>首先要区分信号与信号量不同，信号量是进程、线程的一种通信方式；</li>
+<li>信号属于软中断的一种，有中断指令产生，信号可能来自于外部设备，也可能来自于CPU内部，比如Ctrl + C终止task运行信号、SIGSEGV地址访问越界信号；</li>
+</ul>
+<p>Ctrl + C会导致内核向task发送一个SIGINT信号，当task收到后：</p>
+<ul>
+<li>调用task已经通过signal\sigaction函数注册好的响应处理函数，对信号进行处理；</li>
+<li>未注册响应函数时，调用OS默认函数，即终止当前进程；</li>
+<li>可以选择忽略该信号；</li>
+</ul>
+<p>信号是一种用于内核向进程通告某种事件的发生的载体，每一个信号在物理上就是一个数字编码。Linux中有64个信号：</p>
+<ul>
+<li>前31个，属于非实时信号，重复发送的非实时信号会被丢弃；</li>
+<li>其他的信号属于实时信号，重复发送的实时信号会被记录，然后依次处理；</li>
+</ul>
+<h2 id="7-6、中断与临界段"><a href="#7-6、中断与临界段" class="headerlink" title="7.6、中断与临界段"></a>7.6、中断与临界段</h2><p>详见：<strong>计算机系统_贰.6.2.2节.中断与临界段</strong></p>
+<h1 id="8、寄存器"><a href="#8、寄存器" class="headerlink" title="8、寄存器"></a>8、寄存器</h1><h2 id="8-1、寄存器分类"><a href="#8-1、寄存器分类" class="headerlink" title="8.1、寄存器分类"></a>8.1、寄存器分类</h2><p><font color=red>PS：这里的地址根据场景的不同而分别指代虚拟地址与物理地址，对于具有虚拟内存技术的OS而言，寄存器之中地址多数情况下是虚拟地址，而不具备虚拟内存技术的OS之中，都是物理地址，比如RTOS。</font></p>
+<p>寄存器的种类有很多种，这里主要介绍比较常见的几种：</p>
+<ul>
+<li>数据寄存器：<br>Data Register,DR，又称作数据缓存器，主要用来保存操作数和运算结果等信息，作为CPU和主存、外设之间信息传输的中转站，用以弥补CPU和主存、外设之间操作速度上的差异；</li>
+<li>指令寄存器：<br>Instruction Register，IR，存储当前正在执行的指令，当执行一条指令时，首先把该指令从主存读取到数据寄存器中，然后再传送至指令寄存器。指令包括操作码和地址码两个字段；</li>
+<li>程序计数器寄存器：<br>Program Counter，PC，用来指出下一条指令的地址。在程序执行之前，首先将程序的首地址，即程序第一条指令所在的地址送入PC。当执行指令时，CPU能自动递增PC的内容，使其始终保存将要执行的下一条指令的地址，为取下一条指令做好准备；</li>
+<li>地址寄存器：<br>Address Register，AR，用来保存CPU当前所访问的主存单元的地址。<br>由于在主存和CPU之间存在操作速度上的差异，所以必须使用地址寄存器来暂时保存主存的地址信息，直到主存的存取操作完成为止。<br>当CPU和主存进行信息交换，即CPU向主存存入数据/指令或者从主存读出数据/指令时，都要使用地址寄存器和数据寄存器；</li>
+</ul>
+<h1 id="9、CPU相关"><a href="#9、CPU相关" class="headerlink" title="9、CPU相关"></a>9、CPU相关</h1><h2 id="9-1、CPU、MCU、MPU、DSP"><a href="#9-1、CPU、MCU、MPU、DSP" class="headerlink" title="9.1、CPU、MCU、MPU、DSP"></a>9.1、CPU、MCU、MPU、DSP</h2><p>CPU(Central Processing Unit,中央处理器)，它发展出三个分支：   </p>
+<ul>
+<li>DSP(Digital Signal Processor,数字信号处理)；</li>
+<li>MCU(Micro Control Unit,微控制单元)，多用于集成外围设备，强调不同设备间、设备与操作系统间的流程控制性；</li>
+<li>MPU(Micro Processor Unit,微处理单元)，强调算力密集型；</li>
+</ul>
+<h2 id="9-2、多核CPU架构"><a href="#9-2、多核CPU架构" class="headerlink" title="9.2、多核CPU架构"></a>9.2、多核CPU架构</h2><h3 id="9-2-1、多核处理器分类"><a href="#9-2-1、多核处理器分类" class="headerlink" title="9.2.1、多核处理器分类"></a>9.2.1、多核处理器分类</h3><p>从硬件的角度来看，多核设计分为两类：</p>
+<ul>
+<li>同构多核（homogeneous）：所有的核心具有相同的构架；</li>
+<li>异构多核（heterogeneous）：核心core之间存在多种结构；</li>
+</ul>
+<p>从应用来看，同构多核处理器中大多数由通用处理器核构成，每个核可以独立运行，类似单核处理器。而异构多核处理器往往同时集成了通用处理器、DSP、FPGA、媒体处理器、网络处理器等。每个内核针对不同的需求设定，从而提高应用的计算性能或实时性能。</p>
+<p>常见的异构多核处理器有：MTK的next系列(ARM + DSP)或者称作(Cortex-M4 + DSP)，高通的adsp系列(ARM + DSP) 。<br>同构多处理器就比较多了，日常台式机、笔记本、服务器上的Intel、AMD的商用系列。</p>
+<h3 id="9-2-2、多核处理器运行模式"><a href="#9-2-2、多核处理器运行模式" class="headerlink" title="9.2.2、多核处理器运行模式"></a>9.2.2、多核处理器运行模式</h3><p>从软件的角度来看，多核处理器的运行模式有三种：</p>
+<ul>
+<li><p>SMP-对称多处理，symmetric multi-processing；</p>
+</li>
+<li><p>AMP-非对称多处理，asymmetric multi-processing；</p>
+</li>
+<li><p>BMP-边界多处理（翻译不确定），bound multi-processing；</p>
+</li>
+</ul>
+<p><font color=red>AMP - </font>  </p>
+<ul>
+<li>多个核心相对独立的运行不同的任务，每个核心通常运行不同的操作系统；</li>
+<li>但是有一个主要核心，用来控制整个系统以及其它从核心，具有主从模式<br>举个例子，比如一个主要核心控制用户界面UI，从核心控制数据采集以及输出。还有POS机，一个负责UI，一个负责交易。也就是两者负责不同的任务。</li>
+<li>每个核心有自己独立的内存空间，同时也支持共享的内存空间；</li>
+<li>各个核心之间还有一定的通信机制；</li>
+<li>从硬件上来说，AMP的多核通常是异构的<br>如MCU+DSP，MCU+FPGA等</li>
+</ul>
+<p><font color=red>SMP - </font>   </p>
+<ul>
+<li>这个是目前用的最多的，一个OS同等的管理所以内核，为各个内核分配工作负载；</li>
+<li>大多数的系统都支持SMP模式，如Linux，Vxworks，windows；</li>
+<li>所有的核心共享内存；</li>
+<li>这种模式通常都是同构多核处理器，因为异构的结构不同，实现比较复杂；</li>
+</ul>
+<p>BMP-边界多处理，和SMP类似，也是一个OS管理所有内核，但是不同的是，BMP中，开发者可以指定将某个任务仅在某个指定内核上执行</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">IPanda</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://xman123ing.github.io/2021/07/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-%E8%B4%B0/">https://xman123ing.github.io/2021/07/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-%E8%B4%B0/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">IPanda</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">计算机系统</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/07/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-%E8%B4%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="计算机系统_贰">
+                        
+                        <span class="card-title">计算机系统_贰</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/summary-%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    summary && 技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">计算机系统</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/07/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-%E5%A3%B9/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="计算机系统_壹">
+                        
+                        <span class="card-title">计算机系统_壹</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/summary-%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    summary && 技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">计算机系统</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: IPanda`s Blog<br />'
+            + '文章作者: IPanda<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">IPanda</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "3";
+                    var startDate = "7";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已努力运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/Xman123ing/" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:lipin075084@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=836070413" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 836070413" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+<script src="/js/prism/prism.js" async></script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.8'
+        zIndex="-1" count="150"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</body>
+
+</html>

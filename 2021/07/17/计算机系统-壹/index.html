@@ -1,0 +1,3246 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="计算机系统_壹, 中国地质大学(武汉)2008-2012 Asia亚信 IFly科大讯飞 OPPO">
+    <meta name="description" content="技术分享 | C/C++ | 服务器后端 | 计算机系统 | 嵌入式系统 | FreeRTOS | SensorHub">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>计算机系统_壹 | IPanda`s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
+<link rel="stylesheet" href="/js/prism/prism.css">
+
+
+
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">IPanda`s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">IPanda`s Blog</div>
+        <div class="logo-desc">
+            
+            技术分享 | C/C++ | 服务器后端 | 计算机系统 | 嵌入式系统 | FreeRTOS | SensorHub
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Xman123ing/Xman123ing.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Xman123ing/Xman123ing.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">计算机系统_壹</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">计算机系统</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/summary-%E6%8A%80%E6%9C%AF/" class="post-category">
+                                summary && 技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-07-17
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-07-17
+                </div>
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="0、基础部分"><a href="#0、基础部分" class="headerlink" title="0、基础部分"></a>0、基础部分</h1><h2 id="0-1、从源码到task：进程、线程"><a href="#0-1、从源码到task：进程、线程" class="headerlink" title="0.1、从源码到task：进程、线程"></a>0.1、从源码到task：进程、线程</h2><ul>
+<li>源码：程序员按照语法规则书写的文本文件；</li>
+<li>可执行文件&amp;可链接库：源码经过预处理、编译、汇编、链接而成的二进制文件，与操作系统强绑定，可执行文件也称作程序；</li>
+<li>task：进程、线程：可执行文件经过操作系统loader进内存之中，参与内核调度，task称作程序的运行实体；</li>
+</ul>
+<h2 id="0-2、程序的局部性原理"><a href="#0-2、程序的局部性原理" class="headerlink" title="0.2、程序的局部性原理"></a>0.2、程序的局部性原理</h2><p>包括时间局部性和空间局部性。即最近被CPU访问的数据，短期内CPU 还要访问（时间）；被 CPU 访问的数据附近的数据，CPU 短期内还要访问（空间）。因此如果将刚刚访问过的数据缓存在Cache中，那下次访问时，可以直接从Cache中取，其速度可以得到数量级的提高。<br>此理论是CPU Cache、TLB技术的理论基础。  </p>
+<h2 id="0-3、并发与并行"><a href="#0-3、并发与并行" class="headerlink" title="0.3、并发与并行"></a>0.3、并发与并行</h2><ul>
+<li>例如单核CPU，其对指令的处理都是顺序执行，是一种时间上分时交替处理，给用户一种同时发生的表象，这就是并发；</li>
+<li>并行是指令同一时刻一起运行，这种方式一般在多处理器系统中发生；<br><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCE6b2c709c42fa73920bb4acc2ccc2b13a/39430" alt="image13"></li>
+</ul>
+<h2 id="0-4、进程、线程、协程"><a href="#0-4、进程、线程、协程" class="headerlink" title="0.4、进程、线程、协程"></a>0.4、进程、线程、协程</h2><p><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCEdd745cbe5baa6545fe0005042d80f87b/39433" alt="image14"></p>
+<ul>
+<li>进程  </li>
+</ul>
+<p>进程是一种程序的动态执行过程，进程对CPU并不是独占连续执行的，OS管理所有进程，并对它们进行监控调度。内核中有一个结构体叫做进程控制块PCB(RTOS中称作任务控制块TCB)-(Process Control Block),该结构体包含了该进程几乎所有的信息和资源，OS可以通过这个控制块来获得进程信息并管理进程。<br>进程的设计是为了让各个应用程序能够更好的进行隔离，彼此的运行互不影响，每个进程都有自己独立的内存空间，并且通过内存管理模块MMU和页表机制使得各个进程之间形成了隔离。</p>
+<p>在多进程的并发场景下，势必需要保存当前进程现场信息，比如寄存器，堆栈，更新页表，甚至还需要从外存(比如磁盘中)置换出进程信息等，这样对于CPU的开销非常大，于是为了减少开销便有了进程内的线程并发。</p>
+<ul>
+<li>线程</li>
+</ul>
+<p>进程的目的是隔离并发，那么线程实现的是共享并发，所有的线程共用进程的资源，线程是进程指令流的剥离。<br>由于线程资源共享，所以各个线程之间存在相互的影响，如果一个线程出现崩溃、紊乱，极大可能会影响到该进程中的其他线程，同时对于共享资源的读写操作便会引起竞争问题，那么就产生了一系的共享资源的处理办法，如临界区、互斥、信号等等。</p>
+<p>目前大部分OS对线程的管理、调度和并发都是通过内核完成的，这样就会存在较多系统调用以及从用户态到内核态的切换，会消耗一些时间。为了更进一步减少开销，直接在用户态实现并发便引申出了协程的概念。</p>
+<ul>
+<li>协程</li>
+</ul>
+<p>其实函数调用就类似一种协程的概念，A函数中调用B函数，可以认为是A任务切换到B任务来执行，然后执行完回到A任务，不过这样调用的任务始终是从初始状态开始，如果一个函数能够主动放弃CPU并保存当前现场，然后切换到另外一个函数之前保存的现场，便实现了任意状态函数的并发执行，就实现了协程。  </p>
+<h2 id="0-5、句柄"><a href="#0-5、句柄" class="headerlink" title="0.5、句柄"></a>0.5、句柄</h2><p>句柄是Windows编程中的一个重要概念，是32位无符号整型，表示一个对象的内存地址列表的索引，是分配给资源的唯一标志，这里的对象是指应用程序、窗口、位图等资源对象。     </p>
+<p>句柄并没有直接指向资源对象，而是保存着资源对象在资源注册列表中的索引，也就是说，句柄是间接指向资源对象。资源对象加载到内存时需要将首地址在资源列表中中进行注册，注册后无论资源对象的地址是否发生变化，其在资源列表中的注册位置始终不变。    </p>
+<p>这种设计的原因是资源对象加载到内存后，其地址可能会发生变化。如果资源对象在系统中一直处于空闲状态，操作系统的内存管理模块会将其内存回收，释放给其他资源使用。如果再次访问这个资源，系统会重新为其分配内存。    </p>
+<p>句柄解决了资源对象地址发生变化导致访问失败的问题，资源对象的物理地址是由资源注册列表负责维护，因此句柄只是间接访问资源对象，不需要关心资源对象的物理地址。    </p>
+<p>指针可以修改指向的值，但句柄只能访问资源对象，不能进行修改。</p>
+<h2 id="0-6、main函数"><a href="#0-6、main函数" class="headerlink" title="0.6、main函数"></a>0.6、main函数</h2><p>main函数是程序的入口，这种说法是不准确的。因为通常main函数的返回类型是int，那么必然有地方接收这个返回值，所以从这个角度而言，必然有其他地方在调用main函数，那么main函数就不是程序的第一入口。<br>在main函数之前和之后都发生了什么？<br>main函数之前会调用全局对象和静态对象的构造函数，初始化全局变量和静态变量；main函数之后会调用在atexit函数中注册的函数接收main的返回值。</p>
+<h2 id="0-7、程序加载过程"><a href="#0-7、程序加载过程" class="headerlink" title="0.7、程序加载过程"></a>0.7、程序加载过程</h2><p>参见<strong>计算机系统_壹.4、虚拟内存.</strong></p>
+<h2 id="0-8、计算机是如何启动-重启的？"><a href="#0-8、计算机是如何启动-重启的？" class="headerlink" title="0.8、计算机是如何启动/重启的？"></a>0.8、计算机是如何启动/重启的？</h2><ul>
+<li><p>启动/重启计算机时，相关寄存器进行初始化<br><code>CS：FFFF  IP：0000</code><br>该指令是一条跳转指令   </p>
+</li>
+<li><p>FFFF跳转到ROM/BIOS，开始执行BIOS中的指令；  </p>
+</li>
+<li><p>BIOS中存放的是括装机时就烧录好的一些信息，例如系统参数，开机引导程序等；</p>
+</li>
+<li><p>BIOS将位于硬盘之中主引导扇区的开机引导程序加载到内存，包含指令：  </p>
+<ul>
+<li>A、加载操作系统的自举代码进内存   </li>
+<li>B、执行操作系统自举代码的指令   </li>
+</ul>
+</li>
+<li><p>BIOS的最后一条指令是跳转指令，跳转至已被加载到内存中的开机引导程序的指令处，然后依次执行A、B指令，进入OS的世界</p>
+</li>
+</ul>
+<h2 id="0-9、POSIX标准"><a href="#0-9、POSIX标准" class="headerlink" title="0.9、POSIX标准"></a>0.9、POSIX标准</h2><p>POSIX标准是Unix\Linux可移植性操作系统接口，它规定了操作系统必须提供的：   </p>
+<ul>
+<li>系统服务；</li>
+<li>函数库，包含头文件和库文件；  </li>
+</ul>
+<p>早期，不同操作系统使用不同的系统实现，比如printf函数在不同操作系统中C的实现方式可能千差万别。之后IEEE发布POSIX标准，规定不同的Unix\Linux必须遵守统一的POSIX标准，提供标准的系统服务、函数库，这样开发者在Unix\Linux上能够使用统一的头文件声明，而不用关心不同操作系统的具体实现方式，程序可以在同一标准的系统间移植。   </p>
+<h1 id="1、程序内存空间"><a href="#1、程序内存空间" class="headerlink" title="1、程序内存空间"></a>1、程序内存空间</h1><p><font color=red><strong>程序</strong>：是指令、数据及其组织形式的描述实体</font>，<br>C和C++程序的内存空间从低地址到高地址大致包括：</p>
+<ul>
+<li>text 代码段；</li>
+<li>.rodata 常量区</li>
+<li>data 数据段</li>
+<li>bss(Block Started by Symbol)</li>
+<li>heap 堆</li>
+<li>stack 栈</li>
+</ul>
+<p><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCE3fb96316229f9e3c66564b3928a3a324/38736" alt="image01"></p>
+<h2 id="1-1、text代码段"><a href="#1-1、text代码段" class="headerlink" title="1.1、text代码段"></a>1.1、text代码段</h2><ul>
+<li>用于存放可执行文件的运行指令，属于只读内存空间；</li>
+<li>也可能包括一些只读常量，比如字符串常量；</li>
+</ul>
+<h2 id="1-2、-rodata常量区"><a href="#1-2、-rodata常量区" class="headerlink" title="1.2、.rodata常量区"></a>1.2、.rodata常量区</h2><p>存储只读常量的内存空间称作常量区</p>
+<ul>
+<li><p>字符串字面量==自身==会被默认编译进rodata;</p>
+</li>
+<li><p>全局实数常量会编译进rodata【<strong>不一定正确</strong>】;</p>
+<ul>
+<li>特例：(全局、局部)实数常量会以立即数的形式直接编译进指令之中，位于text段，参见<strong>C++.md的6.3节</strong>；</li>
+</ul>
+</li>
+<li><p>对于字符串字面量，编译器会做去重处理，保证全局只有一份字符串字面量。但字面量实数不会去重；</p>
+</li>
+<li><p>const修饰的全局常量；</p>
+<ul>
+<li>特例：const char *，由于修饰的是指针指向的对象，故此种情况指针不是rodata，只有在修饰指针自身的时候才是rodata，const char * const;</li>
+</ul>
+</li>
+<li><p>const修饰的局部变量，不管是否被字面量赋值，变量自身都不会进入rodata，此操作只是将变量设置为const防止被修改；</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;stdio.h&gt;
+
+const char * str03 &#x3D; &quot;hello_ketty&quot;;  &#x2F;&#x2F; hello_ketty &#x3D; rodata, str03 &#x3D; data, const修饰的不是指针str03
+const char * const str04 &#x3D; &quot;hello_ketty&quot;;  &#x2F;&#x2F; 去重,与str03的hello_world是同一块常量区, str04 &#x3D; rodata
+
+int a_value &#x3D; 12345;  &#x2F;&#x2F; 12345 &#x3D; rodata, a_value &#x3D; data
+int a_value_2 &#x3D; 12345;  &#x2F;&#x2F; 不去重，12345 &#x3D; rodata, a_value_2 &#x3D; data
+const int a_value_const &#x3D; 6789;  &#x2F;&#x2F; 6789 &#x3D; rodata, a_value_const &#x3D; rodata
+
+int main()
+&#123;
+    int a_value_3 &#x3D; 80000;  &#x2F;&#x2F; 80000 &#x3D; 立即数text, a_value &#x3D; text
+    const int a_value_const_2 &#x3D; 80000;  &#x2F;&#x2F; 80000 &#x3D; 立即数text, a_value_const_2 &#x3D; text
+    const char * const str05 &#x3D; &quot;AnglaBaby&quot;;  &#x2F;&#x2F; hello_ketty &#x3D; rodata, str05 &#x3D; text
+
+    printf(&quot;hello_everybody %d\n&quot;, 10);  &#x2F;&#x2F; hello_everybody就是存放在常量区
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>printf语句中的格式化字符串，比如：</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">printf(&quot;Hello world %d\n&quot;, c);  &#x2F;&#x2F; Hello world就是存放在常量区<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>.rodata可以在多个进程间共享，这样可以提高内存空间利用率；</p>
+</li>
+</ul>
+<p><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCE1ef895188b31a0dae7b428808eca2723/38746" alt="image06"><br><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCE7a306235454a8b18125cb760d13ce70d/38748" alt="image07"><br><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCE41f2604e506a0d6965b667d857b30a5d/38750" alt="image08"><br><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCEf3d366d7725a2759fce90fbf65f21cf5/38752" alt="image09"><br><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCE21ddfb14f95a3543fc5c0bfc1a28d0f2/38754" alt="image10"><br><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCEc346c81d9b223a1a3b0215fbdd4489ff/38756" alt="image11"></p>
+<h2 id="1-3、data数据段"><a href="#1-3、data数据段" class="headerlink" title="1.3、data数据段"></a>1.3、data数据段</h2><p>用于存储(非const，非零值)已初始化的全局变量、静态变量，特例：</p>
+<ul>
+<li>而const修饰的会放入rodata常量区；</li>
+<li>初始化为0的变量会被放入BSS段；<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;stdio.h&gt;
+int aValue &#x3D; 6789;  &#x2F;&#x2F; .data
+int aValue_2 &#x3D; 0;  &#x2F;&#x2F; .bss
+const int aValue_3 &#x3D; 0;  &#x2F;&#x2F; .rodata
+static int aValue_4 &#x3D; 12345;  &#x2F;&#x2F; .data
+static int aValue_5;  &#x2F;&#x2F; .bss
+
+int array[4] &#x3D; &#123;0&#125;;  &#x2F;&#x2F; .bss
+int array_2[4] &#x3D; &#123;3&#125;;  &#x2F;&#x2F; .data
+
+const char *str444 &#x3D; &quot;hello_world&quot;;  &#x2F;&#x2F; .data
+
+int main()
+&#123;
+    std::cout &lt;&lt; aValue + aValue_2 + aValue_3 + aValue_4 + array[0] + array_2[0] &lt;&lt; std::endl;
+    std::cout &lt;&lt; str444 &lt;&lt; std::endl;
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<p><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCE23e23cae97c29bd3976d5e03c92418d2/38738" alt="image02"><br><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCEbde8b1c8a83e2f1281607473605265df/38740" alt="image03"></p>
+<h2 id="1-4、BSS未初始化数据段"><a href="#1-4、BSS未初始化数据段" class="headerlink" title="1.4、BSS未初始化数据段"></a>1.4、BSS未初始化数据段</h2><p>用于存储未初始化、(非const)初始化为0的全局变量</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;stdio.h&gt;
+int aValue;  &#x2F;&#x2F; .bss
+int aValue_2 &#x3D; 0;  &#x2F;&#x2F; .bss
+const int aValue_3 &#x3D; 0;  &#x2F;&#x2F; .rodata
+static int aValue_4 &#x3D; 0;  &#x2F;&#x2F; .bss
+static int aValue_5;  &#x2F;&#x2F; .bss
+
+int array[4] &#x3D; &#123;0&#125;;  &#x2F;&#x2F; .bss
+int array_2[4];  &#x2F;&#x2F; .bss
+
+int main()
+&#123;
+    std::cout &lt;&lt; aValue + aValue_2 + aValue_3 + aValue_4 + array[0] + array_2[0] &lt;&lt; std::endl;
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCE381a64cce1c8d06d8b0baa1649799a28/38742" alt="image04"><br><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCE68ddb485649d531b1963df552044bc51/38744" alt="image05"></p>
+<h2 id="1-5、heap堆"><a href="#1-5、heap堆" class="headerlink" title="1.5、heap堆"></a>1.5、heap堆</h2><h3 id="1-5-1、概念"><a href="#1-5-1、概念" class="headerlink" title="1.5.1、概念"></a>1.5.1、概念</h3><p>程序运行期间动态申请的内存空间，由程序员管理其申请与释放周期，由低地址向高地址延伸<br>从物理角度而言，计算机的内存就是一块连续内存空间，并没有堆栈之分，堆栈的区分是OS层面的概念。<br>就是一块能自由分配的内存,<font color=red><strong>是进程中所有线程共享的空间</strong></font>，由低地址向高地址延伸。堆在进程初始化的时候分配，运行过程中也可以向系统申请额外的堆，但需要程序员管理其申请与释放的生命周期，要不然会引起内存泄漏。它允许程序在运行时动态地申请某个大小的内存空间，比如：程序员向操作系统申请一块内存，当系统收到程序的申请时，会遍历一个记录空闲内存地址的链表，寻找第一个大于所申请空间的堆结点，然后将该结点从空闲结点链表中删除，并将该结点的空间分配给申请者。其特点就是分配的速度较慢，地址不连续，容易碎片化并且必须由程序员自行管理。</p>
+<h3 id="1-5-2、heap的线程安全性"><a href="#1-5-2、heap的线程安全性" class="headerlink" title="1.5.2、heap的线程安全性"></a>1.5.2、heap的线程安全性</h3><p>不建议在线程中用new开辟新内存空间，因为heap是共享的，线程调用new是一个同步操作，其他线程都得停下来等，这样就有很大的同步代价。比如m个线程都需要new heap，那么就需要m次内存分配的操作，所有的线程需要等m次。<br>每一次new操作都是很耗时的，我们完全可以只分配一次m*n大小的内存到heap，然后每个线程访问自己需要访问的部分，这样只需要一次内存分配，而且之后的操作没有同步代价。</p>
+<h2 id="1-6、stack栈"><a href="#1-6、stack栈" class="headerlink" title="1.6、stack栈"></a>1.6、stack栈</h2><p>栈是线程私有的，在线程开始时进行初始化，线程间的栈空间是彼此独立的，故栈是线程安全的。</p>
+<ul>
+<li>存放函数局部变量和函数参数；</li>
+<li>进行函数调用时，存储”过程活动记录”；</li>
+<li>作为暂时存储区，比如计算表达式的临时结果；</li>
+<li>栈的释放顺序为先进后出FILO</li>
+<li>由高地址向低地址延伸，故存在栈溢出的可能；</li>
+</ul>
+<h2 id="1-7、堆与栈的不同"><a href="#1-7、堆与栈的不同" class="headerlink" title="1.7、堆与栈的不同"></a>1.7、堆与栈的不同</h2><ul>
+<li>1、申请方式不同<ul>
+<li>栈是由系统管理，自动分配、释放，速度快；</li>
+<li>堆需要程序员自己申请、释放，速度较慢；</li>
+</ul>
+</li>
+<li>2、申请后系统的响应不同<ul>
+<li>当栈空间不足时会报栈溢出错误；</li>
+<li>堆需要先遍历空闲地址表，寻找可用的足够大的堆节点，并在起始地址记录本次申请的内存大小，用于delete时内存释放，当堆空间不足时返回NULL；</li>
+</ul>
+</li>
+<li>3、地址范围不同<ul>
+<li>在线程内，栈空间是连续的，由高地址向低地址扩展，大小是固定的，故存在栈溢出的可能。linux中可通过命令ulimit -a查看栈大小，ulimit -s重新设置栈大小；</li>
+<li>不同堆之间是地址是不连续的，由低地址向高地址扩展，它的大小理论上受制于计算机的实际内存；</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-8、栈顶、栈底、出栈、入栈"><a href="#1-8、栈顶、栈底、出栈、入栈" class="headerlink" title="1.8、栈顶、栈底、出栈、入栈"></a>1.8、栈顶、栈底、出栈、入栈</h2><p>堆栈是一种简单的数据结构，只允许在一端进行插入或删除的线性表。<br>允许插入、删除操作的一端称为栈顶，另一端称为栈底，堆栈的插入和删除操作被称入栈和出栈</p>
+<h2 id="1-9、可执行文件物理体积的影响因素"><a href="#1-9、可执行文件物理体积的影响因素" class="headerlink" title="1.9、可执行文件物理体积的影响因素"></a>1.9、可执行文件物理体积的影响因素</h2><p>可执行文件物理体积包括：</p>
+<ul>
+<li>text代码段；<ul>
+<li>主要是指代码的文本量，严格意义上来说应该是代码编译成机器指令后的指令文本量，不涉及局部变量即将在运行期申请的内存大小<pre class="line-numbers language-C" data-language="C"><code class="language-C">int main()
+&#123;
+    int a_valude;  &#x2F;&#x2F; 文本体积
+    int array[1024];  &#x2F;&#x2F; 文本体积
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+<li>data数据段；</li>
+<li>rodata常量区<pre class="line-numbers language-C" data-language="C"><code class="language-C">&#x2F;&#x2F; data与rodata是影响可执行文件体积的主要因素
+int a_value;  &#x2F;&#x2F; .bss仅一个占位符
+int a_value_2；  &#x2F;&#x2F; .bss仅一个占位符
+int a_value_3 &#x3D; 12; &#x2F;&#x2F; &#39;12&#39;在.rodata中的体积，一个整形的长度
+const char * str &#x3D; &quot;hello_world&quot;;  &#x2F;&#x2F; &quot;hello_world&quot;在.rodata中的体积<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h3 id="1-9-1、特殊情况"><a href="#1-9-1、特殊情况" class="headerlink" title="1.9.1、特殊情况"></a>1.9.1、特殊情况</h3><p>正常情况下如果增加N个int全局变量，对应的目标文件体积会增加N * 4个Byte</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int array_2[10240] &#x3D; &#123;0,1,2,3,4,.........&#125;;
+int array_3[10] &#x3D; &#123;0,1,2,3,4,5,6,7,8,9&#125;;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ul>
+<li>如果N值较大，比如N=10240，假如此时明确知晓只是使用了其中很少一部分元素，比如10个，会存在一下两种情形：<ul>
+<li>未使用优化编译项时，目标文件体积会增加10240个int大小；</li>
+<li>如果此时使用了-O2、-O3、-Os等较高等级的优化编译项，编译器会做优化处理，仅仅将使用到的元素编译进来，编译的目标文件只会增加10个int的大小。需要注意的是如果目标文件是库文件，此种优化方式对全局变量不生效，因为库需要为使用者预留尽可能多的元素访问项，如果是全局静态变量，编译器优化仍会生效，因为static是文件作用域的，库的使用者无法访问</li>
+</ul>
+</li>
+<li>如果N值较小，比如N=10<br>不管是否开启编译优化选项，全局变量都会被完全编译，这是因编译器的原地展开原则；</li>
+</ul>
+<h1 id="2、进程、线程"><a href="#2、进程、线程" class="headerlink" title="2、进程、线程"></a>2、进程、线程</h1><ul>
+<li>进程是操作系统中申请资源的最小实体；</li>
+<li>线程是最小的运行实体；</li>
+<li>进程相当于线程的容器，一个进程可以创建多个线程，线程共享进程的代码段、.data段、.rodata段、BSS段、堆空间，栈空间为线程私有；</li>
+</ul>
+<h2 id="2-1、进程"><a href="#2-1、进程" class="headerlink" title="2.1、进程"></a>2.1、进程</h2><p>进程是操作系统中申请资源的最小实体</p>
+<h3 id="2-1-1、进程的创建"><a href="#2-1-1、进程的创建" class="headerlink" title="2.1.1、进程的创建"></a>2.1.1、进程的创建</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">#include&lt;unistd.h&gt;
+pid_t fork();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>fork函数没有参数，返回值为进程标识符，有以下3种情况:   </p>
+<ul>
+<li>对于父进程，返回创建子进程的PID；   </li>
+<li>对于子进程，返回0；   </li>
+<li>如果创建出错，返回-1；  </li>
+</ul>
+<p><font color=red>为什么fork函数会有两次返回？</font>这就需要从父子进程之间的关系讲起：<br>fork函数会创建一个新的进程，内核会为其分配新的PID、新的内存空间，并复制父进程的.data段、.rodata段、BSS段、堆空间、栈空间，但共享代码段。   </p>
+<p>由于子进程创建时复制了父进程的数据空间，并且共享代码段.text，父子进程均从fork函数处继续，便有了两次返回，父子进程里各一次，通过返回值的不同加以区分。<br><strong>注意</strong>：虽然父子进程之间存在关系，但对于操作系统内核而言，二者的地位是同等的，所以父子进程的执行顺序也是随机的，完全由操作系统的task调度器支配。  </p>
+<ul>
+<li>getpid()获取当前进程的PID;   </li>
+<li>getppid()获取父进程PID；</li>
+</ul>
+<p>示例：  </p>
+<pre class="line-numbers language-none"><code class="language-none">#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;unistd.h&gt;
+int main(void)&#123;
+    pid_t pid;
+    pid &#x3D; fork();
+    if (pid &lt; 0)&#123;
+        perror(&quot;fail to fork&quot;);
+        exit(-1);
+    &#125;
+    else if (pid &#x3D;&#x3D; 0)&#123;
+        &#x2F;*子进程*&#x2F;
+        printf(&quot;Sub-process, PID: %u, PPID: %u\n&quot;, getpid(), getppid());
+    &#125;
+    else&#123;&#x2F;*父进程*&#x2F;        
+        printf(&quot;Parent, PID: %u, Sub-process PID: %u\n&quot;, getpid(), pid);
+	   sleep(2);
+    &#125;
+    return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>操作系统内核为子进程父子父进程的数据空间</p>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+int global &#x3D; 1; &#x2F;*初始化的全局变量，存在data段*&#x2F;
+int main(void)&#123;
+    pid_t pid;&#x2F;*存储进程id*&#x2F;
+    int   stack &#x3D; 1;&#x2F;*局部变量，存在栈中*&#x2F;
+    int  *heap;&#x2F;*指向堆变量的指针*&#x2F;
+    heap &#x3D; (int *)malloc(sizeof(int));
+    *heap &#x3D; 3;&#x2F;*设置堆中的值是3*&#x2F;
+    pid &#x3D; fork();&#x2F;*创建一个新的进程*&#x2F;
+    if (pid &lt; 0)&#123;
+        perror(&quot;fail to fork&quot;);
+        exit(-1);
+    &#125;
+    else if (pid &#x3D;&#x3D; 0)&#123;
+        &#x2F;*子进程，改变变量的值*&#x2F;
+        global++;
+        stack++;
+        (*heap)++;
+        &#x2F;*打印出变量的值*&#x2F;
+        printf(&quot;In sub-process, global: %d, stack: %d, heap: %d\n&quot;, global, stack, *heap);
+        exit(0);
+    &#125;
+    else&#123;
+        &#x2F;*父进程*&#x2F;
+        sleep(2);&#x2F;*休眠2秒钟，确保子进程已执行完毕，再执行父进程*&#x2F;
+        printf(&quot;In parent-process, global: %d, stack: %d, heap: %d\n&quot;, global, stack, *heap);
+    &#125;
+    return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出结果：</p>
+<pre class="line-numbers language-none"><code class="language-none">In sub-process, global: 2, stack: 2, heap: 4
+In parent-process, global: 1, stack: 1, heap: 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>通过子进程中变量global、stack、*heap的初值来看，子进程复制了父进程的数据空间，但复制的时机由操作系统决定，在Linux系统中其遵循”写时复制”原则：</p>
+<h3 id="2-1-2、Copy-On-Write”写时复制”规则"><a href="#2-1-2、Copy-On-Write”写时复制”规则" class="headerlink" title="2.1.2、Copy-On-Write”写时复制”规则"></a>2.1.2、Copy-On-Write”写时复制”规则</h3><p>Linux系统中fork函数在创建子进程时并不会立即复制父进程的数据空间，而是当父进程或子进程的任何一方发生写操作时物理内存复制操作才真正发生，内核才会给子进程分配真实的物理地址空间，并将父进程数据空间的数据复制过来，在此之前子进程都是指向父进程的物理内存空间。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;unistd.h&gt;
+
+main()&#123;
+    char str[4]&#x3D;&quot;asd&quot;;
+    pid_t pid&#x3D;fork();
+    if(pid&#x3D;&#x3D;0)&#123;
+        str[0]&#x3D;&#39;b&#39;;
+        printf(&quot;子进程中str&#x3D;%s\n&quot;,str);
+        printf(&quot;子进程中str指向的首地址:%x\n&quot;,(unsigned int)str);
+    &#125;
+    else&#123;
+        sleep(1);
+        printf(&quot;父进程中str&#x3D;%s\n&quot;,str);
+        printf(&quot;父进程中str指向的首地址:%x\n&quot;,(unsigned int)str);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>运行结果</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">子进程中str&#x3D;bsd
+子进程中str指向的首地址:bfc224dc
+父进程中str&#x3D;asd
+父进程中str指向的首地址:bfc224dc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><font color=red><strong>为何在发生了”写操作”后，父子进程中的str地址仍然一样？</strong></font>  这就涉及物理地址与逻辑地址的概念，详见<strong>第4节虚拟地址、物理地址</strong>。   </p>
+<p>父子进程都有自己的虚拟地址空间，二者之间是独立、无关联的，故存在不同进程具有相同的虚拟地址，但值却不一样的情况，因为各自虚拟地址对应的映射物理地址并不相同。</p>
+<h3 id="2-1-3、进程的结束"><a href="#2-1-3、进程的结束" class="headerlink" title="2.1.3、进程的结束"></a>2.1.3、进程的结束</h3><p>进程结束的2钟场景：</p>
+<ul>
+<li>正常结束；</li>
+<li>异常结束；</li>
+</ul>
+<p>详见<strong>第3节task的退出/终止</strong><br>例如main函数的正常return退出会默认调用进程结束函数exit</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">#include&lt;stdlib.h&gt;
+void exit(int status)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>exit的参数表示进程的退出状态，这个状态值是一个整形全局变量，Linux系统中保存在$?中。在shell中可以通过命令 <code>echo $?</code>获取最近一个结束进程的状态值。  </p>
+<p><font color=red><strong>注意</strong>：</font>当程序异常退出时，返回值默认为1，所以在编写代码时如果没有出错，不要使其返回值为1。</p>
+<h3 id="2-1-4、wait-waitpid"><a href="#2-1-4、wait-waitpid" class="headerlink" title="2.1.4、wait\waitpid"></a>2.1.4、wait\waitpid</h3><p><font color=red><strong>待重新梳理………</strong></font></p>
+<p>函数原型：  </p>
+<pre class="line-numbers language-none"><code class="language-none">pid_t wait(int * status);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;sys&#x2F;types.h&gt;
+#include &lt;sys&#x2F;wait.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+int main()&#123;
+    &#x2F;*fork一个子进程*&#x2F;
+    pid_t pid &#x3D; fork();
+	if(pid&lt;0)&#123;
+	    perror(&quot;fork error\n&quot;);
+	    return 0;
+	&#125;else if(pid &gt; 0)&#123;&#x2F;*父进程*&#x2F;
+        printf(&quot;Parent process\n&quot;);
+	    pid_t pr&#x3D;wait(NULL);
+	    printf(&quot;Parent process, I catched a child process with pid of %d\n&quot;,pr);
+    &#125;else if(pid &#x3D;&#x3D; 0)&#123;
+	    printf(&quot;Sub-process, PID: %u, PPID: %u\n&quot;, getpid(), getppid());
+        exit(0);
+    &#125;
+    return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>通过wait的参数status获取子进程退出的状态信息，该值反应子进程是正常退出还是异常退出，以及正常结束时的返回值或被哪一个信号结束等的信息。这些信息存储在一个专门的宏(macro)中，比较常见的两个是：  </p>
+<ul>
+<li>WIFEXITED，用来指出子进程是否正常退出，正常退出时为非零值，这里的参数不同于wait函数中的status参数，而是那个指针所指向的整数；  </li>
+<li>WEXITSTATUS;    </li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;sys&#x2F;types.h&gt;
+#include &lt;sys&#x2F;wait.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+int main()&#123;
+    &#x2F;*fork一个子进程*&#x2F;
+    pid_t pid &#x3D; fork();
+	if(pid&lt;0)&#123;
+	    perror(&quot;fork error\n&quot;);
+        return 0;
+	&#125;else if(pid &gt; 0)&#123;&#x2F;*父进程*&#x2F;
+        printf(&quot;Parent process\n&quot;);
+	    int status&#x3D;-1;
+	    pid_t pr&#x3D;wait(&amp;status);
+	    if(WIFEXITED(status))&#123;
+	        printf(&quot;the child process %d exit normally.\n&quot;,pr);
+	        printf(&quot;the return code is %d.\n&quot;,WEXITSTATUS(status));
+	    &#125;else&#123; 
+	        printf(&quot;the child process %d exit abnormally.\n&quot;,pr);
+	    &#125;
+    &#125;else if(pid &#x3D;&#x3D; 0)&#123;
+	    printf(&quot;Sub-process, PID: %u, PPID: %u\n&quot;, getpid(), getppid());
+        exit(3);
+    &#125;
+    return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>waitpid函数</strong>：</p>
+<pre class="line-numbers language-none"><code class="language-none">#include&lt;sys&#x2F;types.h&gt;  
+#include&lt;sys&#x2F;wait.h&gt;
+pid_t waitpid(pid_t pid, int *statues, int options);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>waitpid是wait函数的封装，只是多了三个可供选择的参数。如果不在意子进程的结束状态，那么status可以设置为NULL。<br>pid的参数含义：    </p>
+<ul>
+<li>pid&lt;-1:等待进程组识别码为pid绝对值的任意子进程；   </li>
+<li>pid=-1::等待任意子进程，相当于wait；  </li>
+<li>pid=0:等待进程组识别码与目前进程相同的任意子进程；   </li>
+<li>pid&gt;0:等待进程识别码为pid的子进程；   </li>
+</ul>
+<p>options的参数含义：   </p>
+<ul>
+<li>options=WNOHANG，即使没有子进程退出，它也会立即返回，不会像wait那样永远等下去；   </li>
+<li>options=WUNTRACED，子进程进入暂停马上返回，但结束状态不予理会；   </li>
+<li>options=0，忽略此参数；  </li>
+</ul>
+<p>返回值：  </p>
+<ul>
+<li>当正常返回的时候，waitpid返回收集到的子进程的进程ID；   </li>
+<li>如果调用出错，则返回-1，这时errno会被设置成相应的值以指示错误所在；   </li>
+<li>当pid所指示的子进程不存在，或此进程存在，但不是调用进程的子进程，waitpid就会出错返回，这时errno被这设置为ECHILD；  </li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;sys&#x2F;types.h&gt;
+#include &lt;sys&#x2F;wait.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+int main()&#123;
+	pid_t pid, pr;
+	pid&#x3D;fork();
+	if(pid&lt;0) &#x2F;* 如果fork出错 *&#x2F;
+    	printf(&quot;Error occured on forking.\n&quot;);
+    else if(pid&#x3D;&#x3D;0)&#123; &#x2F;* 如果是子进程 *&#x2F;
+	    printf(&quot;Sub process will sleep for 10 seconds.\n&quot;)
+        sleep(10); &#x2F;* 睡眠10秒 *&#x2F;
+        exit(0);
+    &#125;else if(pid&gt;0)&#123;
+		&#x2F;* 如果是父进程 *&#x2F;
+		do&#123;
+		  pr&#x3D;waitpid(pid, NULL, WNOHANG); 
+               &#x2F;* 使用了WNOHANG参数，waitpid不会在这里等待 *&#x2F;
+		 if(pr&#x3D;&#x3D;0)&#123; &#x2F;* 如果没有收集到子进程 *&#x2F;
+                  printf(&quot;No child exited\n&quot;);
+                  sleep(1);
+                &#125;
+		&#125;while(pr&#x3D;&#x3D;0); &#x2F;* 没有收集到子进程，就回去继续尝试 *&#x2F;
+              if(pr&#x3D;&#x3D;pid)
+			printf(&quot;successfully get child %d\n&quot;, pr);
+		else
+			printf(&quot;some error occured\n&quot;);
+	&#125;
+	return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-1-5、僵死进程-孤儿进程"><a href="#2-1-5、僵死进程-孤儿进程" class="headerlink" title="2.1.5、僵死进程\孤儿进程"></a>2.1.5、僵死进程\孤儿进程</h3><p>对于操作系统而言并不会区别对待父子进程，与其他进程一样参与调度，也无法预测它们的行为，于是便有了孤儿进程和僵尸进程产生的可能   </p>
+<ul>
+<li>孤儿进程：父进程退出后，子进程仍在运行，此时子进程便成为孤儿进程。这些孤儿进程最终会被init进程(进程号为1)所收养，并由init进程对它们进行管理。   </li>
+<li>僵尸进程：子进程退出，但是父进程并未使用wait或waitpid获取子进程的状态信息，无法对其进行管理，子进程的进程描述符仍然保留在系统中，就像一个无用的躯壳残留，实际并不在运行了，称作僵死进程</li>
+</ul>
+<p>linux中通过命令<code>ps aux | grep -w &#39;Z&#39;</code>可以查看系统中存在的僵尸进程</p>
+<h3 id="2-1-6、守护进程"><a href="#2-1-6、守护进程" class="headerlink" title="2.1.6、守护进程"></a>2.1.6、守护进程</h3><p><font color=red><strong>待重新梳理………</strong></font></p>
+<p>在linux或windows中存在很多系统启动时就开启的服务，这些服务称作守护进程。守护进程是独立于终端并且在后台运行的。<br>在linux中，每一个系统与用户交流的界面都被称作终端，每一个从此终端开始运行的进程都会依赖于这个终端，这个终端被称作控制终端，当控制终端关闭时，相应的进程都会关闭，但是守护进程却能突破这种限制。<br>在介绍守护进程的创建之前需要先了解两个概念：进程组和会话期   </p>
+<ul>
+<li><p>进程组<br>是一个或多个进程的集合，进程组由进程组ID来唯一标识，每一个进程组都有一个组长进程，其进程ID与进程组ID相同，且该进程组ID不会因为组长进程的退出受到影响；   </p>
+</li>
+<li><p>会话期<br>通常，一个会话开始于用户登录，结束于用户退出，在此期间该用户运行的所有进程都属于这个会话期；   </p>
+</li>
+</ul>
+<p>创建一个守护进程的简单步骤：   </p>
+<ol>
+<li><p>创建子进程，父进程退出<br>这是编写守护进程的第一步，父进程退出，在形式上做到了与控制终端脱离的假象。   </p>
+</li>
+<li><p>在子进程中创建新会话<br>父进程退出，会导致子进程变成孤儿进程，此时需要调用setsid函数创建新的会话，并担任会话组的组长，调用setsid的3个作用：1、让进程摆脱原会话的控制；2、摆脱原进程组的控制；3、摆脱原控制终端的控制；<br>为什么调用setsid？<br>由于fork函数创建子进程时，全盘拷贝了父进程的会话期、进程组、控制终端。   </p>
+</li>
+<li><p>改变当前目录为根目录<br>由于子进程继承了父进程的当前目录，会对以后的使用造成麻烦，通常的做法是把’&#39;当做守护进程的工作目录，当然也可指定为其他目录；   </p>
+</li>
+<li><p>重设文件权限掩码<br>即重设守护进程的文件访问权限，解除守护进程文件访问的麻烦，调用函数umask可以实现；   </p>
+</li>
+<li><p>关闭文件描述符<br>由于守护进程已经脱离控制终端，终端的输入无法到达守护进程，守护进程的输出也无法到达终端，此时便需要关闭文件描述符0、1、2；   </p>
+</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;string.h&gt;
+#include&lt;fcntl.h&gt;
+#include&lt;unistd.h&gt;
+#include&lt;sys&#x2F;wait.h&gt;
+#include&lt;sys&#x2F;types.h&gt;
+#include&lt;sys&#x2F;stat.h&gt;
+#define MAXFILE 65535
+int main()&#123;
+	pid_t pc;
+	int i,fd,len;
+	char *buf&#x3D;&quot;this is a Dameon\n&quot;;
+	len &#x3D; strlen(buf);
+	pc &#x3D; fork(); &#x2F;*第一步*&#x2F;
+	if(pc&lt;0)&#123;
+		printf(&quot;error fork\n&quot;);
+		exit(1);
+	&#125;else if(pc&gt;0)&#123;
+		exit(0);
+	&#125;
+	setsid(); &#x2F;*第二步*&#x2F;
+	chdir(&quot;&#x2F;&quot;); &#x2F;*第三步*&#x2F;
+	umask(0); &#x2F;*第四步*&#x2F;
+	for(i&#x3D;0;i&lt;MAXFILE;i++) &#x2F;*第五步*&#x2F;
+	    close(i);
+    while(1)&#123;
+	if((fd&#x3D;open(&quot;&#x2F;tmp&#x2F;dameon.log&quot;,O_CREAT|O_WRONLY|O_APPEND,0600))&lt;0)&#123;
+		perror(&quot;open&quot;);
+		exit(1);
+	&#125;
+	write(fd,buf,len+1);
+	close(fd);
+	sleep(10);
+  &#125;
+  return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-1-7、IPC-进程间通信"><a href="#2-1-7、IPC-进程间通信" class="headerlink" title="2.1.7、IPC 进程间通信"></a>2.1.7、IPC 进程间通信</h3><p>进程间通信方式包括：</p>
+<ul>
+<li>管道；</li>
+<li>消息队列；</li>
+<li>共享内存；</li>
+<li>信号量；</li>
+<li>套接字；</li>
+</ul>
+<p>前四种用于同一操作系统之中的进程通信，套接字socket用于跨主机间的进程通信</p>
+<h4 id="1、管道"><a href="#1、管道" class="headerlink" title="1、管道"></a>1、管道</h4><ul>
+<li>无名管道；</li>
+<li>具名管道；</li>
+</ul>
+<p><font color=red><strong>无名管道</strong></font></p>
+<ul>
+<li>无名管道为半双工模式，数据流只能由一个进程流向另一个进程；</li>
+<li>只能用于父子进程或兄弟进程，也就是说必须是具有亲缘关系的进程；</li>
+</ul>
+<p>管道实际上是一种存在于内存之中的文件，在管道尾部写入，头部读出。<font color=red>而且管道的操作是由内核完成，频繁的调用会影响系统性能。</font></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">int pipe(int fd[2]);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>分别用fd[0]和fd[1]来描述管道读端、写端</p>
+<pre class="line-numbers language-none"><code class="language-none">#include&lt;unistd.h&gt; 
+#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;string.h&gt;
+#define INPUT 0 
+#define OUTPUT 1 
+int main() &#123;
+	int fd[2];
+	&#x2F;*定义子进程号 *&#x2F; 
+	pid_t pid; 
+	char buf[256]; 
+	int returned_count; 
+	&#x2F;*创建无名管道*&#x2F; 
+	pipe(fd);
+	&#x2F;*创建子进程*&#x2F;
+    pid&#x3D;fork();	
+	if(pid&lt;0) &#123;
+		printf(&quot;Error in fork\n&quot;);
+		exit(1); 
+	&#125;else if(pid &#x3D;&#x3D; 0) &#123; &#x2F;*执行子进程*&#x2F;
+	    printf(&quot;in the child process...\n&quot;); 
+		&#x2F;*子进程向父进程写数据，关闭管道的读端*&#x2F; 
+		close(fd[INPUT]); 
+		write(fd[OUTPUT], &quot;hello world&quot;, strlen(&quot;hello world&quot;));
+		exit(0); 
+	&#125;else &#123; &#x2F;*执行父进程*&#x2F; 	    
+		printf(&quot;in the parent process...\n&quot;); 
+		&#x2F;*父进程从管道读取子进程写的数据，关闭管道的写端*&#x2F;
+		close(fd[OUTPUT]); 
+		returned_count &#x3D; read(fd[INPUT], buf, sizeof(buf)); 
+		printf(&quot;%d bytes of data received from child process: %s\n&quot;, returned_count, buf);
+	&#125;
+	return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>还有一种有名管道，可用于不具有亲缘关系的进程间通信 </p>
+<pre class="line-numbers language-none"><code class="language-none">#include&lt;sys&#x2F;types.h&gt;
+#include&lt;sys&#x2F;stat.h&gt;
+int mkfifo(const char *pathname, mode_t mode);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>第二个参数与普通文件open()函数中的参数mode类似</p>
+<pre class="line-numbers language-none"><code class="language-none">read：
+#include &lt;stdio.h&gt;
+#include &lt;sys&#x2F;stat.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#define P_FIFO &quot;&#x2F;tmp&#x2F;p_fifo&quot;
+int main(int argc, char** argv)&#123;
+	char cache[100];
+	int fd;
+	memset(cache,0, sizeof(cache));   &#x2F;*初始化内存*&#x2F;
+	if(access(P_FIFO,F_OK)&#x3D;&#x3D;0)&#123;  &#x2F;*管道文件存在*&#x2F;
+      	execlp(&quot;rm&quot;,&quot;-f&quot;, P_FIFO, NULL);  &#x2F;*删掉*&#x2F;
+		printf(&quot;access.\n&quot;);
+	&#125;
+	if(mkfifo(P_FIFO, 0777) &lt; 0)&#123;
+		printf(&quot;createnamed pipe failed.\n&quot;);
+	&#125;
+	fd&#x3D; open(P_FIFO,O_RDONLY|O_NONBLOCK); &#x2F;*非阻塞方式打开，只读*&#x2F;
+	while(1)&#123;
+		memset(cache,0, sizeof(cache));
+		if((read(fd,cache, 100)) &#x3D;&#x3D; 0 )&#123; &#x2F;*没有读到数据*&#x2F;
+		    printf(&quot;nodata:\n&quot;);
+		&#125;
+		else&#123;
+                 printf(&quot;getdata:%s\n&quot;, cache); &#x2F;*读到数据，将其打印*&#x2F;
+              &#125;
+		sleep(1);&#x2F;*休眠1s*&#x2F;
+    &#125;
+    close(fd);
+    return 0;
+&#125;
+
+
+write:
+#include &lt;stdio.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;unistd.h&gt;
+#define P_FIFO &quot;&#x2F;tmp&#x2F;p_fifo&quot;
+int main(int argc, char **argv)&#123;
+	int fd;
+	if(argc&lt; 2)&#123;
+		printf(&quot;please input the write data.\n&quot;);
+	&#125;
+	fd&#x3D; open(P_FIFO,O_WRONLY|O_NONBLOCK); &#x2F;*非阻塞方式*&#x2F;
+    write(fd,argv[1], 100); &#x2F;*将argv[1]写道fd里面去*&#x2F;
+	close(fd);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="2、消息队列"><a href="#2、消息队列" class="headerlink" title="2、消息队列"></a>2、消息队列</h4><p>基本已废弃</p>
+<h4 id="3、共享内存"><a href="#3、共享内存" class="headerlink" title="3、共享内存"></a>3、共享内存</h4><ul>
+<li>进程通过shmget向操作系统申请一段物理内存，然后通过shmat将物理地址映射进进程的虚拟内存空间，<font color=red>这些函数调用都属于内核态的系统调用；</font></li>
+<li>共享内存在进程间不提供同步机制，故当一个进程在共享内存进行写操作时，并不能阻止另一个进程读共享内存操作；</li>
+</ul>
+<p><font color=purple><strong>创建共享内存</strong></font><br> <pre class="line-numbers language-none"><code class="language-none">#include&lt;sys&#x2F;shm.h&gt;
+int shmget(key_t key, int size, int flag);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
+<ul>
+<li>key：共享内存名字，可自定义；</li>
+<li>size：单位为byte，设置需要创建的共享内存大小；</li>
+<li>flag：权限标志，设置共享内存的访问权限；</li>
+<li>返回值：运行成功时返回一个与key相关的内存标识符，失败则返回-1；</li>
+</ul>
+<p><font color=purple><strong>链接共享内存</strong></font></p>
+<pre class="line-numbers language-none"><code class="language-none">void *shmat(int shmid, void *addr,int flag);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>shmid是shmget函数返回值；    </li>
+<li>返回值：进程所链接共享内存的实际地址；</li>
+</ul>
+<p><font color=purple><strong>剥离共享内存</strong></font>：   </p>
+<pre class="line-numbers language-none"><code class="language-none">int shmdt(const void *shmaddr);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>shmaddr：shmat返回的地址指针；   </li>
+</ul>
+<p>consumer.cpp创建共享内存：</p>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;sys&#x2F;shm.h&gt;
+#include &quot;shm_com.h&quot;
+int main()&#123;
+	int shmid;
+	srand((unsigned int)getpid());
+	shmid &#x3D; shmget((key_t)1234, sizeof(struct shared_use_st), 0666 | IPC_CREAT);
+	if (shmid &#x3D;&#x3D; -1) &#123;
+	  fprintf(stderr, &quot;shmget failed\n&quot;);
+	  exit(EXIT_FAILURE);
+	&#125;
+	void *shared_memory &#x3D; (void *)0;
+    shared_memory &#x3D; shmat(shmid, (void *)0, 0);
+	if (shared_memory &#x3D;&#x3D; (void *)-1) &#123;
+	  fprintf(stderr, &quot;shmat failed\n&quot;);
+	  exit(EXIT_FAILURE);
+	&#125;
+	printf(&quot;Memory attached at %X\n&quot;, (long)shared_memory);
+	struct shared_use_st *shared_stuff;
+	shared_stuff &#x3D; (struct shared_use_st *)shared_memory;
+	shared_stuff-&gt;written &#x3D; 0;
+	int running &#x3D; 1;
+	while(running)&#123;
+	  if (shared_stuff-&gt;written)&#123;
+	    printf(&quot;You wrote: %s&quot;, shared_stuff-&gt;text);
+	    sleep( rand() % 4 );
+	    shared_stuff-&gt;written &#x3D; 0;
+	    if (strncmp(shared_stuff-&gt;text, &quot;end&quot;, 3) &#x3D;&#x3D; 0) &#123;
+		running &#x3D; 0;
+	    &#125;
+	   &#125;
+	&#125;
+	if (shmdt(shared_memory) &#x3D;&#x3D; -1)&#123;
+	    fprintf(stderr, &quot;shmdt failed\n&quot;);
+	    exit(EXIT_FAILURE);
+	&#125;
+	if (shmctl(shmid, IPC_RMID, 0) &#x3D;&#x3D; -1)&#123;
+	    fprintf(stderr, &quot;shmctl(IPC_RMID) failed\n&quot;);
+	    exit(EXIT_FAILURE);
+	&#125;
+	exit(EXIT_SUCCESS);
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>producer.cpp向共享内存写数据：</p>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;sys&#x2F;shm.h&gt;
+#include &quot;shm_com.h&quot;
+int main()&#123;
+	int shmid;
+	shmid &#x3D; shmget((key_t)1234, sizeof(struct shared_use_st), 0666 | IPC_CREAT);
+	if (shmid &#x3D;&#x3D; -1)&#123;
+		fprintf(stderr, &quot;shmget failed\n&quot;);
+		exit(EXIT_FAILURE);
+	&#125;
+	void *shared_memory &#x3D; (void *)0;
+	shared_memory &#x3D; shmat(shmid, (void *)0, 0);
+	if (shared_memory &#x3D;&#x3D; (void *)-1)&#123;
+		fprintf(stderr, &quot;shmat failed\n&quot;);
+		exit(EXIT_FAILURE);
+	&#125;
+	printf(&quot;Memory attached at %X\n&quot;, (long)shared_memory);
+	struct shared_use_st *shared_stuff;
+	shared_stuff &#x3D; (struct shared_use_st *)shared_memory;
+	int running &#x3D; 1;
+	char buffer[BUFSIZ];
+	while(running)&#123;
+		while(shared_stuff-&gt;written &#x3D;&#x3D; 1)&#123;
+			sleep(1);
+			printf(&quot;waiting for client...\n&quot;);
+		&#125;
+		printf(&quot;Enter some text: &quot;);
+		fgets(buffer, BUFSIZ, stdin);
+		strncpy(shared_stuff-&gt;text, buffer, TEXT_SZ);
+		shared_stuff-&gt;written &#x3D; 1;
+		if (strncmp(buffer, &quot;end&quot;, 3) &#x3D;&#x3D; 0) &#123;
+			running &#x3D; 0;
+		&#125;
+	&#125;
+	if (shmdt(shared_memory) &#x3D;&#x3D; -1) &#123;
+		fprintf(stderr, &quot;shmdt failed\n&quot;);
+		exit(EXIT_FAILURE);
+	&#125;
+	exit(EXIT_SUCCESS);
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>共享内存结构体：</p>
+<pre class="line-numbers language-none"><code class="language-none">#ifndef _SHMCOM_H_HEADER  
+#define _SHMCOM_H_HEADER
+#define TEXT_SZ 2048
+struct shared_use_st &#123;
+  int written;
+  char text[TEXT_SZ];
+&#125;;
+#endif
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="4、信号量"><a href="#4、信号量" class="headerlink" title="4、信号量"></a>4、信号量</h4><p>信号量除了可以用于进程、线程的通信外，它还是最早期的锁机制，详见：<strong>计算机系统_壹.2、进行、线程.2.5.*节</strong>  </p>
+<p><font color=purple><strong>创建信号量</strong></font></p>
+<pre class="line-numbers language-none"><code class="language-none">#include&lt;sys&#x2F;types.h&gt;
+#include&lt;sys&#x2F;ipc.h&gt;
+#include&lt;sys&#x2F;sem.h&gt;
+
+int semget(key_t key, int nsems, int semflag);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>key：信号量名字，可自定义；</li>
+<li>nsems：创建信号量的个数，如果只是访问而不创建可以指定该值为0；</li>
+<li>semflag：设置信号量的读写权限；</li>
+<li>返回值：信号量标识符，失败返回-1；</li>
+</ul>
+<p>一旦创建了信号量，就不能更改该信号量的个数。若不删除某个信号量的情况下，重新调用semget函数创建该信号量时，并不会引起重复创建，返回值仍然是第一次创建的信号量。</p>
+<p><font color=purple><strong>更新信号量的值</strong></font></p>
+<pre class="line-numbers language-none"><code class="language-none">int semop(int semid, struct sembuf *sops, unsigned nsops);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>semid：semget函数的返回值；</li>
+<li>sembuf结构体定义：   </li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">struct sembuf   
+&#123;
+    short sem_num;  &#x2F;&#x2F;除非使用一组信号量，否则为0   
+    short sem_op;  &#x2F;&#x2F;信号量在一次读写中需要改变的值，通常是两个数    
+                   &#x2F;&#x2F;一个是-1，即P（等待）操作，一个是+1，即V（发送信号）操作；    
+    short sem_flag;   &#x2F;&#x2F;通常为SEM_UNDO                   
+&#125;     <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><font color=purple><strong>控制信号量</strong></font></p>
+<pre class="line-numbers language-none"><code class="language-none">int semctl(int semid, int semnum, int cmd,...);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>前两个参数与前面一个函数一样，cmd通常为SETVAL，IPC_RMID。<br>SETVAL用来将信号量初始化为一个已知的值；<br>IPC_RMID用于删除一个不再使用的信号量标识符；<br>如果有第四个参数，就是union semnum：    </p>
+<pre class="line-numbers language-none"><code class="language-none">uinion semnum
+&#123;
+    int val;    
+    struct semid_ds *buf;   
+    unsigned short *arry;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>semnum表示第几个信号量，union semnum表示对第几个信号量初始化这是的值   </p>
+<p>reader.cpp读数据</p>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;sys&#x2F;types.h&gt;
+#include &lt;sys&#x2F;ipc.h&gt;
+#include &lt;sys&#x2F;sem.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;sys&#x2F;shm.h&gt;
+#include &lt;errno.h&gt;
+#define SEM_KEY 4001
+#define SHM_KEY 5678
+union semun &#123;
+	int val;
+&#125;;
+int main(void)&#123;
+	&#x2F;*create a shm*&#x2F;
+	int semid,shmid;
+	shmid &#x3D; shmget(SHM_KEY,sizeof(int),IPC_CREAT|0666);
+	if(shmid&lt;0)&#123;
+		printf(&quot;create shm error\n&quot;);
+		return -1;
+	&#125;
+	void * shmptr;
+	shmptr &#x3D;shmat(shmid,NULL,0);
+	if(shmptr &#x3D;&#x3D; (void *)-1)&#123;
+		printf(&quot;shmat error:%s\n&quot;,strerror(errno));
+		return -1;
+	&#125;
+	int * data &#x3D; (int *)shmptr;	
+	semid &#x3D; semget(SEM_KEY,2,IPC_CREAT|0666);&#x2F;*这里是创建一个semid，并且有两个信号量*&#x2F;
+	union semun semun1;&#x2F;*下面这四行就是初始化那两个信号量，一个val&#x3D;0,另一个val&#x3D;1*&#x2F;
+	semun1.val&#x3D;0;
+	semctl(semid,0,SETVAL,semun1);
+	semun1.val&#x3D;1;
+	semctl(semid,1,SETVAL,semun1);
+	struct sembuf sembuf1;
+	while(1)&#123;
+	  sembuf1.sem_num&#x3D;0;&#x2F;*sem_num&#x3D;0指的是下面操作指向第一个信号量，上面设置可知其 val&#x3D;0*&#x2F;
+	  sembuf1.sem_op&#x3D;-1; &#x2F;*初始化值为0，再-1的话就会等待*&#x2F;
+	  sembuf1.sem_flg&#x3D;SEM_UNDO;
+	  semop(semid,&amp;sembuf1,1);&#x2F;*reader在这里会阻塞,直到收到信号*&#x2F;
+	  printf(&quot;the NUM:%d\n&quot;,*data);&#x2F;*输出结果*&#x2F;
+	  sembuf1.sem_num&#x3D;1;&#x2F;*这里让writer再次就绪，就这样循环*&#x2F;
+	  sembuf1.sem_op&#x3D;1;
+	  sembuf1.sem_flg&#x3D;SEM_UNDO;
+	  semop(semid,&amp;sembuf1,1);
+	&#125;
+	return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>writer.cpp写数据</p>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;sys&#x2F;types.h&gt;
+#include &lt;sys&#x2F;ipc.h&gt;
+#include &lt;sys&#x2F;sem.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;sys&#x2F;shm.h&gt;
+#include &lt;errno.h&gt;
+#define SEM_KEY 4001
+#define SHM_KEY 5678
+union semun &#123;
+	int val;
+&#125;;
+int main(void)&#123;
+	&#x2F;*create a shm*&#x2F;
+	int semid,shmid;
+	shmid &#x3D; shmget(SHM_KEY,sizeof(int),IPC_CREAT|0666);
+	if(shmid&lt;0)&#123;
+	  printf(&quot;create shm error\n&quot;);
+	  return -1;
+	&#125;
+	void * shmptr;
+	shmptr &#x3D;shmat(shmid,NULL,0);
+	if(shmptr &#x3D;&#x3D; (void *)-1)&#123;
+	  printf(&quot;shmat error:%s\n&quot;,strerror(errno));
+	  return -1;
+	&#125;
+	int * data &#x3D; (int *)shmptr;	
+	semid &#x3D; semget(SEM_KEY,2,0666);
+	struct sembuf sembuf1;
+	union semun semun1;
+	while(1)&#123;
+	  sembuf1.sem_num&#x3D;1;&#x2F;*这里指向第2个信号量（sem_num&#x3D;1）*&#x2F;
+	  sembuf1.sem_op&#x3D;-1;&#x2F;*操作是-1，因为第2个信号量初始值为1，所以下面不会阻塞*&#x2F;
+      sembuf1.sem_flg&#x3D;SEM_UNDO;
+	  semop(semid,&amp;sembuf1,1);&#x2F;*继续*&#x2F;
+	  scanf(&quot;%d&quot;,data);  &#x2F;*用户在终端输入数据*&#x2F;
+	  sembuf1.sem_num&#x3D;0;&#x2F;*这里指向第一个信号量*&#x2F;
+	  sembuf1.sem_op&#x3D;1;&#x2F;*操作加1*&#x2F;	
+	  sembuf1.sem_flg&#x3D;SEM_UNDO;
+	  semop(semid,&amp;sembuf1,1);&#x2F;*执行+1后，我们发现，reader阻塞正是由于第一个信号量为0，无法减一，而现在writer先为其加1，那reader就绪！writer继续循环，发现第二个信号量已经减为0，则阻塞了，我们回到reader*&#x2F;
+    &#125;
+	 return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-1-8、IPC相关命令"><a href="#2-1-8、IPC相关命令" class="headerlink" title="2.1.8、IPC相关命令"></a>2.1.8、IPC相关命令</h3><table>
+<thead>
+<tr>
+<th>ipcs命令</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ipcs -a  列出所有的消息队列，共享内存，信号量等；</td>
+<td></td>
+</tr>
+<tr>
+<td>ipcs -q  列出所有的消息队列；</td>
+<td></td>
+</tr>
+<tr>
+<td>ipcs -s  列出所有的信号量；</td>
+<td></td>
+</tr>
+<tr>
+<td>ipcs -m  列出所有的共享内存</td>
+<td></td>
+</tr>
+<tr>
+<td>ipcs -l  列出系统限额；</td>
+<td></td>
+</tr>
+<tr>
+<td>ipcs -t  列出最后的访问时间；</td>
+<td></td>
+</tr>
+<tr>
+<td>ipcs -u  列出当前的使用情况；</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="2-2、线程"><a href="#2-2、线程" class="headerlink" title="2.2、线程"></a>2.2、线程</h2><h3 id="2-2-1、线程的创建"><a href="#2-2-1、线程的创建" class="headerlink" title="2.2.1、线程的创建"></a>2.2.1、线程的创建</h3><ul>
+<li><p>C++<br><font color=purple><strong>创建线程</strong></font></p>
+<pre class="line-numbers language-none"><code class="language-none">#include&lt;thread&gt;
+void func()
+&#123;
+    &#x2F;&#x2F; do something
+&#125;
+
+int main()
+&#123;
+    std::thread t(func);
+    t.join();
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>向线程入口函数传递参数</p>
+<pre class="line-numbers language-none"><code class="language-none">#include&lt;thread&gt;
+void func(int i, double d, string s)
+&#123;
+    cout &lt;&lt; i &lt;&lt; &quot;,&quot; &lt;&lt; d &lt;&lt; &quot;,&quot; &lt;&lt; s &lt;&lt; endl;
+&#125;
+
+int main()
+&#123;
+    std::thread t(func, 1, 2, &quot;test&quot;);
+    t.join();
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><font color=purple><strong>剥离线程</strong></font></p>
+<pre class="line-numbers language-none"><code class="language-none">#include&lt;thread&gt;
+void func()
+&#123;
+    &#x2F;&#x2F; do something
+&#125;
+
+int main()
+&#123;
+    std::thread t(func);
+    t.detach();
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>detach之后线程与其创建者就分离了，新创建的线程会作为后台线程运行，再也无法与其创建者发生联系。 </p>
+</li>
+<li><p>C<br><font color=purple><strong>创建线程</strong></font></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;pthread.h&gt;
+int pthread_create(pthread_t *thread, const pthread_attr_t, void *(*start_routine), void *arg);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ul>
+<ul>
+<li>thread：指向线程标识符的指针；   </li>
+<li>pthread_attr_t：设置线程属性；   </li>
+<li>start_routine：线程入口函数地址；   </li>
+<li>arg：需要传入线程入口函数的参数；</li>
+<li>返回值：若创建成功，返回0，失败则返回错误编码；</li>
+</ul>
+<p>创建线程</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;pthread.h&gt;
+void* say_hello(void* args)&#123;
+	&#x2F;*线程的运行函数，必须void*，没说的表示返回通用指针、输入通用指针*&#x2F;
+	printf(&quot;hello from thread\n&quot;);
+	pthread_exit((void*)1);
+&#125;
+int main()&#123;
+	pthread_t tid;
+    int iRet &#x3D; pthread_create(&amp;tid, NULL, say_hello, NULL);
+	&#x2F;*参数依次是：创建的线程id，线程参数，调用函数名，传入的函数参数*&#x2F;
+    if (iRet)&#123;
+	    printf(&quot;pthread_create error: iRet&#x3D;%d\n&quot;,iRet);
+        return iRet;
+    &#125;
+	void *retval;
+	iRet&#x3D;pthread_join(tid,&amp;retval);
+	if (iRet)&#123;
+	    printf(&quot;pthread_join error: iRet&#x3D;%d\n&quot;,iRet);
+        return iRet;
+    &#125;
+	printf(&quot;retval&#x3D;%ld\n&quot;,(long)retval);	
+	return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-2-2、线程的结束"><a href="#2-2-2、线程的结束" class="headerlink" title="2.2.2、线程的结束"></a>2.2.2、线程的结束</h3><p><font color=purple><strong>等待线程结束</strong></font></p>
+<pre class="line-numbers language-none"><code class="language-none">int pthread_join(pthread_t thread, void **retval);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>thread：线程标识符；   </li>
+<li>retval：被等待线程的返回值；   </li>
+</ul>
+<p>该函数为阻塞函数，调用后会一直等到线程结束为止。<br>线程的结束有两种途径，一是线程正常终止；二是通过函数pthread_exit函数强制结束；<br><font color=purple><strong>强制结束线程</strong></font></p>
+<pre class="line-numbers language-none"><code class="language-none">pthread_exit(void *retval);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>retval：设置线程的返回码；</li>
+</ul>
+<p>线程通过pthread_exit传递一个返回值，而后其他task通过pthread_join获得返回值，从而判断线程的退出状态。</p>
+<h3 id="2-2-3、线程相关操作"><a href="#2-2-3、线程相关操作" class="headerlink" title="2.2.3、线程相关操作"></a>2.2.3、线程相关操作</h3><ul>
+<li>C++<br><font color=purple><strong>获取线程ID、CPU核数</strong></font><pre class="line-numbers language-none"><code class="language-none">#include&lt;thread&gt;
+void func()
+&#123;
+    &#x2F;&#x2F; do something
+&#125;
+
+int main()
+&#123;
+    std::thread t(func);
+    cout &lt;&lt; t.get_id() &lt;&lt; endl;   &#x2F;&#x2F; 获取当前线程ID
+    cout &lt;&lt; std::thread::hardware_concurrency() &lt;&lt; endl;  &#x2F;&#x2F; 获取CPU核数，失败返回0
+    
+    t.join();
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<font color=purple><strong>线程休眠</strong></font><pre class="line-numbers language-none"><code class="language-none">#include&lt;thread&gt;
+void func()
+&#123;
+    std::this_thread::sleep_for(std::chrono::seconds(3));  &#x2F;&#x2F; 当前线程休眠3s
+&#125;
+
+int main()
+&#123;
+    std::thread t(func);
+    t.join();
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-2-4、线程属性"><a href="#2-2-4、线程属性" class="headerlink" title="2.2.4、线程属性"></a>2.2.4、线程属性</h3>线程属性被封装在结构体phtread_attr_t之中<pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;pthread.h&gt;
+typedef struct   
+&#123;  
+    int etachstate;  &#x2F;&#x2F; 线程的分离状态  
+    int schedpolicy; &#x2F;&#x2F; 线程调度策略   
+    struct sched_param schedparam;  &#x2F;&#x2F; 线程调度参数   
+    int inheridsched;  &#x2F;&#x2F; 线程的继承性    
+    int scope;  &#x2F;&#x2F; 线程作用域   
+    size_t guardsize;  &#x2F;&#x2F; 线程末尾的警戒缓冲区大小   
+    int stackaddr_set; &#x2F;&#x2F; 线程栈设置   
+    void* stackaddr;  &#x2F;&#x2F; 线程栈位置   
+    size_t stacksize;  &#x2F;&#x2F; 线程栈大小   
+&#125;phtread_attr_t；<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+线程的属性不能被直接操作，须使用pthread_attr_init函数在初始化时进行设置，且初始化操作必须在pthread_create函数之前调用。当线程结束时还须用pthread_attr_destroy函数来释放资源。   </li>
+</ul>
+<p><font color=red><strong>线程的默认属性为：非绑定、非分离、默认1MB的堆栈、与父进程同样的优先级。</strong></font></p>
+<h4 id="1、分离状态-detach-state"><a href="#1、分离状态-detach-state" class="headerlink" title="1、分离状态(detach state)"></a>1、分离状态(detach state)</h4><p>将线程设置为分离状态时，线程终止之后，操作系统将不会保留线程终止的状态，线程的结束状态也不会被其创建者捕获。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">&#x2F;&#x2F; 创建线程之前设置其分离状态
+&#x2F;&#x2F; 分离状态可选项：PTHREAD_CREATE_DETACHD、PTHREAD_CREATE_JOINABLE   
+&#x2F;&#x2F; 设置线程分离状态
+int pthread_attr_setdetachstate(pthread_attr_t *attr, int state);
+&#x2F;&#x2F; 获取线程分离状态
+int pthread_attr_getdetachstate(const pthread_attr_t *attr, int *state);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;stdio.h&gt; 
+#include &lt;stdlib.h&gt; 
+#include &lt;pthread.h&gt; 
+#include &lt;string.h&gt;
+void * tfn1(void * arg)&#123; 
+    printf(&quot;the thread\n&quot;);  
+    return NULL; 
+&#125;  
+int main(void)&#123; 
+    int iRet; 
+    pthread_t tid; 
+    pthread_attr_t attr; 
+     iRet &#x3D; pthread_attr_init(&amp;attr); 
+    if(iRet)&#123; 
+        printf(&quot;can&#39;t init attr %s&#x2F;n&quot;, strerror(iRet)); 
+	    return iRet;
+    &#125; 
+    iRet &#x3D; pthread_attr_setdetachstate(&amp;attr, PTHREAD_CREATE_DETACHED);
+    if(iRet)&#123; 
+        printf(&quot;can&#39;t set attr %s\n&quot;, strerror(iRet)); 
+	    return iRet;
+    &#125; 
+    iRet &#x3D; pthread_create(&amp;tid, &amp;attr, tfn1, NULL);
+    if(iRet)&#123; 
+        printf(&quot;can&#39;t create thread %s\n&quot;, strerror(iRet)); 
+	    return iRet; 
+    &#125; 
+    iRet &#x3D; pthread_join(tid, NULL);
+    if(iRet)&#123; 
+        printf(&quot;thread has been detached\n&quot;); 
+	    return iRet;
+    &#125;
+    return 0; 
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><font color=red><strong>也可使用函数pthread_detach(pthread_t pid)将一个已经创建好的线程进行分离</strong></font></p>
+<h4 id="2、设置线程栈空间"><a href="#2、设置线程栈空间" class="headerlink" title="2、设置线程栈空间"></a>2、设置线程栈空间</h4><p>每个线程具有默认栈大小</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">&#x2F;&#x2F; 创建线程之前设置栈空间大小
+int pthread_attr_setstacksize(pthread_attr_t *attr, size_t size);
+&#x2F;&#x2F; 获取线程栈空间大小
+int pthread_attr_getstacksize(const pthread_attr_t *attr, size_t *size);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-2-5、线程间通信"><a href="#2-2-5、线程间通信" class="headerlink" title="2.2.5、线程间通信"></a>2.2.5、线程间通信</h3><p>IPC同样适用于线程，但通常线程间更关注的是同步方式，而且线程通常是共享父进程的地址空间，故往往以全局变量的方式进行通信是最方便的。</p>
+<h3 id="2-2-6、线程同步"><a href="#2-2-6、线程同步" class="headerlink" title="2.2.6、线程同步"></a>2.2.6、线程同步</h3><p>常见的线程同步方式：</p>
+<ul>
+<li>互斥锁(mutex)；</li>
+<li>条件变量(condition variable)；</li>
+<li>读写锁(read-write lock)；</li>
+</ul>
+<h4 id="1、互斥锁-mutex"><a href="#1、互斥锁-mutex" class="headerlink" title="1、互斥锁(mutex)"></a>1、互斥锁(mutex)</h4><p>参见<strong>计算机系统_壹.2、进程、线程.2.5节</strong></p>
+<ul>
+<li>C++<br>独占互斥量std::mutex  <ul>
+<li>lock和unlock必须成对出现;</li>
+<li>try_lock是尝试锁定互斥量，成功返回true，失败false，它是非阻塞的，可以避免因拿不到锁而长时间阻塞；   </li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;mutex&gt;
+#include &lt;chrono&gt;
+
+std::mutex g_lock;
+
+void func()
+&#123;
+	g_lock.lock();
+
+	std::cout &lt;&lt; &quot;entered thread &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; std::endl;
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+	std::cout &lt;&lt; &quot;leaving thread &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; std::endl;
+
+	g_lock.unlock();
+&#125;
+
+int main(void)
+&#123;
+	std::thread t1(func);
+	std::thread t2(func);
+	std::thread t3(func);
+
+	t1.join();
+	t2.join();
+	t3.join();
+
+	system(&quot;pause&quot;);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><font color=purple><strong>lock_guard</strong></font><br>使用lock_guard可以简化lock/unlock的写法，同时也更为安全，因为lock_guard在构造的时候会自动锁定互斥量，退出作用域后进行析构时会自动解锁，从而保证了互斥量的正确操作：   </p>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;mutex&gt;
+#include &lt;chrono&gt;
+
+std::mutex g_lock;
+
+void func()
+&#123;
+    std::lock_guard&lt;std::mutex&gt; locker(g_lock);  &#x2F;&#x2F; 出作用域后自动解锁
+	std::cout &lt;&lt; &quot;entered thread &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; std::endl;
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+	std::cout &lt;&lt; &quot;leaving thread &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; std::endl;
+&#125;
+
+int main(void)
+&#123;
+	std::thread t1(func);
+	std::thread t2(func);
+	std::thread t3(func);
+
+	t1.join();
+	t2.join();
+	t3.join();
+
+	system(&quot;pause&quot;);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><font color=purple><strong>带超时的独占互斥量std::timed_mutex</strong></font><br>增加了获取锁超时等待功能，因为不清楚获取锁需要多长时间，为了不至于一直等待下去，设置一个等待超时时间，在超时后还可以做其他事情。   </p>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;mutex&gt;
+#include &lt;chrono&gt;
+
+std::timed_mutex mutex;
+
+void work()
+&#123;
+	std::chrono::milliseconds timeout(100);
+
+	while (true)
+	&#123;
+		if (mutex.try_lock_for(timeout))
+		&#123;
+			std::cout &lt;&lt; std::this_thread::get_id() &lt;&lt; &quot;: do work with the mutex&quot; &lt;&lt; std::endl;
+
+			std::chrono::milliseconds sleepDuration(250);
+			std::this_thread::sleep_for(sleepDuration);
+
+			mutex.unlock();
+			std::this_thread::sleep_for(sleepDuration);
+		&#125;
+		else
+		&#123;
+			std::cout &lt;&lt; std::this_thread::get_id() &lt;&lt; &quot;: do work without the mutex&quot; &lt;&lt; std::endl;
+
+			std::chrono::milliseconds sleepDuration(100);
+			std::this_thread::sleep_for(sleepDuration);
+		&#125;
+	&#125;
+&#125;
+
+int main(void)
+&#123;
+	std::thread t1(work);
+	std::thread t2(work);
+
+	t1.join();
+	t2.join();
+
+	system(&quot;pause&quot;);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>C<br>可把互斥锁想象成一个只能容纳一个人的洗手间，当有人进去之后，其他人就无法进入，只有人出来才会被其他人使用。<strong>但外面等候的人并没有排队</strong>，谁看到洗手间空了，就可以冲进去。<br>相关的函数有：   </li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">pthread_mutex_init; &#x2F;&#x2F;动态初始化（静态初始化：pthread_mutex_t mt&#x3D; PTHREAD_MUTEX_INITIALIZER）
+pthread_mutex_destroy; &#x2F;&#x2F;销毁锁
+pthread_mutex_lock; &#x2F;&#x2F;加锁
+pthread_mutex_unlock; &#x2F;&#x2F;解锁
+pthread_mutex_trylock; &#x2F;&#x2F;尝试加锁，与加锁的不同之处在于在锁已经被占用时返回EBUSY，而不是挂起等待<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>互斥锁的不足之处：  </p>
+<ul>
+<li><strong>在外面等候的人并没有排队</strong>，谁看到洗手间空了，就可以冲进去，即不存在优先级；</li>
+<li>如果存在某个线程没有使用锁，而直接修改临界资源，那么互斥锁是无从知晓的，也不能阻止修改操作，这样互斥锁就失去了保护意义，即防君子不防小人； </li>
+<li>对于需要频繁加解锁的场景，会极其浪费CPU资源；</li>
+</ul>
+<p><strong>使用互斥锁解决售票问题：</strong></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;errno.h&gt;
+pthread_mutex_t mutex_x&#x3D; PTHREAD_MUTEX_INITIALIZER;
+int total_ticket_num&#x3D;20;
+void *sell_ticket1(void *arg)&#123;	
+	for(int i&#x3D;0;i&lt;20;i++)&#123;
+		pthread_mutex_lock(&amp;mutex_x);
+		if(total_ticket_num&gt;0)&#123;
+			printf(&quot;thread1 sell the %dth ticket\n&quot;,20-total_ticket_num+1);
+			total_ticket_num--;
+		&#125;
+                sleep(1);
+		pthread_mutex_unlock(&amp;mutex_x);
+		sleep(1);
+	&#125;
+	return 0;
+&#125;
+void *sell_ticket2(void *arg)&#123;
+    int iRet&#x3D;0;	
+	for(int i&#x3D;0;i&lt;10;i++)&#123;
+	    iRet&#x3D;pthread_mutex_trylock(&amp;mutex_x);
+	    if(iRet&#x3D;&#x3D;EBUSY)&#123;
+	        printf (&quot;sell_ticket2:the variable is locked by sell_ticket1.\n&quot;);
+	    &#125;else if(iRet&#x3D;&#x3D;0)&#123;
+		if(total_ticket_num&gt;0)&#123;
+		    printf(&quot;thread2 sell the %dth ticket\n&quot;,20-total_ticket_num+1);
+		    total_ticket_num--;
+		&#125;
+		pthread_mutex_unlock(&amp;mutex_x);			
+	    &#125;
+	    sleep(1);
+	&#125;
+	return 0;
+&#125;
+
+int main()&#123;
+    pthread_t tids[2];
+	int iRet &#x3D; pthread_create(&amp;tids[0], NULL, &amp;sell_ticket1, NULL);
+	if(iRet)&#123;
+	    printf(&quot;pthread_create error, iRet&#x3D;%d\n&quot;,iRet);
+	    return iRet;
+	&#125;
+	iRet &#x3D; pthread_create(&amp;tids[1], NULL, &amp;sell_ticket2, NULL);
+	if(iRet)&#123;
+	    printf(&quot;pthread_create error, iRet&#x3D;%d\n&quot;,iRet);
+	    return iRet;
+	&#125;
+	sleep(30);
+	void *retval;
+	iRet&#x3D;pthread_join(tids[0], &amp;retval);
+	if(iRet)&#123;
+	    printf(&quot;tid&#x3D;%d join error, iRet&#x3D;%d\n&quot;,tids[0],iRet);
+	&#125;else&#123;
+	    printf(&quot;retval&#x3D;%ld\n&quot;,(long*)retval);		
+	&#125;
+	iRet&#x3D;pthread_join(tids[1], &amp;retval);
+	if(iRet)&#123;
+	    printf(&quot;tid&#x3D;%d join error, iRet&#x3D;%d\n&quot;,tids[1],iRet);
+	&#125;else&#123;
+	    printf(&quot;retval&#x3D;%ld\n&quot;,(long*)retval);		
+	&#125;
+    return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="2、条件变量"><a href="#2、条件变量" class="headerlink" title="2、条件变量"></a>2、条件变量</h4><ul>
+<li>C++<br>它能阻塞一个或多个线程，直到收到另一个线程发出通知或超时，才会唤醒当前阻塞的线程。条件变量需要和互斥量配合使用，C++11提供了两种类型的条件变量：    <ul>
+<li>condition_variable,需配合std::unique_lock<a href="std::mutex">std::mutex</a>进行wait操作；   </li>
+<li>condition_variable_any，和任意带有lock、unlock语义的mutex搭配使用。比较灵活，但是效率不如前者；    </li>
+</ul>
+</li>
+</ul>
+<p>notify_one、notify_all用于唤醒等待中的线程。    </p>
+<ul>
+<li>notify_one只会唤醒阻塞队列中的第一个线程，不存在锁争用，可以立即获取锁；</li>
+<li>notify_all会唤醒阻塞队列中的所有线程，存在锁争用，只有一个线程能够获得锁，而其他未获取锁的线程会继续尝试获得锁(类似于轮询)，并不会再次主动阻塞。当持有锁的线程释放锁时，这些线程中的一个会获得锁，依次进行……</li>
+</ul>
+<p><font color=red><strong>notify的失效问题</strong></font>  </p>
+<ul>
+<li>当notify早于wait时，由于阻塞队列之中并没有阻塞线程，故此时的notify会丢失；</li>
+<li>类似上面的逻辑，当原本需要wait的线程正在处理其他事情，而未进入阻塞状态，此时的notify也会丢失；</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; SyncQueue.h
+#pragma once
+
+#include&lt;list&gt;
+#include&lt;mutex&gt;
+#include&lt;thread&gt;
+#include&lt;condition_variable&gt;
+#include &lt;iostream&gt;
+
+template&lt;typename T&gt;
+class SyncQueue
+&#123;
+private:
+	bool IsFull() const
+	&#123;
+		return m_queue.size() &#x3D;&#x3D; m_maxSize;
+	&#125;
+
+	bool IsEmpty() const
+	&#123;
+		return m_queue.empty();
+	&#125;
+
+public:
+	SyncQueue(int maxSize) : m_maxSize(maxSize)
+	&#123;
+	&#125;
+
+	void Put(const T&amp; x)
+	&#123;
+		std::lock_guard&lt;std::mutex&gt; locker(m_mutex);
+
+		while (IsFull())
+		&#123;
+			std::cout &lt;&lt; &quot;缓冲区满了，需要等待...&quot; &lt;&lt; std::endl;
+			m_notFull.wait(m_mutex);
+		&#125;
+
+		m_queue.push_back(x);
+		m_notEmpty.notify_one();
+	&#125;
+
+	void Take(T&amp; x)
+	&#123;
+		std::lock_guard&lt;std::mutex&gt; locker(m_mutex);
+		
+		while (IsEmpty())
+		&#123;
+			std::cout &lt;&lt; &quot;缓冲区空了，需要等待...&quot; &lt;&lt; std::endl;
+			m_notEmpty.wait(m_mutex);
+		&#125;
+
+		x &#x3D; m_queue.front();
+		m_queue.pop_front();
+		m_notFull.notify_one();
+	&#125;
+
+	bool Empty()
+	&#123;
+		std::lock_guard&lt;std::mutex&gt; locker(m_mutex);
+		return m_queue.empty();
+	&#125;
+
+	bool Full()
+	&#123;
+		std::lock_guard&lt;std::mutex&gt; locker(m_mutex);
+		return m_queue.size() &#x3D;&#x3D; m_maxSize;
+	&#125;
+
+	size_t Size()
+	&#123;
+		std::lock_guard&lt;std::mutex&gt; locker(m_mutex);
+		return m_queue.size();
+	&#125;
+
+	int Count()
+	&#123;
+		return m_queue.size();
+	&#125;
+
+private:
+	std::list&lt;T&gt; m_queue;                  &#x2F;&#x2F;缓冲区
+	std::mutex m_mutex;                    &#x2F;&#x2F;互斥量和条件变量结合起来使用
+	std::condition_variable_any m_notEmpty;&#x2F;&#x2F;不为空的条件变量
+	std::condition_variable_any m_notFull; &#x2F;&#x2F;没有满的条件变量
+	int m_maxSize;                         &#x2F;&#x2F;同步队列最大的size
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; Test.cpp
+#include &quot;SyncQueue.hpp&quot;
+
+#include &lt;thread&gt;
+#include &lt;iostream&gt;
+#include &lt;mutex&gt;
+
+SyncQueue&lt;int&gt; syncQueue(5);
+
+void PutDatas()
+&#123;
+	for (int i &#x3D; 0; i &lt; 20; ++i)
+	&#123;
+		syncQueue.Put(888);
+	&#125;
+&#125;
+
+void TakeDatas()
+&#123;
+	int x &#x3D; 0;
+
+	for (int i &#x3D; 0; i &lt; 20; ++i)
+	&#123;
+		syncQueue.Take(x);
+		std::cout &lt;&lt; x &lt;&lt; std::endl;
+	&#125;
+&#125;
+
+int main(void)
+&#123;
+	std::thread t1(PutDatas);
+	std::thread t2(TakeDatas);
+
+	t1.join();
+	t2.join();
+
+	system(&quot;pause&quot;);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>wait方法还可以接收一个条件</strong>：</p>
+<pre class="line-numbers language-none"><code class="language-none">    std::lock_guard&lt;std::mutex&gt; locker(m_mutex);
+      &#x2F;&#x2F; 代码块1
+while (IsFull())
+&#123;
+	std::cout &lt;&lt; &quot;缓冲区满了，需要等待...&quot; &lt;&lt; std::endl;
+	m_notFull.wait(m_mutex);
+&#125;
+
+&#x2F;&#x2F;以上代码改写成
+&#x2F;&#x2F; 代码块2
+&#123;
+std::lock_guard&lt;std::mutex&gt; locker(m_mutex);
+
+std::cout &lt;&lt; &quot;缓冲区满了，需要等待...&quot; &lt;&lt; std::endl;
+m_notFull.wait(locker, [this]&#123;return !IsFull();&#125;);  &#x2F;&#x2F;此处就可以不用while循环
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><font color=red><strong>wait函数的执行逻辑:</strong></font>  </p>
+<ul>
+<li>IsFull() == true时wait阻塞当前线程；</li>
+<li>当另一个线程发出notify后唤醒wait；</li>
+<li>wait被唤醒后首先尝试获取m_mutex，当拿到锁之后当前线程拿到访问临界区的权限，继续处理，直到释放锁；</li>
+</ul>
+<p>对于代码块1而言，wait被唤醒且成功拿到锁之后继续执行while循环体，判断IsFull() == false后退出循环，继续执行其他操作，若IsFull() == true则释放锁并重新阻塞当前线程，所以若没有while循环，容易出现虚假唤醒的情况；  </p>
+<p>对于代码块2而言，wait被唤醒且成功拿到锁之后会首先判断lambda表达式，为true则继续执行其他操作，若为false则释放锁并重新阻塞当前线程；</p>
+<p>此外还有另外两个wait函数：   </p>
+<ul>
+<li>指定时长超时wait—wait_for</li>
+<li>指定时刻超时—wait_until</li>
+</ul>
+<p><font color=purple><strong>虚假唤醒 spurious wakeup</strong></font><br>对于不带判断条件的wait函数，会存在虚假唤醒的情况，例如：</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; push queue
+lock(mutex);
+queue.push_back(x);
+unlock(mutex);
+cond.notify_one();
+
+&#x2F;&#x2F; pop queue
+lock(mutex);
+if(queue.empty())
+   cond.wait();
+x&#x3D;queue.pop();
+unlock(mutex);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>举个例子，我们现在有一个生产者-消费者队列和三个线程;</p>
+<ul>
+<li>1号线程从队列中获取了一个元素，此时队列变为空;</li>
+<li>2号线程也想从队列中获取一个元素，但此时队列为空，2号线程便只能进入阻塞(cond.wait())，等待队列非空;</li>
+<li>这时，3号线程将一个元素入队，并调用cond.notify_one()唤醒wait线程;</li>
+<li>处于等待状态的2号线程接收到3号线程的唤醒信号，便准备解除阻塞状态，执行接下来的任务(重新获取mutex锁，然后获取队列中的元素)；</li>
+<li>然而可能出现这样的情况：当2号线程准备重新获得mutex锁时，此时1号线程刚好执行完之前的元素操作，然后再去请求获得mutex锁，1号线程在2号线程之前获得了mutex，并且锁检查到队列非空，就获取到了3号线程刚刚入队的元素，处理完之后释放mutex锁；</li>
+<li>等到2号线程获得队列锁，从cond.wait()之后的位置开始执行代码，此时并不再去检查queue.empty()，1号线程”偷走了”这个元素，所以对于2号线程而言，这次唤醒就是”虚假”的，它需要再次等待队列非空；</li>
+</ul>
+<p>所以，我们需要使用while来避免虚假唤醒</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; push queue
+lock(mutex);
+queue.push_back(x);
+unlock(mutex);
+cond.notify_one();
+
+&#x2F;&#x2F; pop queue
+lock(mutex);
+while(queue.empty())
+   &#123;
+       cond.wait();
+   &#125;
+x&#x3D;queue.pop();
+unlock(mutex);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>这里需要注意的是</strong>：<br>对于带条件判断的wait、wait_for、wait_until函数而言已经具备避免虚假唤醒的情况，不需要使用while</p>
+<ul>
+<li>C<br>在需要频繁查询临界资源某个状态的场景下，若使用互斥锁mutex，其频繁的加解锁操作会严重浪费CPU资源。<br>如果让线程在等待特定条件到来之前，使线程进入休眠状态，一旦条件满足，立即唤醒睡眠的线程，这便是条件变量的同步方式，通常会搭配互斥锁一起使用。<br>常用函数：   </li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">&#x2F;&#x2F;动态初始化
+pthread_cond_init(pthread_cond_t *cond, pthread_cond_attr_t *cond_attr)；
+&#x2F;&#x2F;第二个参数通常为空
+&#x2F;&#x2F;静态初始化
+pthread_cond_t cond &#x3D; PTHREAD_COND_INITIALIZER
+&#x2F;&#x2F;销毁,只有在没有线程在该条件变量上等待的时候才能注销此变量，否则返回EBUSY
+&#x2F;&#x2F;由于条件变量没有分配什么资源，所以注销动作只是检查是否有等待线程
+int pthread_cond_destroy(pthread_cond_t *cond);
+&#x2F;&#x2F;等待，分为条件等待和时间等待，无论是哪种等待必须配合互斥锁，以防止多个线程对这两个等到函数产生竞争
+int pthread_cond_wait(pthread_cond_t *cond, pthread_mutex_t *mutex);
+int pthread_cond_timedwait(pthread_cond_t *cond, pthread_mutex_t *mutex, const struct timespec *bastime);
+&#x2F;&#x2F;触发，分为两种激发方式激活一个等待线程和激活所有等待线程
+&#x2F;&#x2F;如果没有线程在等待，pthread_cond_singal也会成功返回，即提前返回，之后的pthread_cond_wait将无法捕捉
+pthread_cond_singal
+pthread_cond_broadcast<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>条件变量加互斥锁解决出租车问题：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;iostream&gt;
+#include &lt;pthread.h&gt;
+using namespace std;
+
+&#x2F;*提示出租车到达的条件变量*&#x2F;
+pthread_cond_t taxiCond &#x3D; PTHREAD_COND_INITIALIZER; 
+&#x2F;*同步锁*&#x2F;
+pthread_mutex_t taxiMutex &#x3D; PTHREAD_MUTEX_INITIALIZER;   
+
+int travelerCound&#x3D;0;
+
+void * traveler_arrive(void * name)&#123;
+	cout&lt;&lt;&quot;Traveler: &quot;&lt;&lt;(char *)name&lt;&lt;&quot; needs a taxi now!&quot;&lt;&lt;endl;
+	pthread_mutex_lock(&amp;taxiMutex);
+	travelerCound++;
+    pthread_cond_wait(&amp;taxiCond,&amp;taxiMutex);
+    pthread_mutex_unlock(&amp;taxiMutex);
+	cout&lt;&lt;&quot;Traveler: &quot;&lt;&lt;(char *)name&lt;&lt;&quot; now got a taxi!&quot;&lt;&lt;endl;
+	pthread_exit((void*)0);
+&#125;
+
+void * taxi_arrive(void * name)&#123;
+	cout&lt;&lt;&quot;Taxi: &quot;&lt;&lt;(char *)name&lt;&lt;&quot; arrives.&quot;&lt;&lt;endl;
+	while(1)&#123;
+		pthread_mutex_lock(&amp;taxiMutex);
+		if(travelerCound&gt;0)&#123;
+			pthread_cond_signal(&amp;taxiCond);
+			pthread_mutex_unlock(&amp;taxiMutex);	
+            break;			
+		&#125;
+		pthread_mutex_unlock(&amp;taxiMutex);
+	&#125;
+	pthread_exit((void*)0);
+&#125;
+
+int main()&#123;
+	pthread_t tids[3];
+	int iRet &#x3D; pthread_create(&amp;tids[0],NULL,taxi_arrive,(void*)(&quot; Jack &quot;));
+	if(iRet)&#123;
+		printf(&quot;pthread_create error: iRet&#x3D;%d\n&quot;,iRet);
+		return iRet;
+	&#125;
+	printf(&quot;Time passing by.\n&quot;);
+	sleep(1);
+	iRet &#x3D; pthread_create(&amp;tids[1],NULL,traveler_arrive,(void*)(&quot; Susan &quot;));
+	if(iRet)&#123;
+		printf(&quot;pthread_create error: iRet&#x3D;%d\n&quot;,iRet);
+		return iRet;
+	&#125;
+	printf(&quot;Time passing by.\n&quot;);
+	sleep(1);	
+	iRet &#x3D; pthread_create(&amp;tids[2],NULL,taxi_arrive,(void*)(&quot; Mike &quot;));
+	if(iRet)&#123;
+		printf(&quot;pthread_create error: iRet&#x3D;%d\n&quot;,iRet);
+		return iRet;
+	&#125;	
+	printf(&quot;Time passing by.\n&quot;);
+	sleep(1);
+	
+	void *retval;	
+	for(int i&#x3D;0;i&lt;3;i++)&#123;
+		iRet&#x3D;pthread_join(tids[i],&amp;retval);
+		if (iRet)&#123;
+			printf(&quot;pthread_join error: iRet&#x3D;%d\n&quot;,iRet);
+			return iRet;
+		&#125;
+		printf(&quot;retval&#x3D;%ld\n&quot;,(long)retval);	
+	&#125;
+    return 0;	
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3、读写锁"><a href="#3、读写锁" class="headerlink" title="3、读写锁"></a>3、读写锁</h4><p>对于读写者问题，存在两种情况：</p>
+<ul>
+<li>访问必须是排他的，即独占；</li>
+<li>访问方式是共享的，即多个线程可同时访问临界资源；</li>
+</ul>
+<p>所以读写问题也叫共享-独占问题，适用于读写者问题的同步方式便是读写锁。   </p>
+<p>读写锁的三种状态：</p>
+<ul>
+<li>读模式下加锁状态；<br>所有试图以加读锁的线程都可以得到访问权，若此时有另外的线程试图以写模式加锁，通常会阻塞随后的读锁请求，优先让写锁持有临界资源。这样可以避免读模式锁长期占用，而等待的写模式锁请求一直得不到满足的问题</li>
+<li>写模式下加锁状态；<br>在解锁之前，所有试图加锁的线程都会被阻塞</li>
+<li>不加锁状态；</li>
+</ul>
+<p>读写锁也叫做共享-独占锁，当以读模式锁住时，它是共享模式锁；当他以写模式锁住时，它是独占模式锁住。 </p>
+<p>处理读写者问题的两种常见策略是强读者和强写者，常用函数如下：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">&#x2F;&#x2F;初始化和销毁
+int pthread_rwlock_init(pthread_rwlock_t *rwptr, const pthread_rwlockattr_t *attr);
+int pthread_rwlock_destroy(pthread_rwlock_t *rwptr);
+&#x2F;&#x2F;获取和释放
+int pthread_rwlock_rdlock;
+int pthread_rwlock_wrlock;
+int pthread_rwlock_tryrdlock;  &#x2F;&#x2F;非阻塞方式，如果锁被占用，立即返回EBUSY
+int pthread_rwlock_trywrlock;
+int pthread_rwlock_unlock;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;stdio.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#define THREADNUM 5
+pthread_rwlock_t rwlock;
+void *readers(void *arg)&#123;
+    pthread_rwlock_rdlock(&amp;rwlock);
+    printf(&quot;reader %ld got the lock\n&quot;, (long)arg);
+    pthread_rwlock_unlock(&amp;rwlock);
+    pthread_exit((void*)0);
+&#125; 
+void *writers(void *arg)&#123;
+    pthread_rwlock_wrlock(&amp;rwlock);
+    printf(&quot;writer %ld got the lock\n&quot;, (long)arg);
+    pthread_rwlock_unlock(&amp;rwlock);
+    pthread_exit((void*)0);
+&#125;
+int main(int argc, char **argv)&#123;
+    int iRet, i;
+    pthread_t writer_id, reader_id;
+    pthread_attr_t attr;
+    int nreadercount &#x3D; 1, nwritercount &#x3D; 1;
+    iRet &#x3D; pthread_rwlock_init(&amp;rwlock, NULL);
+    if (iRet) &#123;
+        fprintf(stderr, &quot;init lock failed\n&quot;);
+        return iRet;
+    &#125;
+    pthread_attr_init(&amp;attr);
+    &#x2F;*pthread_attr_setdetachstate用来设置线程的分离状态
+    也就是说一个线程怎么样终止自己，状态设置为PTHREAD_CREATE_DETACHED
+    表示以分离状态启动线程*&#x2F;
+    pthread_attr_setdetachstate(&amp;attr, PTHREAD_CREATE_DETACHED);
+    for (i &#x3D; 0; i &lt; THREADNUM; i++)&#123;
+        if (i % 3) &#123;
+            pthread_create(&amp;reader_id, &amp;attr, readers, (void *)nreadercount);
+            printf(&quot;create reader %d\n&quot;, nreadercount++);
+        &#125; else &#123;
+            pthread_create(&amp;writer_id, &amp;attr, writers, (void *)nwritercount);
+            printf(&quot;create writer %d\n&quot;, nwritercount++);
+        &#125;
+    &#125;
+    sleep(5);&#x2F;*sleep是为了等待另外的线程的执行*&#x2F;
+    return 0;   
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="4、原子类型"><a href="#4、原子类型" class="headerlink" title="4、原子类型"></a>4、原子类型</h4><p>C++11提供了一个原子类型std::atomic<T>，可以将指定类型设置为原子量以达到无锁原子操作的目的<br>比如一个计数器原子量的实现：   </p>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;iostream&gt;
+#include &lt;thread&gt;
+#include &lt;atomic&gt;
+
+struct Counter
+&#123;
+	std::atomic&lt;int&gt; value &#x3D; 0;
+
+	void increment()
+	&#123;
+		++value;
+	&#125;
+
+	void decrement()
+	&#123;
+		--value;
+	&#125;
+
+	int get()
+	&#123;
+		return value;
+	&#125;
+&#125;;
+
+Counter g_counter;
+
+void Increments()
+&#123;
+	for (int i &#x3D; 0; i &lt; 10; ++i)
+	&#123;
+		g_counter.increment();
+		std::cout &lt;&lt; g_counter.get() &lt;&lt; std::endl;
+	&#125;
+&#125;
+
+void Decrements()
+&#123;
+	for (int i &#x3D; 0; i &lt; 5; ++i)
+	&#123;
+		g_counter.decrement();
+		std::cout &lt;&lt; g_counter.get() &lt;&lt; std::endl;
+	&#125;
+&#125;
+
+int main(void)
+&#123;
+	std::thread t1(Increments);
+	std::thread t2(Decrements);
+
+	t1.join();
+	t2.join();
+
+	system(&quot;pause&quot;);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>需要注意的问题：  </p>
+<ul>
+<li>不是所有类型都可以设置为原子量；</li>
+<li>即使设置为原子量，其底层实现仍然可能是用锁实现的；</li>
+</ul>
+<p>详见：<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/FateTHarlaown/p/8919235.html">C++11的原子量与内存序浅析</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/hdadiao/article/details/104614702">操作系统-原子性与锁机制</a></p>
+<h2 id="2-3、线程标识"><a href="#2-3、线程标识" class="headerlink" title="2.3、线程标识"></a>2.3、线程标识</h2><p>这里主要阐述linux上的线程标识，POSIX threads库提供了pthread_self函数用于返回当前线程的标识符，其类型为pthread_t，pthread_t不一定是一个数值类型（整型或指针），也可能是一个结构体，因此Pthreads专门提供了pthread_equal函数对比两个线程标识符是否相等，这就带来了一系列问题：</p>
+<ul>
+<li>无法打印输出pthread_t；</li>
+<li>无法比较pthread_t的大小或计算hash值，也无法用作关联容器的key；</li>
+<li>无法定义一个非法的pthread_t值，用来表示绝对不可能存在的线程ID；</li>
+<li>pthread_t只在进程内有意义，与操作系统的任务调度之间无法建立有效的关联；</li>
+<li>Pthreads只保证同一进程之内，同一时刻的各个线程的id不同，不能保证同一进程先后多个线程具有不同的ID，更不用说一台机器上多个进程之间的线程ID的唯一性了；</li>
+</ul>
+<p>linux系统上建议使用gettid(2)系统调用的返回值作为线程ID，这么做的好处是：</p>
+<ul>
+<li>它的类型是pid_t，通常是一个小整数；</li>
+<li>它直接表示内核的任务调度id；</li>
+<li>任何时刻它都是全局唯一的，并且由于linux分配新pid采用递增轮回办法，短时间内启动的多个线程也会具有不同的id；</li>
+<li>0是非法值，因为操作系统的第一个进程init的pid是1；</li>
+</ul>
+<p>但是C/C++标准并未封装gettid，此时可以使用boost::this_thread::get_id()，该函数利用__thread变量缓存gettid的返回值，这样只有在本线程第一次调用它的时候才会进行系统调用，以后都是直接从thread local缓存中直接获取，效率无忧。</p>
+<h2 id="2-4、线程的销毁"><a href="#2-4、线程的销毁" class="headerlink" title="2.4、线程的销毁"></a>2.4、线程的销毁</h2><p>线程的销毁有几种方式：</p>
+<ul>
+<li>自然死亡：线程任务执行完毕正常退出；</li>
+<li>非正常死亡：线程抛出异常、触发segfault信号等非法操作；</li>
+<li>自杀：在线程中调用pthread_exit()退出线程；</li>
+<li>他杀：其他task调用pthread_cancel()来强制终止；</li>
+</ul>
+<p>详见：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/jasonchen_gbd/article/details/78674716">Linux编程–终止线程的正常方式及取消点</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cthon/p/9078042.html">Linux线程退出、资源回收、资源清理的方法</a>  </p>
+<h2 id="2-5、锁"><a href="#2-5、锁" class="headerlink" title="2.5、锁"></a>2.5、锁</h2><p>可参考<strong>计算机系统_贰.6、实时操作系统 FreeRTOS.6.4.3节信号量</strong></p>
+<h3 id="2-5-1、锁的本质"><a href="#2-5-1、锁的本质" class="headerlink" title="2.5.1、锁的本质"></a>2.5.1、锁的本质</h3><p>锁是解决多核心并发访问共享资源时产生的缓存时序一致性的必要手段，当给资源加锁时，只有一个线程能够访问资源，其他线程将阻塞。<br>底层实现是利用处理器提供的带锁的访存指令或原子操作指令。</p>
+<p><font color=red><strong>锁的底层实现:</strong></font></p>
+<p>对于一个锁而言，其无非就是一个flag位，例如flag为1表示锁定，flag为0表示未锁定。加锁的过程即为先读取flag的值，如果是0则flag置为1，否则线程阻塞。读取flag与flag置1这个两个操作合起来则不是一个原子操作，需要通过一定的机制来保证该操作的原子性。</p>
+<p>实现加锁的关键还是读取锁和置锁的过程必须是原子的，所以：</p>
+<ul>
+<li>对于单核CPU而言，最好的方法就是关中断，这样可以保证在读取锁和置锁期间不会发生任务的调度；</li>
+<li>对于多核CPU而言，类似递减这样的简单指令，实际上需要三个操作才能完成，先从内存读取数据到寄存器、寄存器内完成递减、最后将结果写回内存，在这种场景下，即便是一条指令，也无法保证原子性。因此多核CPU通常采用的方法是：<ul>
+<li>锁总线：即在指令执行前先通过总线锁锁住CPU和内存的通信。总线锁会引起其他核的其他任务同时被锁住，导致多核的并行变成了串行化，开销太大；</li>
+<li>缓存锁：详见：<strong>详见下方1小节</strong></li>
+</ul>
+</li>
+</ul>
+<p><font color=red><strong>重要</strong>：锁所锁住的到底是什么呢？<br>锁住的既不是代码段也不是内存段，锁的动作仅是确保获取锁的时刻是原子操作，确保仅有一个task拿到锁，其他获取不到锁的task使其阻塞，保证同一时刻只有一个task能够访问”锁住的资源”，进而实现数据的一致性。</font></p>
+<h4 id="1、-缓存锁"><a href="#1、-缓存锁" class="headerlink" title="1、 缓存锁"></a>1、 缓存锁</h4><p>通过缓存一致性机制来保证原子操作，缓存一致性即MESI协议，如下：</p>
+<ul>
+<li>每个CPU有自己的高速缓存，高速缓存以缓存行的形式存在，而MESI就是给每个缓存行保存一个标志位，标志位如下：<ul>
+<li>M：被修改的，当前缓存行中的数据相对内存而言已经被修改了，但是还没有更新到内存中，同时处于该状态的数据只有当前CPU缓存中有，而其他CPU缓存中没有；</li>
+<li>E：独占的，缓存行中的数据没有被修改，但是数据被当前CPU独占；</li>
+<li>S：共享的，缓存行中的数据被多个CPU共享；</li>
+<li>I：无效的，当前缓存行中的数据已经无效</li>
+</ul>
+</li>
+</ul>
+<p>一个处于M状态的缓存行，要时刻监听所有试图读取该缓存行对应内存的CPU，如果监听到，则必须在其他CPU读取前，先将缓存行中的数据写入；一个处于S状态的缓存行，必须时刻监听其他试图修改该缓存数据或者独占该缓存数据的请求，如果监听到，则将S状态置为I；一个处于E状态的缓冲行必须时刻监听其他试图读取该数据内存地址的CPU，如果监听到，则将E置为S。<br>有了上述的准备过程后，CPU对数据的读写过程如下：</p>
+<ul>
+<li>读：如果缓存行中的数据是I的，则需要从内存中读取，但是要先等其他拥有此数据的处于M状态的CPU将数据写回内存，如果是S的，则可以直接使用缓存行中的数据；</li>
+<li>写：如果缓存行中的数据是M/E，则CPU可以直接写，如果缓存行中的数据是S的，则要通过总线事务通知其他CPU将缓存置为无效I，这种情况下开销大，之后CPU可以向缓存行中写，写完后将缓存行置为M（这里的读写都是针对CPU对高速缓存的读写）</li>
+</ul>
+<h3 id="2-5-2、信号量"><a href="#2-5-2、信号量" class="headerlink" title="2.5.2、信号量"></a>2.5.2、信号量</h3><p>最早期的锁是Semaphore信号量，由荷兰计算机科学家发明，将信号量的值初始化为1，加锁操作即锁变量-1，解锁操作即锁变量+1。   </p>
+<p>其将加锁函数设计为阻塞模式，也就是说如果拿不到锁，则函数会把当前进程设置为阻塞状态，直到其他进程解锁，才会由解锁函数将阻塞的进程重新设置为运行态。 </p>
+<p>信号量的分类详见：<strong>计算机系统_贰.6、实时操作系统 FreeRTOS.6.4.3节信号量</strong>   </p>
+<p><font color=red>信号量作为锁的缺点: </font></p>
+<ul>
+<li>无权限检查机制，即A进程加的锁，可能会被B进程解锁，进而引起紊乱；</li>
+<li>没有考虑优先级翻转的问题，详见<strong>计算机系统_贰.第6章.6.1.6、优先级翻转</strong>；</li>
+</ul>
+<p>正因为信号量作为锁存在上述问题，故出现了改进版本，即目前常用的mutex</p>
+<h3 id="2-5-3、mutex互斥量"><a href="#2-5-3、mutex互斥量" class="headerlink" title="2.5.3、mutex互斥量"></a>2.5.3、mutex互斥量</h3><p>mutex的全称Mutual Exclusion   </p>
+<p>mutex相比信号量的最大不同在于，mutex可以对加锁和解锁的人做检查，只允许加锁者解锁。  </p>
+<p>对于拿不到mutex的task会进入阻塞态，直到持mutex方释放，才会获得mutex进而重新进入运行态。但对于实时性要求比较高的场景下，比如驱动程序，当拿不到mutex后进入阻塞态，可能会导致某些关键task的延时，故衍生出另一种锁机制—spinlock</p>
+<h3 id="2-5-4、spinlock"><a href="#2-5-4、spinlock" class="headerlink" title="2.5.4、spinlock"></a>2.5.4、spinlock</h3><p>当task拿不到锁时，不停的尝试拿锁，直到拿到为止，这种做法属于spinlock自旋锁，意即原地等待，也称作忙等。此种机制将会非常耗费CPU资源，因为的它的实现基本就是while(1)循环方式，<font color=red><strong>所以spinlock最适合的场景是每个task不会长时间占有锁</strong></font>。spinlock是一种拿锁方式，semaphore与mutex的底层实现中有些地方就是使用了这种方式，比如对队列解锁时。   </p>
+<p>spinlock只是一种拿锁方式，而不是一种独特的锁形式，semaphore与mutex是在基本的spinlock持锁方式之上，封装了抢不到就等待以及对应的唤醒机制。</p>
+<h3 id="2-5-5、Futex"><a href="#2-5-5、Futex" class="headerlink" title="2.5.5、Futex"></a>2.5.5、Futex</h3><p>semaphore、mutex、spinlock都是内核态的调用，相比于用户态，系统调用的内核态开销是非常大的。基于这样的背景，衍生出了用户态的互斥锁Futex(Fast User Mode Mutex)。   </p>
+<p>Futex是在用户态使用spinlock方式抢锁，那些抢不到锁的task通过系统调用通知内核将自己阻塞休眠，同时如果其他占有该锁的task后续释放了锁，则由内核负责第一时间唤醒自己来继续抢锁，这种方式比较合理，不会过多浪费CPU资源（毕竟还是需要内核态挂起、唤醒task）。   </p>
+<p>值得一提的是Futex支持多进程间的互斥锁，其内部使用mmap方式让多个进程之间共享同一块物理内存，然后将锁变量放置其中，而被多个进程访问，且Futex支持优先级继承，可避免优先级翻转问题的出现。</p>
+<h3 id="2-5-、死锁"><a href="#2-5-、死锁" class="headerlink" title="2.5.*、死锁"></a>2.5.*、死锁</h3><ul>
+<li><strong>情况一</strong>：同一个线程中重复加锁会出现死锁，假如线程A中，第一次加锁mutxeA，未解锁之前又第二次加锁mutxeA，此时它就会等待第一次加锁后的解锁操作，但是由于是在同一个线程中，就永远等不到第一次加锁的解锁操作，陷入了永久的自我等待中，于是死锁，<font color=red>此种情况只针对普通锁，嵌套锁是可以重复加锁的</font>；</li>
+<li><strong>情况二</strong>：线程间嵌套引起的重复加锁会出现死锁，假如线程A首先加锁mutxeA，然后线程B加锁mutxeB，紧接着线程A加锁mutxeB，然后线程B加锁mutxeA，当线程A加锁mutxeB时，线程B已经获取mutxeB了，此时线程A就会等待线程B释放mutxeB，然而在线程B加锁mutxeA时，线程A也已经获取了mutxeA，线程B就会等待线程A释放mutxeA，两个线程陷入了互相等待的过程，于是死锁；</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">class Counter
+&#123;
+    public:
+    int value;
+    Mutex mutex_;
+&#125;
+
+void swap(Counter &amp;a, Counter &amp;b)
+&#123;
+    MutexLockGuard alock(a.mutex_);
+    MutexLockGuard block(b.mutex_);
+    ...value....
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果线程A执行swap(a,b)，而线程B同时执行swap(b,a)，就可能出现死锁。     </p>
+<p>一个函数如果要锁住相同类型的多个对象，为了保证始终按照相同顺序加锁，可以通过比较mutex的对象地址，始终先加锁地址小的。</p>
+<h2 id="2-6、线程安全"><a href="#2-6、线程安全" class="headerlink" title="2.6、线程安全"></a>2.6、线程安全</h2><p>所谓线程安全，即采用加锁机制，对某个共享数据进行互斥的访问，当某个task获取锁后才能访问该共享资源，而其他task是不能访问的，处于阻塞状态，当该task释放了锁，其他task才有机会获取锁，对共享资源进行访问，这样就不会出现数据不一致的问题，避免了脏数据的出现。</p>
+<p>为什么会有线程安全问题？</p>
+<p>因为当多个线程访问共享资源时（如全局变量，静态变量，堆内存），可能出现数据不一致的情况，例如一个写一个读发生时。</p>
+<h2 id="2-、其他"><a href="#2-、其他" class="headerlink" title="2.#、其他"></a>2.#、其他</h2><h3 id="2-1、函数在多线程模式下只调用一次"><a href="#2-1、函数在多线程模式下只调用一次" class="headerlink" title="2.#.1、函数在多线程模式下只调用一次"></a>2.#.1、函数在多线程模式下只调用一次</h3><p>底层实现原理：猜测应该是使用了原子操作</p>
+<pre class="line-numbers language-none"><code class="language-none">#include&lt;iosream&gt;
+#include&lt;thread&gt;
+#include&lt;mutex&gt;
+
+std::once_flag flag;
+
+void do_once()
+&#123;
+    std::call_once(flag, []()&#123;std::cout &lt;&lt; &quot;called once&quot;&lt;&lt;endl;&#125;);
+&#125;
+
+int main()
+&#123;
+    std::thread t1(do_once);
+    std::thread t2(do_once);
+    std::thread t3(do_once);
+    
+    t1.join();
+    t2.join();
+    t3.join();
+    
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出结果：    </p>
+<pre class="line-numbers language-none"><code class="language-none">called once<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="2-2、exit函数的线程安全问题"><a href="#2-2、exit函数的线程安全问题" class="headerlink" title="2.#.2、exit函数的线程安全问题"></a>2.#.2、exit函数的线程安全问题</h3><p><font color=red>有待商讨</font><br>关于exit，还可参考《C++知识小点》的13节和《多线程和进程》的3.2.2节。<br>exit()函数在C++之中的作用除了终止进程，还会析构全局对象和已经构造完的函数静态对象，这样就会存在死锁的可能等其他问题</p>
+<pre class="line-numbers language-none"><code class="language-none">void somethingCallExit()
+&#123;
+    exit();
+&#125;
+
+class GlobalObject
+&#123;
+    public:
+    void doit()
+    &#123;
+        MutexLockGuard lock(mutex_);
+        somethingCallExit();
+    &#125;
+    
+    ~GlobalObject()
+    &#123;
+         MutexLockGuard lock(mutex_);
+         &#x2F;&#x2F; 清理操作
+    &#125;
+    private：
+    MutexLock mutex_;
+&#125;
+
+GlobalObject gobj;
+int main()
+&#123;
+    gobj.doit();
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>GlobalObject::doit()函数辗转调用了exit()，从而触发了全局对象gobj的析构，GlobalObject的析构函数会试图加锁mutex_，而此时mutex_已经被GlobalObject::doit锁住了，于是出现了死锁；</li>
+<li>还有一种可能是在其他线程a中调用exit，触发全局对象gobj的析构，然而此时又有线程b调用gobj，由于gobj已被析构，程序试图访问一个被析构的对象出现崩溃；</li>
+</ul>
+<p>所以说由于exit在退出时会触发全局对象的释放这一特性，不建议在线程之中调用exit，如果非要调用，那么可以直接使用_exit，此函数不会进行任何清理操作而直接退出进程。</p>
+<h3 id="2-3、线程比进程调度开销小的原因"><a href="#2-3、线程比进程调度开销小的原因" class="headerlink" title="2.#.3、线程比进程调度开销小的原因"></a>2.#.3、线程比进程调度开销小的原因</h3><p>首先需要了解两点：</p>
+<ul>
+<li>进程与线程的差异；<br>从概念上上来讲，线程是进程的一部分，同样参与task调度，线程是任务调度的最小单元；<br>进程拥有资源，归属于同一进程下的所有线程共享这些资源，进程是操作系统分配资源的最小单元；<br>Linux中对于内核而言，并不区分进程和线程，二者使用同样的数据结构<code>struct task_struct</code>，具备独立的task标识参与进任务调度；<pre class="line-numbers language-c" data-language="c"><code class="language-c">struct task_struct &#123;
+    &#x2F;&#x2F; 进程状态
+    long              state;
+    &#x2F;&#x2F; 虚拟内存结构体
+    struct mm_struct  *mm;
+    &#x2F;&#x2F; 进程号
+    pid_t             pid;
+    &#x2F;&#x2F; 指向父进程的指针
+    struct task_struct   *parent;
+    &#x2F;&#x2F; 子进程列表
+    struct list_head      children;
+    &#x2F;&#x2F; 存放文件系统信息的指针
+    struct fs_struct      *fs;
+    &#x2F;&#x2F; 一个数组，包含该进程打开的文件指针
+    struct files_struct   *files;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+线程共享进程的资源主要包括两个部分，如上结构体中的mm(内存空间中除了栈空间是线程私有的)、files(文件系统)</li>
+<li>任务task调度的开销；<br>主要有两方面的开销：<br> 1、上下文切换开销；<br> 2、任务调度后的CPU Cache、TLB不命中的开销,TLB是Translation Lookaside Buffer；</li>
+</ul>
+<p><font color=red><strong>对于上下文切换开销，进程与线程都是必须的，例如保存task运行的指令位置、寄存器、堆栈等信息，二者没有本质区别。<br>那么既然线程调度的struct task_struct都使用相同的资源，是不是就意味着，即使切换到了其他的线程，CPU Cache/TLB命中的概率会高很多？相反，进程调度使用的是不同的资源，每次换了个进程，就意味着原有的CPU Cache/TLB就不适用了，命中概率低很多甚至需要触发更多的缺页中断以便从内存重新加载，开销自然就更多。</strong></font>   </p>
+<h4 id="1、CPU-cache"><a href="#1、CPU-cache" class="headerlink" title="1、CPU cache"></a>1、CPU cache</h4><p>CPU cache是用来对内存数据进行缓存，以缓解CPU执行速度与内存访问速度的巨大差距，提升操作系统运行效率。<br>CPU 的 Cache 又被细分了几层，常见的有 L1 Cache, L2 Cache, L3 Cache等，其访问延迟依次增加，实现的成本依次降低。<br>现代系统采用从 Register -&gt; L1 Cache -&gt; L2 Cache -&gt; L3 Cache -&gt; Memory -&gt; Mass storage的层次结构，是为解决性能与价格矛盾所采用的折中设计。程序的指令部分和数据部分一般分别存放在两片不同的cache中，对应指令缓存（I-Cache）和数据缓存（D-Cache）。<br><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCE660639b078d54db53d5a9a56b3b4193a/39404" alt="image12">   </p>
+<p>CPU cache的理论基础即<strong>0.2节的程序的局部性原理</strong>   </p>
+<h4 id="2、TLB-Translation-Lookaside-Buffer"><a href="#2、TLB-Translation-Lookaside-Buffer" class="headerlink" title="2、TLB Translation Lookaside Buffer"></a>2、TLB Translation Lookaside Buffer</h4><p>首先需要了解页表的概念：<br>页表是虚拟内存技术的基础，用于虚拟地址或者说逻辑地址到物理地址的映射。   </p>
+<p>页表存放在内存中，在处理器器引入MMU功能后，读取指令、数据需要访问两次内存：</p>
+<ul>
+<li>首先通过查询页表得到物理地址；</li>
+<li>然后访问该物理地址读取指令、数据；</li>
+</ul>
+<p>为了减少因为MMU导致的处理器性能下降，引入了TLB，TLB是Translation Lookaside Buffer的简称，可翻译为”地址转换后援缓冲器”，也可简称为”快表”。简单地说，TLB就是页表的Cache，其中存储了当前最可能被访问到的页表项，其内容是部分页表项的一个副本。只有在TLB无法完成地址翻译任务时，即无法命中时，才会到内存中查询页表，这样就减少了页表查询导致的处理器性能下降。   </p>
+<p>TLB的理论基础是<strong>0.2节程序的局部性原理</strong></p>
+<h3 id="2-4、对象构造时的线程安全"><a href="#2-4、对象构造时的线程安全" class="headerlink" title="2.#.4、对象构造时的线程安全"></a>2.#.4、对象构造时的线程安全</h3><p>详见：<strong>C++壹的4.9.11节</strong></p>
+<h3 id="2-5、对象销毁时的线程安全"><a href="#2-5、对象销毁时的线程安全" class="headerlink" title="2.#.5、对象销毁时的线程安全"></a>2.#.5、对象销毁时的线程安全</h3><p>详见：<strong>C++壹的4.9.12节</strong></p>
+<h3 id="2-6、指针赋值为NULL的线程不安全性"><a href="#2-6、指针赋值为NULL的线程不安全性" class="headerlink" title="2.#.6、指针赋值为NULL的线程不安全性"></a>2.#.6、指针赋值为NULL的线程不安全性</h3><p>详见：<strong>C++壹的4.9.12节</strong></p>
+<h1 id="3、task的退出-终止"><a href="#3、task的退出-终止" class="headerlink" title="3、task的退出/终止"></a>3、task的退出/终止</h1><p>在C++程序中，我们常常会看到一些有关”终止”的函数，如terminate、abort、exit等。这些函数容易让人产生疑惑，因为它们看起来都只是终止程序的运行而已，不过实际上它们还是有很大的区别的。   </p>
+<h2 id="3-1、terminate函数-异常退出"><a href="#3-1、terminate函数-异常退出" class="headerlink" title="3.1、terminate函数(异常退出)"></a>3.1、terminate函数(异常退出)</h2><p>terminate函数实际上是C++语言中异常处理的一部分（包含在＜exception＞头文件里）。一般而言，当程序抛出异常或出现了非预期的行为便会调用terminate函数。<font color=red>terminate函数在默认情况下会去调用abort函数的</font>，不过用户可以通过set_terminate函数来改变默认的行为。    </p>
+<h2 id="3-2、abort函数-异常退出"><a href="#3-2、abort函数-异常退出" class="headerlink" title="3.2、abort函数(异常退出)"></a>3.2、abort函数(异常退出)</h2><p>abort是更加底层的函数，<strong>它不会调用任何的析构函数，直接释放进程所有资源</strong>，多数时候这样直接退出进程是没有问题的，但是当进程与其他进程有交互，强制退出时，有可能导致其他进程处于意想不到的”中间状态”。    </p>
+<h2 id="3-3、exit函数-正常退出"><a href="#3-3、exit函数-正常退出" class="headerlink" title="3.3、exit函数(正常退出)"></a>3.3、exit函数(正常退出)</h2><p>exit属于”正常退出”范畴的程序终止，exit函数会正常调用析构函数，并且还会调用atexit注册的函数，自定义一些退出前的操作，main函数return后会默认调用exit函数结束task：</p>
+<pre class="line-numbers language-none"><code class="language-none">#include ＜cstdlib＞
+#include ＜iostream＞
+using namespace std;
+void openDevice()&#123;cout＜＜&quot;device is opened.&quot;＜＜endl;&#125;
+void resetDeviceStat()&#123;cout＜＜&quot;device stat is reset.&quot;＜＜endl;&#125;
+void closeDevice()&#123;cout＜＜&quot;device is closed.&quot;＜＜endl;&#125;
+int main()&#123;
+atexit(closeDevice);
+atexit(resetDeviceStat);
+openDevice();
+exit(0);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>值得注意的是</strong>:<br>注册的函数被调用的次序与其注册顺序相反。<br>main函数的正常退出或者exit函数的退出有些时候并不是那么令人满意，比如当堆空间有大量零散的内存时，用析构函数来释放的话，会相当费时。假如交由系统统一释放，反而更加快速；再比如，如果存在大量线程，进程退出时，需要等待线程的结束响应，如果恰好线程卡在I\O结束状态，那么整个进程就会处于”卡死”状态。</p>
+<h2 id="3-4、-exit"><a href="#3-4、-exit" class="headerlink" title="3.4、_exit"></a>3.4、_exit</h2><p>详见《多线程和进程》3.2.2节，exit是对_exit函数的封装。</p>
+<h2 id="3-5、quick-exit和at-quick-exit-正常退出"><a href="#3-5、quick-exit和at-quick-exit-正常退出" class="headerlink" title="3.5、quick_exit和at_quick_exit(正常退出)"></a>3.5、quick_exit和at_quick_exit(正常退出)</h2><p>快速退出函数quick_exit并不执行析构函数，而只是使程序终止。与abort不同的是，abort通常是异常退出（可能系统还会进行coredump等以辅助程序员进行问题分析），而quick_exit与exit同属于正常退出。此外，使用at_quick_exit注册的函数也可以在quick_exit的时候被调用。这样一来，我们同样可以像exit一样做一些清理的工作。</p>
+<h2 id="3-6、exit与-exit的区别"><a href="#3-6、exit与-exit的区别" class="headerlink" title="3.6、exit与_exit的区别"></a>3.6、exit与_exit的区别</h2><p>exit定义在stdlib.h中，_exit定义在unistd.h中。_exit执行后立即返回给内核，而exit执行后要先执行一些清理操作，然后才会将控制权交给系统。_exit会直接关闭task的所有文件描述符，并不会刷新文件流。exit是_exit的封装，其会自动调用_exit，并在之前先刷新文件流，使内存缓存区里的文件流数据输出至”文件”之中；  </p>
+<ul>
+<li>最大的区别就在于，exit会先检查文件的打开情况，把内存缓存区的内容写回文件；  </li>
+</ul>
+<p>例子：   </p>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+int main()&#123;
+	printf(&quot;using _exit.\n&quot;);
+	printf(&quot;This is the content in buffer&quot;);
+	_exit(0);
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main()&#123;
+	printf(&quot;using exit.\n&quot;);
+	printf(&quot;This is the content in buffer&quot;);
+	exit(0);
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>执行结果：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">&#x2F;&#x2F; .&#x2F;_exit  
+using _exit.  
+
+&#x2F;&#x2F; .&#x2F;exit  
+using _exit.  
+This is the content in buffer <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>1、printf函数在遇到\n才会从内存缓冲区中将记录输出至显示器；</li>
+<li>2、_exit会直接关闭task的所有文件描述符，包括标准输出流，但并不会刷新标准流，而exit会先刷新标准输出流，然后再调用_exit函数;</li>
+</ul>
+<h1 id="4、虚拟内存"><a href="#4、虚拟内存" class="headerlink" title="4、虚拟内存"></a>4、虚拟内存</h1><h2 id="4-1、虚拟内存技术背景"><a href="#4-1、虚拟内存技术背景" class="headerlink" title="4.1、虚拟内存技术背景"></a>4.1、虚拟内存技术背景</h2><p>这就需要考量直接访问物理内存存在的问题：</p>
+<ul>
+<li><p>物理内存空间利用率的问题<br>task对内存的使用会导致内存碎片化，例如，当需要用malloc分配一块很大的内存空间时，可能会出现虽然有足够多的空闲物理内存，却没有足够大的连续空闲内存这种情况，东一块西一块的内存碎片就被浪费掉了；</p>
+</li>
+<li><p>直接读取物理内存的安全性问题<br>物理内存本身是不限制访问的，任何地址都可以被无权限读写，而现代操作系统需要实现不同的访问权限，例如只读数据、有效访问区间等；</p>
+</li>
+<li><p>task间的安全问题<br>task之间没有独立的地址空间，一个task由于执行错误指令或是恶意代码都可以直接修改其它task的数据，甚至修改内核地址空间的数据，这是操作系统所不愿看到的</p>
+</li>
+<li><p>物理内存读写的效率问题<br>当大量task同时运行，需要分配给task的内存总和大于实际可用的物理内存时，往往需要将其他task暂时拷贝到硬盘当中，暂停运行，然后将新的task装入内存运行。由于大量的数据频繁装入装出，内存的使用效率会非常低；</p>
+</li>
+</ul>
+<h2 id="4-2、程序加载过程"><a href="#4-2、程序加载过程" class="headerlink" title="4.2、程序加载过程"></a>4.2、程序加载过程</h2><p><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCE78c8195da3c96c4770db263887025679/40363" alt="image15"><br>程序/可执行文件通过loader装载进操作系统之后可能存放的位置：</p>
+<ul>
+<li>物理内存：绝大多数情况下会存放在物理内存之中；</li>
+<li>swap区：即外部磁盘存储器<br>当操作系统发现程序的某些物理内存空间长时间未被使用时，就会将其搬移至外部磁盘上，且此操作对于程序而言是不可见的，这部分被交换出去的内存空间位于swap区；</li>
+<li>虚拟内存：CPU生成的地址空间，不是真实存在的地址，由物理地址映射而来；</li>
+</ul>
+<p>Windows或Linux之中用户task通常是看不到，也不关心物理地址，用户task所能看到的地址称作逻辑地址或者虚拟地址，由虚拟内存技术实现，让用户task的地址空间看起来是从0到max连续的(max = 操作系统所允许的最大地址范围)。相当于在用户task与物理地址之间搭建了一座桥梁，构造逻辑地址与物理地址的映射关系，这种映射称之为地址重定向，由操作系统的内存管理单元MMU来实现，与用户task无关。   </p>
+<h2 id="4-3、虚拟内存映射"><a href="#4-3、虚拟内存映射" class="headerlink" title="4.3、虚拟内存映射"></a>4.3、虚拟内存映射</h2><p>Linux 内核给每个进程都提供了一个独立的虚拟地址空间，并且这个地址空间是连续的，进程可以很方便地访问。<br>虚拟内存空间又被划分为内核空间、用户空间，二者主要是访问权限上的差别。<br>进程所能看到的虚拟地址空间是这个样子的：<br><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCE930aaeb6d742be709fb56c77485017cb/40377" alt="image16"><br>这里会有一种错觉，每个进程似乎占用了OS的所有内存空间，事实上这是一种”假象”的做法，每个进程都以为自己占据了全部的地址空间，其实只有在实际使用虚拟内存的时候，才会分配物理内存；</p>
+<p>虚拟内存映射框架<br><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCEdfcb923a3ee6ba83edabf8025e56464f/40389" alt="image17"></p>
+<h3 id="4-3-1、虚拟内存映射物理内存的时机"><a href="#4-3-1、虚拟内存映射物理内存的时机" class="headerlink" title="4.3.1、虚拟内存映射物理内存的时机"></a>4.3.1、虚拟内存映射物理内存的时机</h3><p>只有在虚拟内存被真正使用的时候才会通过缺页异常\中断触发系统调度进入内核态，然后通过MMU在物理主存上申请物理地址并映射进所在用户进程的虚拟地址空间之中。</p>
+<h2 id="4-4、虚拟内存背景下CPU访问主存的过程"><a href="#4-4、虚拟内存背景下CPU访问主存的过程" class="headerlink" title="4.4、虚拟内存背景下CPU访问主存的过程"></a>4.4、虚拟内存背景下CPU访问主存的过程</h2><ul>
+<li>把进程指令使用的虚拟地址通过MMU转换成物理地址；</li>
+<li>把物理地址映射到高速缓存的缓存行，比如L1、L2级缓存；</li>
+<li>如果高速缓存命中就返回；</li>
+<li>如果不命中，则会产生一个缓存缺失中断，从主存相应的物理地址取值，并加载到高速缓存中；</li>
+<li>CPU从中断中恢复，继续执行中断前的指令；</li>
+</ul>
+<p>所以高速缓存是与物理地址相映射的，使用虚拟内存的OS中指令寄存器中使用到的是虚拟地址。<br><img src="http://note.youdao.com/yws/public/resource/07f0d97f1d0985232b7b530dce4909ec/xmlnote/WEBRESOURCEbf31e0935cd2809be99d28a280b7c801/40414" alt="image18"></p>
+<h2 id="4-5、虚拟内存的主要功能"><a href="#4-5、虚拟内存的主要功能" class="headerlink" title="4.5、虚拟内存的主要功能"></a>4.5、虚拟内存的主要功能</h2><ul>
+<li>给所有进程提供一致的地址空间，每个进程都认为自己是在独占使用系统内存资源；</li>
+<li>保护每个进程的地址空间不被其他进程破坏，隔离了进程的地址访问；</li>
+<li>提供类似写时复制”Copy-On-Write”功能，虚拟内存只有在被访问时才会触发缺页中断进行物理地址的映射；</li>
+</ul>
+<h1 id="5、同步、异步、阻塞、非阻塞"><a href="#5、同步、异步、阻塞、非阻塞" class="headerlink" title="5、同步、异步、阻塞、非阻塞"></a>5、同步、异步、阻塞、非阻塞</h1><p><font color=green><strong>同步与异步是对应的</strong>:</font></p>
+<ul>
+<li>同步是one_by_one模型，比如两人对话，一问一答，必须在对方回到之后才能进行下一次问答称作同步；</li>
+<li>异步是lot_by_lot模型，比如两人对话，可以多问多答，可以同时问多个问题，也可以同时多回答几个问题；</li>
+</ul>
+<p><font color=green><strong>阻塞与非阻塞是对应的</strong>:</font></p>
+<ul>
+<li>阻塞就是死等，比如两人对话，问完问题之后，死等对方回答，在此期间询问者不做任何其他事情；</li>
+<li>非阻塞，比如两人对话，问完问题之后，询问者可以去做其他事情，不用一种等着对方回答；</li>
+</ul>
+<h1 id="6、大端、小端"><a href="#6、大端、小端" class="headerlink" title="6、大端、小端"></a>6、大端、小端</h1><p><img src="https://note.youdao.com/yws/public/resource/5cff5b733a84273e809bd757ecb6e02b/xmlnote/WEBRESOURCEbb7b59cbdeea9443c2a4b52b1ad871a5/32669" alt="image">   </p>
+<p>“大端”和”小端”可以追溯到1726年的Jonathan-Swift的《格列佛游记》，其中一篇讲到有两个国家因为吃鸡蛋究竟是先打破较大的一端还是先打破较小的一端而争执不休，甚至爆发了战争，之后此概念引入到了计算机中，在计算机的世界里用于描述数据在内存中的存放方式。</p>
+<p>“大端”和小端可以以”高尾端”、”低尾端”的角度来理解会更容易一些。  </p>
+<p>比如0X11223344十六进制整数，内存的最小存储单元为bit，8个bit为一个byte，对于十六进制而言，一位正好对应二进制的4位bit，那么一个byte则能存放两位十六进制数。以byte为单位来看的话，0X11223344的首端是0X11，尾端就是0X44<br><img src="https://note.youdao.com/yws/public/resource/5cff5b733a84273e809bd757ecb6e02b/xmlnote/751165B18A904573AD028F92415E0C60/23503" alt="image"></p>
+<h2 id="5-1、网络字节顺序"><a href="#5-1、网络字节顺序" class="headerlink" title="5.1、网络字节顺序"></a>5.1、网络字节顺序</h2><p>所有网络协议均是大端，但具体的字节顺序取决于数据类型和字节长度，如IP地址是字符串形式，不需要进行大小端转化，而端口号是整型且占两个字节，需要进行大小端转化。通常大端也称作网络字节序。</p>
+<h2 id="5-2、主机字节顺序"><a href="#5-2、主机字节顺序" class="headerlink" title="5.2、主机字节顺序"></a>5.2、主机字节顺序</h2><p>对于操作系统而言，数据处理的字节顺序取决于CPU结构，通常而言都是小端模式。所以小端也称作主机字节序。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">IPanda</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://xman123ing.github.io/2021/07/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-%E5%A3%B9/">https://xman123ing.github.io/2021/07/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-%E5%A3%B9/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">IPanda</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">计算机系统</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/07/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-%E8%B4%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="计算机系统_贰">
+                        
+                        <span class="card-title">计算机系统_贰</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/summary-%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    summary && 技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">计算机系统</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/07/10/C-plus-%E9%9B%B6/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="C-plus-零">
+                        
+                        <span class="card-title">C-plus-零</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/summary-%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    summary && 技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: IPanda`s Blog<br />'
+            + '文章作者: IPanda<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">IPanda</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2021";
+                    var startMonth = "3";
+                    var startDate = "7";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已努力运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/Xman123ing/" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:lipin075084@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=836070413" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 836070413" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+<script src="/js/prism/prism.js" async></script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.8'
+        zIndex="-1" count="150"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</body>
+
+</html>
